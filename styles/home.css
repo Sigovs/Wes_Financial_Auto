@@ -137,10 +137,11 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .vbreak__img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; background: var(--surface-inset); }
 .vbreak__scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
-    linear-gradient(to right, color-mix(in srgb, var(--surface-0) 90%, transparent), color-mix(in srgb, var(--surface-0) 55%, transparent) 60%, color-mix(in srgb, var(--surface-0) 42%, transparent)),
-    linear-gradient(color-mix(in srgb, var(--surface-0) 32%, transparent), color-mix(in srgb, var(--surface-0) 32%, transparent)); }
-.vbreak__copy { position: relative; z-index: 2; }
-.vbreak__line { color: var(--text-primary); max-width: 14ch; }
+    radial-gradient(70% 70% at 50% 50%, color-mix(in srgb, var(--surface-0) 70%, transparent), color-mix(in srgb, var(--surface-0) 42%, transparent)),
+    linear-gradient(color-mix(in srgb, var(--surface-0) 36%, transparent), color-mix(in srgb, var(--surface-0) 36%, transparent)); }
+.vbreak__copy { position: relative; z-index: 2; text-align: center; }
+.vbreak__line { color: var(--text-primary); max-width: 18ch; margin-inline: auto; }
+.vbreak .kicker { margin-inline: auto; }
 .vbreak__kicker > span { color: var(--text-primary); }
 
 /* ---------------------------------------------------------------------
@@ -189,13 +190,22 @@ html:not(.js) .clip-reveal { clip-path: none; }
 /* ---------------------------------------------------------------------
    ABOUT — editorial, strong aside
    --------------------------------------------------------------------- */
-/* one large image + text on the side (RF-style editorial) */
-.about__media { aspect-ratio: 5 / 6; border-radius: var(--radius-md); overflow: hidden; background: var(--surface-2); }
-.about__media img { width: 100%; height: 100%; object-fit: cover; }
+/* full-bleed image + text on the side (RF-style) */
+.about { position: relative; min-height: 92svh; display: flex; align-items: center; overflow: hidden; isolation: isolate; }
+.about__media { position: absolute; inset: 0; z-index: 0; }
+.about__media img { width: 100%; height: 100%; object-fit: cover; object-position: 28% center; background: var(--surface-2); }
+.about__scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(to left, color-mix(in srgb, var(--surface-0) 92%, transparent), color-mix(in srgb, var(--surface-0) 45%, transparent) 48%, color-mix(in srgb, var(--surface-0) 18%, transparent) 82%),
+    linear-gradient(color-mix(in srgb, var(--surface-0) 24%, transparent), color-mix(in srgb, var(--surface-0) 24%, transparent)); }
+.about__inner { position: relative; z-index: 2; width: 100%; }
 .about__title { color: var(--text-primary); max-width: 14ch; }
-.about__copy { color: var(--text-secondary); font-size: var(--fs-lg); margin-top: var(--space-text-obj); max-width: 46ch; }
+.about__copy { color: var(--text-secondary); font-size: var(--fs-lg); margin-top: var(--space-text-obj); max-width: 42ch; }
 .about__note { color: var(--text-secondary); font-size: var(--fs-sm); letter-spacing: var(--ls-wide); margin-top: var(--space-text-obj); }
-@media (max-width: 1024px) { .about__media { aspect-ratio: 4 / 3; } }
+@media (max-width: 768px) {
+  .about { min-height: 86svh; }
+  .about__scrim { background: linear-gradient(color-mix(in srgb, var(--surface-0) 55%, transparent), color-mix(in srgb, var(--surface-0) 78%, transparent)); }
+}
 
 /* ---------------------------------------------------------------------
    FOOTER
