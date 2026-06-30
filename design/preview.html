@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wes Financial Auto — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/tokens.css">
+<link rel="stylesheet" href="../styles/utilities.css">
+<style>
+  .ds-section{padding-block:var(--space-12);border-bottom:1px solid var(--divider)}
+  .ds-title{font-size:var(--fs-xs);letter-spacing:var(--ls-widest);text-transform:uppercase;color:var(--text-muted);margin-bottom:var(--space-6)}
+  .swatch{border-radius:var(--radius);height:64px;border:1px solid var(--border)}
+  .swatch-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:var(--space-3)}
+  .swatch-label{font-size:var(--fs-xs);color:var(--text-secondary);margin-top:var(--space-2)}
+  .swatch-hex{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--text-muted)}
+  .demo-row{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+  .type-row{display:flex;align-items:baseline;gap:var(--space-4);padding:var(--space-2) 0}
+  .type-row .tag{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--text-muted);min-width:90px}
+</style>
+</head>
+<body>
+
+<header class="container" style="padding-top:var(--space-16);padding-bottom:var(--space-8)">
+  <p class="eyebrow">Design system · Dark</p>
+  <h1 class="display" style="margin-top:var(--space-3)">Wes Financial Auto</h1>
+  <p class="lead" style="margin-top:var(--space-4);max-width:60ch">Living reference. Every color, type style, and component below is built from <code>tokens.css</code>. Match this when building.</p>
+</header>
+
+<main class="container">
+
+  <section class="ds-section">
+    <div class="ds-title">Surfaces</div>
+    <div class="swatch-row">
+      <div><div class="swatch" style="background:var(--surface-0)"></div><div class="swatch-label">surface-0</div><div class="swatch-hex">#0F1724</div></div>
+      <div><div class="swatch" style="background:var(--surface-1)"></div><div class="swatch-label">surface-1</div><div class="swatch-hex">#16202E</div></div>
+      <div><div class="swatch" style="background:var(--surface-2)"></div><div class="swatch-label">surface-2</div><div class="swatch-hex">#1D2A3A</div></div>
+      <div><div class="swatch" style="background:var(--surface-3)"></div><div class="swatch-label">surface-3</div><div class="swatch-hex">#26384C</div></div>
+      <div><div class="swatch" style="background:var(--surface-inset)"></div><div class="swatch-label">inset</div><div class="swatch-hex">#0B121C</div></div>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">Brand & roles</div>
+    <div class="swatch-row">
+      <div><div class="swatch" style="background:var(--accent)"></div><div class="swatch-label">accent / action</div><div class="swatch-hex">#E53845</div></div>
+      <div><div class="swatch" style="background:var(--info)"></div><div class="swatch-label">info</div><div class="swatch-hex">#457B9D</div></div>
+      <div><div class="swatch" style="background:var(--navy)"></div><div class="swatch-label">navy</div><div class="swatch-hex">#1D3558</div></div>
+      <div><div class="swatch" style="background:var(--highlight)"></div><div class="swatch-label">highlight / aqua</div><div class="swatch-hex">#A9DBDC</div></div>
+      <div><div class="swatch" style="background:var(--success)"></div><div class="swatch-label">success</div><div class="swatch-hex">#3FB36B</div></div>
+      <div><div class="swatch" style="background:var(--warning)"></div><div class="swatch-label">warning</div><div class="swatch-hex">#E0A23C</div></div>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">Text hierarchy</div>
+    <p style="color:var(--text-primary);font-size:var(--fs-lg)">Primary — headlines and key information</p>
+    <p style="color:var(--text-secondary);font-size:var(--fs-base)">Secondary — body copy and supporting text</p>
+    <p style="color:var(--text-muted);font-size:var(--fs-sm)">Muted — meta, captions, placeholders</p>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">Type scale</div>
+    <div class="type-row"><span class="tag">5xl hero</span><span class="display" style="font-size:var(--fs-4xl)">The few worth keeping</span></div>
+    <div class="type-row"><span class="tag">3xl / h1</span><span style="font-size:var(--fs-3xl);font-weight:var(--fw-semibold)">Financing made simple</span></div>
+    <div class="type-row"><span class="tag">2xl / h2</span><span style="font-size:var(--fs-2xl);font-weight:var(--fw-semibold)">Current inventory</span></div>
+    <div class="type-row"><span class="tag">xl / h3</span><span style="font-size:var(--fs-xl);font-weight:var(--fw-semibold)">Porsche 911 Turbo S</span></div>
+    <div class="type-row"><span class="tag">lg / h4</span><span style="font-size:var(--fs-lg);font-weight:var(--fw-medium)">Pre-approval in minutes</span></div>
+    <div class="type-row"><span class="tag">base</span><span style="font-size:var(--fs-base)">Body text for descriptions and content.</span></div>
+    <div class="type-row"><span class="tag">sm</span><span style="font-size:var(--fs-sm);color:var(--text-secondary)">Secondary UI text and labels.</span></div>
+    <div class="type-row"><span class="tag">eyebrow</span><span class="eyebrow">By appointment · Est. 2025</span></div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">Buttons</div>
+    <div class="demo-row">
+      <button class="btn btn-primary">Get financing</button>
+      <button class="btn btn-secondary">View details</button>
+      <button class="btn btn-info">Learn more</button>
+      <button class="btn btn-ghost">Skip</button>
+      <button class="btn btn-primary btn-lg">Apply now</button>
+      <button class="btn btn-secondary btn-sm">Filter</button>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">Badges</div>
+    <div class="demo-row">
+      <span class="badge badge-accent">Hot deal</span>
+      <span class="badge badge-info">Financing</span>
+      <span class="badge badge-success">Approved</span>
+      <span class="badge badge-warning">Low stock</span>
+      <span class="badge badge-highlight">Available</span>
+      <span class="badge badge-neutral">2022</span>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">Cards</div>
+    <div class="grid-3">
+      <article class="card card-hover">
+        <div class="card-media"><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=800&auto=format&fit=crop" alt=""></div>
+        <div class="card-pad">
+          <div class="row-between" style="align-items:flex-start">
+            <div>
+              <h3 style="font-size:var(--fs-lg)">Porsche 911 Turbo S</h3>
+              <p class="muted" style="font-size:var(--fs-xs);margin-top:var(--space-1)">2022 · 6,400 mi · PDK</p>
+            </div>
+            <span class="badge badge-highlight">Available</span>
+          </div>
+          <div style="color:var(--accent);font-size:var(--fs-xl);font-weight:var(--fw-semibold);margin-top:var(--space-3)">$94,500</div>
+          <button class="btn btn-primary btn-block" style="margin-top:var(--space-4)">Get financing</button>
+        </div>
+      </article>
+
+      <div class="stack-lg">
+        <div class="metric"><div class="label">Approved this month</div><div class="value accent">312</div></div>
+        <div class="metric"><div class="label">Avg. APR</div><div class="value">4.9%</div></div>
+        <div class="metric"><div class="label">In stock</div><div class="value">48</div></div>
+      </div>
+
+      <form class="card card-pad" onsubmit="return false">
+        <div class="field"><label class="label">Full name</label><input class="input" placeholder="Jordan Wells"></div>
+        <div class="field"><label class="label">Email</label><input class="input" type="email" placeholder="name@email.com"></div>
+        <div class="field"><label class="label">Vehicle</label><select class="select"><option>Porsche 911 Turbo S</option><option>Mercedes-AMG GT</option></select></div>
+        <button class="btn btn-primary btn-block" style="margin-top:var(--space-5)">Apply for financing</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">Spacing scale</div>
+    <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+      <div class="row"><span class="tag" style="font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--text-muted);min-width:90px">space-2 · 8</span><div style="height:14px;width:8px;background:var(--accent)"></div></div>
+      <div class="row"><span class="tag" style="font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--text-muted);min-width:90px">space-4 · 16</span><div style="height:14px;width:16px;background:var(--accent)"></div></div>
+      <div class="row"><span class="tag" style="font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--text-muted);min-width:90px">space-6 · 24</span><div style="height:14px;width:24px;background:var(--accent)"></div></div>
+      <div class="row"><span class="tag" style="font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--text-muted);min-width:90px">space-8 · 32</span><div style="height:14px;width:32px;background:var(--accent)"></div></div>
+      <div class="row"><span class="tag" style="font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--text-muted);min-width:90px">space-12 · 48</span><div style="height:14px;width:48px;background:var(--accent)"></div></div>
+      <div class="row"><span class="tag" style="font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--text-muted);min-width:90px">space-16 · 64</span><div style="height:14px;width:64px;background:var(--accent)"></div></div>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">Radii</div>
+    <div class="demo-row">
+      <div style="width:80px;height:56px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-sm)"></div>
+      <div style="width:80px;height:56px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius)"></div>
+      <div style="width:80px;height:56px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-md)"></div>
+      <div style="width:80px;height:56px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-lg)"></div>
+      <div style="width:56px;height:56px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-full)"></div>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">Spacing relationships</div>
+    <p class="type-body-sm" style="margin-bottom:var(--space-6)">Pick the gap by relationship, not by eye. Section padding is asymmetric — less on top, more on the bottom.</p>
+    <div class="grid12">
+      <div class="col-span-4">
+        <div class="type-caption" style="margin-bottom:var(--space-2)">text → text · 12px</div>
+        <div class="flow-text" style="background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-5)">
+          <h4 class="type-h4">Pre-approval in minutes</h4>
+          <p class="type-body-sm">Heading sits tight to its own supporting line.</p>
+        </div>
+      </div>
+      <div class="col-span-4">
+        <div class="type-caption" style="margin-bottom:var(--space-2)">text → object · 24px</div>
+        <div class="flow-obj" style="background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-5)">
+          <p class="type-body-sm">Text block, then a clear gap before the control.</p>
+          <button class="btn btn-primary">Get financing</button>
+        </div>
+      </div>
+      <div class="col-span-4">
+        <div class="type-caption" style="margin-bottom:var(--space-2)">block → block · 48px</div>
+        <div class="flow-block" style="background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-5)">
+          <div class="flow-text"><div class="type-eyebrow">Block A</div><p class="type-body-sm">First content group.</p></div>
+          <div class="flow-text"><div class="type-eyebrow">Block B</div><p class="type-body-sm">Next group — larger gap separates them.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">Overlap (off-centre hero)</div>
+    <div class="grid12" style="align-items:center">
+      <div class="col-span-7" style="aspect-ratio:16/9;border-radius:var(--radius-md);overflow:hidden;background:var(--surface-2)">
+        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1100&auto=format&fit=crop" alt="Highline coupe in dramatic light" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div class="col-span-5 col-start-7 flow-obj overlap-left" style="background:var(--surface-1);border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:var(--space-6);position:relative;z-index:1;box-shadow:var(--shadow-lg)">
+        <p class="type-eyebrow">In stock</p>
+        <h3 class="type-h3">Porsche 911 Turbo S</h3>
+        <p class="type-body-sm">The content panel pulls left over the image with a negative token margin — the overlap move from the layout templates.</p>
+        <button class="btn btn-primary">View details</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">12-column grid</div>
+    <div class="grid12">
+      <div class="col-span-12" style="background:var(--surface-2);border-radius:var(--radius);padding:var(--space-3)"><span class="type-caption">col-span-12</span></div>
+      <div class="col-span-6"  style="background:var(--surface-2);border-radius:var(--radius);padding:var(--space-3)"><span class="type-caption">col-span-6</span></div>
+      <div class="col-span-6"  style="background:var(--surface-2);border-radius:var(--radius);padding:var(--space-3)"><span class="type-caption">col-span-6</span></div>
+      <div class="col-span-4"  style="background:var(--surface-2);border-radius:var(--radius);padding:var(--space-3)"><span class="type-caption">col-span-4</span></div>
+      <div class="col-span-4 row-offset" style="background:var(--surface-3);border-radius:var(--radius);padding:var(--space-3)"><span class="type-caption">col-span-4 · row-offset</span></div>
+      <div class="col-span-4"  style="background:var(--surface-2);border-radius:var(--radius);padding:var(--space-3)"><span class="type-caption">col-span-4</span></div>
+      <div class="col-span-7"  style="background:var(--surface-2);border-radius:var(--radius);padding:var(--space-3)"><span class="type-caption">col-span-7</span></div>
+      <div class="col-span-3 col-start-9" style="background:var(--surface-2);border-radius:var(--radius);padding:var(--space-3)"><span class="type-caption">col-span-3 · col-start-9</span></div>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-title">Type classes</div>
+    <div class="stack">
+      <div class="type-display-lg">Display lg — the few worth keeping</div>
+      <div class="type-display-md">Display md — financing made simple</div>
+      <h2 class="type-h2">H2 — current inventory</h2>
+      <h3 class="type-h3">H3 — Porsche 911 Turbo S</h3>
+      <h4 class="type-h4">H4 — pre-approval in minutes</h4>
+      <p class="type-lead">Lead — a confident, image-led dealership experience built entirely on tokens.</p>
+      <p class="type-body">Body — standard copy for descriptions and supporting content.</p>
+      <p class="type-body-sm">Body sm — secondary UI text and helper copy.</p>
+      <p class="type-caption">Caption — VIN WP0AB2A99NS123456 · stock #4471</p>
+      <p class="type-eyebrow">Eyebrow — by appointment · est. 2025</p>
+    </div>
+  </section>
+
+</main>
+
+<section class="full-bleed bleed-dark" style="padding-block:var(--section-y-sm);margin-top:var(--space-16)">
+  <div class="container">
+    <div class="grid12" style="align-items:center">
+      <div class="col-span-8 col-start-3" style="text-align:center">
+        <p class="type-eyebrow" style="margin-bottom:var(--space-3)">Full-bleed CTA band</p>
+        <h2 class="type-display-md" style="margin-bottom:var(--space-4)">Get pre-approved in minutes</h2>
+        <p class="type-lead" style="max-width:54ch;margin:0 auto var(--space-6)">A <code>.full-bleed .bleed-dark</code> band that breaks the container to the viewport, content held in <code>col-span-8 col-start-3</code>.</p>
+        <button class="btn btn-primary btn-lg">Get financing</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="container" style="padding-block:var(--space-16)">
+  <p class="muted" style="font-size:var(--fs-xs)">Source of truth: styles/tokens.css · Spec: design/DESIGN_SYSTEM.md</p>
+</footer>
+
+</body>
+</html>

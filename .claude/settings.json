@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone *)",
+      "Bash(rm -rf tmp_clone *)",
+      "Bash(grep -v '^\\\\.$')",
+      "Bash(mkdir -p .claude/skills/design-principles .claude/skills/design-review .claude/skills/generate-page)",
+      "Bash(mv files/SKILL.md .claude/skills/design-principles/SKILL.md)",
+      "Bash(mv __TRACKED_VAR__/generate-page/SKILL.md .claude/skills/generate-page/SKILL.md)",
+      "Bash(mv __TRACKED_VAR__/design-review/SKILL.md .claude/skills/design-review/SKILL.md)",
+      "Edit(/.claude/skills/generate-page/**)",
+      "Bash(echo \"== ~/.claude/skills ==\"; ls ~/.claude/skills 2>/dev/null || echo \"\\(нет папки\\)\" *)",
+      "Read(//Users/alex/.claude/skills/**)",
+      "Bash(python3 -m http.server 8123)",
+      "mcp__playwright__browser_run_code_unsafe",
+      "Edit(/.claude/skills/accessibility-review/**)",
+      "Bash(python3 -c \"import json;json.load\\(open\\('design/tokens.json'\\)\\);print\\('tokens.json: valid'\\)\")",
+      "Bash(git commit -q -m 'fonts + accessibility-review skill *)"
+    ],
+    "additionalDirectories": [
+      "/Users/alex/Desktop/WORK/Wes_Financial_Auto/tmp_clone"
+    ]
+  }
+}
