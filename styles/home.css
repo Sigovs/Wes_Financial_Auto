@@ -101,17 +101,15 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
    --------------------------------------------------------------------- */
 .inv__head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-6); margin-bottom: var(--space-block); flex-wrap: wrap; }
 
-.inv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); }
-@media (max-width: 1024px) { .inv-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-6); } }
+.inv-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); }
+@media (max-width: 1024px) { .inv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); } }
 @media (max-width: 600px)  { .inv-grid { grid-template-columns: 1fr; } }
-/* subtle vertical offset on the middle column — keeps the 3-col wall, breaks the flat line */
-@media (min-width: 1025px) { .inv-grid > :nth-child(2), .inv-grid > :nth-child(5) { margin-top: var(--space-12); } }
 /* reveal wrapper is the grid cell; the card fills it (reveal on wrapper, hover on card) */
 .inv-grid > .reveal { display: flex; }
 .inv-grid > .reveal > .vcard { width: 100%; }
 
 /* full-image card; content over a scrim, reveals a CTA on hover */
-.vcard { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; isolation: isolate;
+.vcard { position: relative; display: block; aspect-ratio: 3 / 2; overflow: hidden; isolation: isolate;
   background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-md);
   transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
 .vcard:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: var(--shadow-lg); }
@@ -120,7 +118,11 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .vcard__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--dur-slower) var(--ease-out); }
 .vcard:hover .vcard__media img, .vcard:focus-visible .vcard__media img { transform: scale(1.06); }
 .vcard__scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(to top, color-mix(in srgb, var(--surface-0) 94%, transparent), color-mix(in srgb, var(--surface-0) 38%, transparent) 46%, transparent 72%); }
+  background: linear-gradient(to top,
+    color-mix(in srgb, var(--surface-0) 97%, transparent) 0%,
+    color-mix(in srgb, var(--surface-0) 78%, transparent) 34%,
+    color-mix(in srgb, var(--surface-0) 32%, transparent) 62%,
+    transparent 88%); }
 .vcard__badge { position: absolute; top: var(--space-4); left: var(--space-4); z-index: 2;
   display: inline-flex; align-items: center; gap: var(--space-2);
   padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
@@ -169,7 +171,10 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
    --------------------------------------------------------------------- */
 .fin__title { color: var(--text-primary); }
 .fin__copy { color: var(--text-secondary); font-size: var(--fs-lg); margin-top: var(--space-text-obj); max-width: 38ch; }
-.fin__cta { margin-top: var(--space-text-obj); }
+/* left column stretches to the steps' height; CTA pins to the bottom-left */
+.fin__intro { display: flex; flex-direction: column; height: 100%; }
+.fin__cta { margin-top: auto; padding-top: var(--space-block); }
+@media (max-width: 880px) { .fin__cta { margin-top: var(--space-text-obj); padding-top: 0; } }
 
 .cstep-list { list-style: none; }
 .cstep { display: grid; grid-template-columns: auto 1fr; gap: var(--space-8); padding-block: var(--space-10); border-top: 1px solid var(--border); }
@@ -213,10 +218,10 @@ html:not(.js) .clip-reveal { clip-path: none; }
 /* full-bleed image + text on the side (RF-style) */
 .about { position: relative; min-height: 92svh; display: flex; align-items: center; overflow: hidden; isolation: isolate; }
 .about__media { position: absolute; inset: 0; z-index: 0; }
-.about__media img { width: 100%; height: 100%; object-fit: cover; object-position: 28% center; background: var(--surface-2); }
+.about__media img { width: 100%; height: 100%; object-fit: cover; object-position: 72% center; background: var(--surface-2); }
 .about__scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
-    linear-gradient(to left, color-mix(in srgb, var(--surface-0) 92%, transparent), color-mix(in srgb, var(--surface-0) 45%, transparent) 48%, color-mix(in srgb, var(--surface-0) 18%, transparent) 82%),
+    linear-gradient(to right, color-mix(in srgb, var(--surface-0) 92%, transparent), color-mix(in srgb, var(--surface-0) 45%, transparent) 48%, color-mix(in srgb, var(--surface-0) 18%, transparent) 82%),
     linear-gradient(color-mix(in srgb, var(--surface-0) 24%, transparent), color-mix(in srgb, var(--surface-0) 24%, transparent)); }
 .about__inner { position: relative; z-index: 2; width: 100%; }
 .about__title { color: var(--text-primary); max-width: 14ch; }
