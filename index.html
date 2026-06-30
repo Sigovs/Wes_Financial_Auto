@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wes Financial Auto — Highline inventory, real financing</title>
+<meta name="description" content="A private highline showroom. Curated $80k–$100k vehicles, clear financing, and appointment-based buying.">
+
+<!-- start hidden reveals only when JS runs (no flash, no content lost without JS) -->
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/utilities.css">
+<link rel="stylesheet" href="styles/home.css">
+</head>
+<body id="top">
+
+<a class="btn btn-primary" href="#main" style="position:absolute;left:var(--space-4);top:var(--space-2);transform:translateY(-200%);z-index:var(--z-toast);transition:transform var(--dur-base) var(--ease-out)" onfocus="this.style.transform='translateY(0)'" onblur="this.style.transform='translateY(-200%)'">Skip to content</a>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="site-nav">
+  <div class="container nav__inner">
+    <div class="row-between">
+      <a class="brand" href="index.html" aria-label="Wes Financial Auto — home">Wes<span class="brand__mark">.</span>Financial Auto</a>
+
+      <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <nav class="nav__links" aria-label="Primary">
+          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link" href="inventory.html">Inventory</a>
+          <a class="nav-link" href="financing.html">Financing</a>
+          <a class="nav-link" href="sell.html">Sell your car</a>
+        </nav>
+        <div class="nav__actions">
+          <a class="nav__phone" href="tel:+18005550199" aria-label="Call us at 1 800 555 0199">1 800 555 0199</a>
+          <a class="btn btn-primary" href="financing.html">Get pre-approved</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="full-bleed hero" aria-label="Featured highline inventory">
+    <div class="hero__media" aria-hidden="true">
+      <div class="hero__parallax" data-parallax="0.14">
+        <div class="hero__slide is-active">
+          <img class="hero__img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop" alt="" fetchpriority="high">
+        </div>
+        <div class="hero__slide">
+          <img class="hero__img" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2000&auto=format&fit=crop" alt="" loading="lazy">
+        </div>
+        <div class="hero__slide">
+          <img class="hero__img" src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2000&auto=format&fit=crop" alt="" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <div class="container">
+        <p class="type-eyebrow hero__eyebrow">By appointment</p>
+        <h1 class="type-display-lg hero__title">Rare inventory.<br>Real financing.</h1>
+        <p class="type-lead hero__sub">A curated collection of $80k–$100k highline vehicles, financing without pressure, and private appointments — a showroom, not a lot.</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary btn-lg" href="inventory.html">View inventory</a>
+          <a class="btn btn-ghost btn-lg" href="sell.html">Sell your car</a>
+        </div>
+        <div class="hero__dots" role="group" aria-label="Choose hero slide">
+          <button class="hero__dot" type="button" aria-label="Show slide 1" aria-current="true"></button>
+          <button class="hero__dot" type="button" aria-label="Show slide 2" aria-current="false"></button>
+          <button class="hero__dot" type="button" aria-label="Show slide 3" aria-current="false"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TRUST RAIL ============================ -->
+  <section class="full-bleed trust" aria-label="What sets us apart">
+    <div class="container">
+      <div class="trust__grid">
+        <div class="trust__item"><p class="trust__k">Curated highline inventory</p><p class="trust__v type-body-sm">Hand-selected, not stocked</p></div>
+        <div class="trust__item"><p class="trust__k">Transparent numbers</p><p class="trust__v type-body-sm">Clear price, clear terms</p></div>
+        <div class="trust__item"><p class="trust__k">By appointment</p><p class="trust__v type-body-sm">Private, unhurried viewings</p></div>
+        <div class="trust__item"><p class="trust__k">Financing available</p><p class="trust__v type-body-sm">Secure, pressure-free</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FEATURED INVENTORY ============================ -->
+  <section class="section" id="inventory" aria-labelledby="inv-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div>
+          <p class="type-eyebrow">The collection</p>
+          <h2 class="type-h2" id="inv-title">Current inventory</h2>
+        </div>
+        <a class="link-arrow" href="inventory.html">View all <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="grid12 stagger">
+        <a class="inv-link col-span-4 reveal" href="vehicle.html" aria-label="2021 Porsche 911 Carrera — 124,500 dollars">
+          <article class="card card-hover inv-card">
+            <div class="card-media"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=900&auto=format&fit=crop" alt="Silver Porsche 911 Carrera in a showroom" loading="lazy"></div>
+            <div class="inv-card__body">
+              <div class="inv-card__top">
+                <h3 class="type-h4 inv-card__title">2021 Porsche 911 Carrera</h3>
+                <span class="badge badge-highlight">Available</span>
+              </div>
+              <p class="inv-card__meta">2021 · 12,400 mi · PDK</p>
+              <p class="inv-card__price">$124,500</p>
+            </div>
+          </article>
+        </a>
+
+        <a class="inv-link col-span-4 row-offset reveal" href="vehicle.html" aria-label="2022 Mercedes-AMG GT — 118,900 dollars">
+          <article class="card card-hover inv-card">
+            <div class="card-media"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=900&auto=format&fit=crop" alt="Mercedes-AMG GT coupe, low front three-quarter view" loading="lazy"></div>
+            <div class="inv-card__body">
+              <div class="inv-card__top">
+                <h3 class="type-h4 inv-card__title">2022 Mercedes-AMG GT</h3>
+                <span class="badge badge-highlight">Available</span>
+              </div>
+              <p class="inv-card__meta">2022 · 8,900 mi · Auto</p>
+              <p class="inv-card__price">$118,900</p>
+            </div>
+          </article>
+        </a>
+
+        <a class="inv-link col-span-4 reveal" href="vehicle.html" aria-label="2020 Audi R8 V10 — 142,000 dollars">
+          <article class="card card-hover inv-card">
+            <div class="card-media"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=900&auto=format&fit=crop" alt="Audi R8 V10 in dramatic side light" loading="lazy"></div>
+            <div class="inv-card__body">
+              <div class="inv-card__top">
+                <h3 class="type-h4 inv-card__title">2020 Audi R8 V10</h3>
+                <span class="badge badge-highlight">Available</span>
+              </div>
+              <p class="inv-card__meta">2020 · 15,200 mi · S tronic</p>
+              <p class="inv-card__price">$142,000</p>
+            </div>
+          </article>
+        </a>
+
+        <a class="inv-link col-span-4 reveal" href="vehicle.html" aria-label="2021 Lamborghini Huracán — 239,000 dollars">
+          <article class="card card-hover inv-card">
+            <div class="card-media"><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=900&auto=format&fit=crop" alt="Lamborghini Huracán parked in a bright showroom" loading="lazy"></div>
+            <div class="inv-card__body">
+              <div class="inv-card__top">
+                <h3 class="type-h4 inv-card__title">2021 Lamborghini Huracán</h3>
+                <span class="badge badge-highlight">Available</span>
+              </div>
+              <p class="inv-card__meta">2021 · 6,100 mi · LDF</p>
+              <p class="inv-card__price">$239,000</p>
+            </div>
+          </article>
+        </a>
+
+        <a class="inv-link col-span-4 row-offset reveal" href="vehicle.html" aria-label="2023 BMW M8 Competition — 132,500 dollars">
+          <article class="card card-hover inv-card">
+            <div class="card-media"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=900&auto=format&fit=crop&sat=-30" alt="BMW M8 Competition coupe at dusk" loading="lazy"></div>
+            <div class="inv-card__body">
+              <div class="inv-card__top">
+                <h3 class="type-h4 inv-card__title">2023 BMW M8 Competition</h3>
+                <span class="badge badge-highlight">Available</span>
+              </div>
+              <p class="inv-card__meta">2023 · 4,300 mi · M Steptronic</p>
+              <p class="inv-card__price">$132,500</p>
+            </div>
+          </article>
+        </a>
+
+        <a class="inv-link col-span-4 reveal" href="vehicle.html" aria-label="2022 Range Rover Autobiography — 109,800 dollars">
+          <article class="card card-hover inv-card">
+            <div class="card-media"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=900&auto=format&fit=crop&sat=-20" alt="Range Rover Autobiography, three-quarter front view" loading="lazy"></div>
+            <div class="inv-card__body">
+              <div class="inv-card__top">
+                <h3 class="type-h4 inv-card__title">2022 Range Rover Autobiography</h3>
+                <span class="badge badge-highlight">Available</span>
+              </div>
+              <p class="inv-card__meta">2022 · 18,700 mi · Auto</p>
+              <p class="inv-card__price">$109,800</p>
+            </div>
+          </article>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CINEMATIC VISUAL BREAK ============================ -->
+  <section class="full-bleed vbreak" aria-label="Selected with intent">
+    <div class="vbreak__media" data-parallax="0.18" aria-hidden="true">
+      <img class="vbreak__img" src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=2000&auto=format&fit=crop" alt="" loading="lazy">
+    </div>
+    <div class="vbreak__scrim" aria-hidden="true"></div>
+    <div class="vbreak__copy">
+      <div class="container reveal">
+        <p class="type-eyebrow vbreak__eyebrow">The standard</p>
+        <p class="type-display-md vbreak__line">Selected with intent.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FINANCING ============================ -->
+  <section class="full-bleed bleed-dark section" id="financing" aria-labelledby="fin-title">
+    <div class="container">
+      <div class="grid12">
+        <div class="col-span-8 col-start-3">
+          <div class="fin__head reveal">
+            <p class="type-eyebrow">Financing</p>
+            <h2 class="type-h2 fin__title" id="fin-title">Financing made simple</h2>
+            <p class="type-lead fin__copy">A secure application, a clear number, and an appointment-based handoff. No pressure, no gimmicks — just a straightforward path to the car you came for.</p>
+          </div>
+
+          <ol class="fin__steps stagger" aria-label="How financing works">
+            <li class="step reveal">
+              <p class="step__num">01</p>
+              <h3 class="type-h4 step__title">Apply securely</h3>
+              <p class="step__copy">A short, encrypted application — only the details we need.</p>
+            </li>
+            <li class="step reveal">
+              <p class="step__num">02</p>
+              <h3 class="type-h4 step__title">Get a clear number</h3>
+              <p class="step__copy">A transparent rate and term, with nothing buried in the fine print.</p>
+            </li>
+            <li class="step reveal">
+              <p class="step__num">03</p>
+              <h3 class="type-h4 step__title">Drive by appointment</h3>
+              <p class="step__copy">Finalize in person, unhurried, and drive away the same day.</p>
+            </li>
+          </ol>
+
+          <div class="fin__cta reveal">
+            <a class="btn btn-primary btn-lg" href="financing.html">Get pre-approved</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SELL YOUR CAR ============================ -->
+  <section class="section" id="sell" aria-labelledby="sell-title">
+    <div class="container">
+      <div class="grid12" style="align-items:center">
+        <div class="col-span-5 reveal">
+          <p class="type-eyebrow">Sell or consign</p>
+          <h2 class="type-h2 about__title" id="sell-title">Sell or consign your highline car</h2>
+          <p class="about__copy">A private, appointment-based evaluation and a curated set of buyers — a simple process, with a clear number before you commit to anything.</p>
+          <ul class="sell__list">
+            <li>Private, appointment-based evaluation</li>
+            <li>Direct purchase or consignment options</li>
+            <li>Clear number before you move forward</li>
+          </ul>
+          <div class="sell__cta">
+            <a class="btn btn-primary btn-lg" href="sell.html">Get an offer</a>
+          </div>
+        </div>
+        <div class="col-span-6 col-start-7 reveal">
+          <div class="sell__media clip-reveal">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format&fit=crop&sat=-10" alt="Highline sports car detailed under showroom lighting" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ INSTAGRAM ============================ -->
+  <section class="section" id="showroom" aria-labelledby="ig-title">
+    <div class="container">
+      <div class="ig-head reveal">
+        <div>
+          <p class="type-eyebrow">Instagram</p>
+          <h2 class="type-h2" id="ig-title">From the showroom</h2>
+        </div>
+        <a class="link-arrow" href="https://instagram.com" rel="noopener" target="_blank">@placeholder <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="ig-grid reveal">
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=600&auto=format&fit=crop" alt="Porsche 911 detail in the showroom" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=600&auto=format&fit=crop" alt="Sports car under dramatic light" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=600&auto=format&fit=crop" alt="Supercar parked in a bright showroom" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=600&auto=format&fit=crop" alt="Coupe in three-quarter view" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=600&auto=format&fit=crop" alt="Classic performance car detail" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=600&auto=format&fit=crop&sat=-20" alt="Porsche rear detail at dusk" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ABOUT ============================ -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="grid12">
+        <div class="col-span-7 col-start-3 reveal">
+          <p class="type-eyebrow">About</p>
+          <h2 class="type-h2 about__title" id="about-title">A dealer, not a lot</h2>
+          <p class="about__copy">We keep a small, deliberate collection of highline vehicles and sell them the way they deserve to be sold — by appointment, with transparent numbers and financing that respects your time.</p>
+          <p class="about__copy">No fluorescent lot, no pressure, no fine print. Just a more personal way to buy a car you actually wanted.</p>
+        </div>
+        <div class="col-span-3 reveal">
+          <dl class="aside-list">
+            <div><dt class="aside__k">By appointment</dt><dd class="aside__v">Private viewings, on your schedule</dd></div>
+            <div><dt class="aside__k">Highline inventory</dt><dd class="aside__v">Curated $80k–$100k+ vehicles</dd></div>
+            <div><dt class="aside__k">Financing available</dt><dd class="aside__v">Secure, clear, unhurried</dd></div>
+            <div><dt class="aside__k">Sell &amp; consign</dt><dd class="aside__v">Direct purchase or consignment</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="full-bleed site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand">Wes<span class="brand__mark">.</span>Financial Auto</p>
+        <p class="footer__tagline">A private highline showroom — curated inventory, real financing, by appointment.</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="footer__h">Explore</p>
+        <ul class="footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="inventory.html">Inventory</a></li>
+          <li><a href="financing.html">Financing</a></li>
+          <li><a href="sell.html">Sell your car</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="footer__h">Contact</p>
+        <ul class="footer__list">
+          <li><span>By appointment</span></li>
+          <li><a href="tel:+18005550199">1 800 555 0199</a></li>
+          <li><a href="mailto:hello@wesfinancialauto.com">hello@wesfinancialauto.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__h">Social</p>
+        <ul class="footer__list">
+          <li><a href="https://instagram.com" rel="noopener" target="_blank">Instagram</a></li>
+          <li><a href="https://facebook.com" rel="noopener" target="_blank">Facebook</a></li>
+          <li><a href="https://youtube.com" rel="noopener" target="_blank">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__legal">Inventory, pricing, and financing terms are subject to approval and availability.</p>
+      <p class="footer__copy">© 2026 Wes Financial Auto</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/home.js" defer></script>
+</body>
+</html>

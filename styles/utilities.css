@@ -110,7 +110,7 @@
   background: transparent; border-bottom: 1px solid transparent;
   transition: background var(--dur-slow) var(--ease-out), border-color var(--dur-slow) var(--ease-out);
 }
-.nav.solid { background: color-mix(in srgb, var(--surface-0) 86%, transparent); backdrop-filter: blur(12px); border-bottom-color: var(--border); }
+.nav.solid { background: var(--glass); backdrop-filter: blur(var(--blur-glass)); -webkit-backdrop-filter: blur(var(--blur-glass)); border-bottom-color: var(--border); }
 .nav-link { font-size: var(--fs-sm); color: var(--text-secondary); transition: color var(--dur-snap); }
 .nav-link:hover, .nav-link.active { color: var(--text-primary); }
 

@@ -1,0 +1,190 @@
+/* =====================================================================
+   WES FINANCIAL AUTO — HOME (index.html) page components
+   Token-only. No raw hex/rgba/shadow. Structural values (0,1px,100%,fr,
+   ratios, svh) only where necessary. Reuses utilities.css before inventing.
+   ===================================================================== */
+
+/* progressive enhancement: reveals only hide when JS is active.
+   Without JS (no .js on <html>), content stays fully visible. */
+html, body { overflow-x: hidden; }   /* contain .full-bleed 100vw bands */
+html:not(.js) .reveal { opacity: 1; transform: none; }
+
+/* staggered reveal — delays come from motion duration tokens */
+.stagger > *:nth-child(2) { transition-delay: var(--dur-fast); }
+.stagger > *:nth-child(3) { transition-delay: var(--dur-snap); }
+.stagger > *:nth-child(4) { transition-delay: var(--dur-base); }
+.stagger > *:nth-child(5) { transition-delay: var(--dur-slow); }
+.stagger > *:nth-child(6) { transition-delay: calc(var(--dur-slow) + var(--dur-fast)); }
+
+/* ---------------------------------------------------------------------
+   NAV — logo / links / actions, mobile menu
+   --------------------------------------------------------------------- */
+.nav__inner { width: 100%; }
+.brand { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-lg); letter-spacing: var(--ls-tight); color: var(--text-primary); }
+.brand .brand__mark { color: var(--accent); }
+.nav__links { display: flex; align-items: center; gap: var(--space-6); }
+.nav__actions { display: flex; align-items: center; gap: var(--space-4); }
+.nav__phone { font-size: var(--fs-sm); color: var(--text-secondary); white-space: nowrap; transition: color var(--dur-snap) var(--ease-out); }
+.nav__phone:hover { color: var(--text-primary); }
+.nav__toggle { display: none; width: var(--space-10); height: var(--space-10); align-items: center; justify-content: center; border-radius: var(--radius-sm); color: var(--text-primary); }
+.nav__toggle:hover { background: var(--surface-2); }
+
+/* mobile menu panel (hidden on desktop) */
+.nav__menu { display: contents; }
+
+@media (max-width: 880px) {
+  .nav__toggle { display: inline-flex; }
+  .nav__menu {
+    display: block; position: fixed; inset: var(--nav-h) 0 auto 0;
+    background: var(--glass); backdrop-filter: blur(var(--blur-glass)); -webkit-backdrop-filter: blur(var(--blur-glass));
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-5) var(--gutter) var(--space-8);
+    transform: translateY(-12px); opacity: 0; pointer-events: none;
+    transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+  }
+  .nav__menu.open { transform: none; opacity: 1; pointer-events: auto; }
+  .nav__links { flex-direction: column; align-items: flex-start; gap: var(--space-5); }
+  .nav__actions { flex-direction: column; align-items: stretch; gap: var(--space-3); margin-top: var(--space-6); }
+  .nav__phone { padding-block: var(--space-2); }
+}
+
+/* ---------------------------------------------------------------------
+   HERO — full-bleed signature slider
+   --------------------------------------------------------------------- */
+.hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; isolation: isolate; }
+.hero__media { position: absolute; inset: 0; z-index: 0; }
+.hero__parallax { position: absolute; inset: -8% 0; will-change: transform; }
+.hero__slide { position: absolute; inset: 0; opacity: 0; transition: opacity var(--dur-slower) var(--ease-out); }
+.hero__slide.is-active { opacity: 1; }
+.hero__img { width: 100%; height: 100%; object-fit: cover; background: var(--surface-2); transform: scale(1.04); }
+.hero__slide.is-active .hero__img { animation: kenburns 12s var(--ease-in-out) forwards; }
+@keyframes kenburns { from { transform: scale(1.04); } to { transform: scale(1.14); } }
+.hero__scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(to bottom, color-mix(in srgb, var(--surface-0) 62%, transparent), transparent 20%),
+    var(--scrim); }
+
+.hero__inner { position: relative; z-index: 2; width: 100%; padding-block: var(--space-20) var(--space-16); }
+.hero__eyebrow { color: var(--highlight); margin-bottom: var(--space-4); }
+.hero__title { color: var(--text-primary); max-width: 18ch; }
+.hero__sub { color: var(--text-secondary); max-width: 52ch; margin-top: var(--space-5); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
+
+/* slider dots */
+.hero__dots { display: flex; gap: var(--space-3); margin-top: var(--space-10); }
+.hero__dot { width: var(--space-8); height: var(--space-1); border-radius: var(--radius-full); background: color-mix(in srgb, var(--text-primary) 28%, transparent); transition: background var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); }
+.hero__dot:hover { background: color-mix(in srgb, var(--text-primary) 50%, transparent); }
+.hero__dot[aria-current="true"] { background: var(--accent); transform: scaleX(1.15); }
+
+/* ---------------------------------------------------------------------
+   TRUST RAIL
+   --------------------------------------------------------------------- */
+.trust { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface-1); }
+.trust__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.trust__item { padding: var(--space-6) var(--space-6); border-left: 1px solid var(--divider); }
+.trust__item:first-child { border-left: 0; }
+.trust__k { color: var(--text-primary); font-weight: var(--fw-medium); }
+.trust__v { color: var(--text-secondary); margin-top: var(--space-1); }
+@media (max-width: 880px) { .trust__grid { grid-template-columns: repeat(2, 1fr); } .trust__item:nth-child(odd) { border-left: 0; } .trust__item:nth-child(n+3) { border-top: 1px solid var(--divider); } }
+@media (max-width: 480px) { .trust__grid { grid-template-columns: 1fr; } .trust__item { border-left: 0; border-top: 1px solid var(--divider); } .trust__item:first-child { border-top: 0; } }
+
+/* ---------------------------------------------------------------------
+   FEATURED INVENTORY — card grid
+   --------------------------------------------------------------------- */
+.inv-card { display: flex; flex-direction: column; height: 100%; }
+.inv-card .card-media { aspect-ratio: 16 / 11; }
+.inv-card__body { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5); }
+.inv-card__top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-3); }
+.inv-card__title { color: var(--text-primary); }
+.inv-card__meta { color: var(--text-secondary); font-size: var(--fs-sm); }
+.inv-card__price { color: var(--accent); font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-xl); margin-top: var(--space-2); }
+/* full-card link + focus ring on the card */
+.inv-link { display: block; border-radius: var(--radius-md); }
+.inv-link:focus-visible { box-shadow: var(--focus-ring); }
+.inv-link:focus-visible .card { border-color: var(--border-strong); }
+
+/* ---------------------------------------------------------------------
+   CINEMATIC VISUAL BREAK
+   --------------------------------------------------------------------- */
+.vbreak { position: relative; min-height: 70svh; display: flex; align-items: center; overflow: hidden; isolation: isolate; }
+.vbreak__media { position: absolute; inset: -8% 0; z-index: 0; will-change: transform; }
+.vbreak__img { width: 100%; height: 100%; object-fit: cover; background: var(--surface-2); }
+.vbreak__scrim { position: absolute; inset: 0; z-index: 1; background: var(--scrim-flat); pointer-events: none; }
+.vbreak__copy { position: relative; z-index: 2; }
+.vbreak__line { color: var(--text-primary); max-width: 16ch; }
+.vbreak__eyebrow { color: var(--highlight); margin-bottom: var(--space-3); }
+
+/* ---------------------------------------------------------------------
+   FINANCING — full-bleed dark, 3 steps
+   --------------------------------------------------------------------- */
+.fin__head { text-align: center; }
+.fin__title { color: var(--text-primary); }
+.fin__copy { color: var(--text-secondary); max-width: 56ch; margin: var(--space-4) auto 0; }
+.fin__steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-12); }
+.step { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-6); }
+.step__num { font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--info); letter-spacing: var(--ls-wide); }
+.step__title { color: var(--text-primary); margin-top: var(--space-3); }
+.step__copy { color: var(--text-secondary); font-size: var(--fs-sm); margin-top: var(--space-2); }
+.fin__cta { text-align: center; margin-top: var(--space-10); }
+@media (max-width: 880px) { .fin__steps { grid-template-columns: 1fr; } }
+
+/* ---------------------------------------------------------------------
+   SELL YOUR CAR — split
+   --------------------------------------------------------------------- */
+.sell__media { border-radius: var(--radius-md); overflow: hidden; background: var(--surface-2); aspect-ratio: 4 / 3; }
+.sell__media img { width: 100%; height: 100%; object-fit: cover; }
+.sell__list { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-6); }
+.sell__list li { position: relative; padding-left: var(--space-6); color: var(--text-secondary); }
+.sell__list li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: var(--space-2); height: var(--space-2); border-radius: var(--radius-full); background: var(--accent); }
+.sell__cta { margin-top: var(--space-8); }
+/* clip reveal for the editorial image — driven by a non-clipped ancestor .reveal.
+   (Observing the clipped element itself fails: clip-path zeroes its intersection
+   area, so IntersectionObserver never fires and it stays hidden forever.) */
+.clip-reveal { clip-path: inset(0 0 100% 0); transition: clip-path var(--dur-slower) var(--ease-out); }
+.reveal.in .clip-reveal { clip-path: inset(0 0 0 0); }
+html:not(.js) .clip-reveal { clip-path: none; }
+
+/* ---------------------------------------------------------------------
+   INSTAGRAM
+   --------------------------------------------------------------------- */
+.ig-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); margin-bottom: var(--space-8); flex-wrap: wrap; }
+.ig-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-3); }
+.ig-item { position: relative; display: block; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; background: var(--surface-2); }
+.ig-item img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease-out); }
+.ig-item__veil { position: absolute; inset: 0; background: var(--scrim-flat); opacity: 0; transition: opacity var(--dur-base) var(--ease-out); }
+.ig-item:hover img { transform: scale(1.06); }
+.ig-item:hover .ig-item__veil, .ig-item:focus-visible .ig-item__veil { opacity: 1; }
+.ig-item:focus-visible { box-shadow: var(--focus-ring); }
+@media (max-width: 880px) { .ig-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 480px) { .ig-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------------------------------------------------------------------
+   ABOUT — editorial
+   --------------------------------------------------------------------- */
+.about__title { color: var(--text-primary); max-width: 16ch; }
+.about__copy { color: var(--text-secondary); margin-top: var(--space-5); max-width: 60ch; }
+.about__copy + .about__copy { margin-top: var(--space-4); }
+.aside-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-4); border-left: 1px solid var(--border); padding-left: var(--space-5); }
+.aside-list dt, .aside-list .aside__k { color: var(--text-primary); font-weight: var(--fw-medium); }
+.aside-list .aside__v { color: var(--text-secondary); font-size: var(--fs-sm); margin-top: var(--space-1); }
+
+/* ---------------------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------------------- */
+.site-footer { background: var(--surface-1); border-top: 1px solid var(--border); padding-block: var(--section-y-sm); }
+.footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-8); }
+.footer__brand { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-lg); color: var(--text-primary); }
+.footer__brand .brand__mark { color: var(--accent); }
+.footer__tagline { color: var(--text-secondary); font-size: var(--fs-sm); margin-top: var(--space-3); max-width: 36ch; }
+.footer__h { color: var(--text-secondary); font-size: var(--fs-xs); letter-spacing: var(--ls-wide); text-transform: uppercase; margin-bottom: var(--space-4); }
+.footer__list { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+.footer__list a, .footer__list span { color: var(--text-secondary); font-size: var(--fs-sm); transition: color var(--dur-snap) var(--ease-out); }
+.footer__list a:hover { color: var(--text-primary); }
+.footer__bottom { display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--divider); }
+.footer__legal { color: var(--text-secondary); font-size: var(--fs-xs); max-width: 70ch; }
+.footer__copy { color: var(--text-secondary); font-size: var(--fs-xs); }
+@media (max-width: 880px) { .footer__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer__grid { grid-template-columns: 1fr; } }
+
+/* anchor offset so sticky nav doesn't cover section tops */
+[id] { scroll-margin-top: calc(var(--nav-h) + var(--space-4)); }
