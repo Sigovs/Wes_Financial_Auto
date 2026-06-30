@@ -212,3 +212,10 @@
 
 .type-caption { font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: var(--fw-regular); letter-spacing: var(--ls-wide); color: var(--text-muted); }
 .type-eyebrow { font-size: var(--fs-2xs); font-weight: var(--fw-medium); letter-spacing: var(--ls-widest); text-transform: uppercase; color: var(--text-muted); }
+
+/* uppercase heading treatments — the house rule for headings. Placed after the
+   .type-* classes so the weight override wins.
+   .caps       = primary tier (keeps the heading's display weight): section + card titles.
+   .caps-light = secondary tier (regular weight): step titles, minor section labels. */
+.caps       { text-transform: uppercase; }
+.caps-light { text-transform: uppercase; font-weight: var(--fw-regular); }
