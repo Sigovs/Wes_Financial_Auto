@@ -43,6 +43,37 @@ Run the `design-review` checklist on your own output and fix any base-look drift
 presenting. If a needed value isn't in the tokens, add it to `tokens.css` (and
 `design/tokens.json`) first — never inline it.
 
+## Motion — CSS first, GSAP for scroll storytelling
+
+Two tiers. Default to Tier 1; only add Tier 2 for a genuine scroll-driven moment.
+
+**Tier 1 — CSS (default, zero dependencies).** Covers most pages:
+- Scroll reveals via `.reveal` + an IntersectionObserver that adds `.in` (soft fade/slide up).
+- Hover lift + image-zoom inside the frame (`.card-hover` already does this).
+- Slow ken-burns on hero stills.
+Reach no further than this unless the page needs real scroll storytelling.
+
+**Tier 2 — GSAP + ScrollTrigger (only for scroll storytelling).** Use for section pinning,
+a horizontal inventory rail, scrub-on-progress, staggered reveals, parallax, SplitText.
+Load via CDN (jsdelivr):
+```html
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+```
+
+**GSAP rules:**
+- `gsap.registerPlugin(ScrollTrigger)` once, up front.
+- Eases `power3.out` / `power2.inOut`; duration 0.8–1.4s; weighted, never bouncy.
+- For scrubbed timelines use `ease:'none'` + `scrub:true`.
+- **Always gate behind `prefers-reduced-motion`:** if the user prefers reduced motion, skip
+  the animation entirely and leave content in its final, visible state (never hidden).
+  ```js
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) { /* GSAP here */ }
+  ```
+- Animate `transform` / `opacity` only — never `top/left/width` (layout thrash).
+- One GSAP signature moment per page; keep everything else Tier 1.
+- If the official GreenSock skill is installed, follow it for syntax.
+
 ## Layout templates
 
 Compose sections on the 12-column grid (`.grid12` + `.col-span-*` / `.col-start-*`). Use

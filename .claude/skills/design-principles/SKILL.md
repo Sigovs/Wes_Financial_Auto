@@ -31,7 +31,10 @@ These are the AI clichés. If your output drifts toward them, stop and fix it.
    `rgba(15,23,36,.85)` to transparent over the photo.
 3. **Cinematic motion.** Slow ken-burns on hero stills, soft fade/slide reveals on scroll,
    hover that lifts the card and zooms the image inside its frame. Weighted and slow, never
-   bouncy. Always honor `prefers-reduced-motion`.
+   bouncy. Always honor `prefers-reduced-motion`. **CSS covers most of this** (reveals,
+   hover, ken-burns); reach for **GSAP + ScrollTrigger only for real scroll storytelling** —
+   section pinning, horizontal inventory rails, scrub-on-progress. See `generate-page` for
+   the two-tier motion approach.
 4. **One signature moment per page** — the thing it's remembered by (full-bleed video hero,
    oversized price reveal, horizontal inventory rail). Make it strong; keep the rest quiet.
 5. **Type carries character.** Tight tracking on big headings; the display face has a point

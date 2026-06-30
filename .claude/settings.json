@@ -15,7 +15,15 @@
       "mcp__playwright__browser_run_code_unsafe",
       "Edit(/.claude/skills/accessibility-review/**)",
       "Bash(python3 -c \"import json;json.load\\(open\\('design/tokens.json'\\)\\);print\\('tokens.json: valid'\\)\")",
-      "Bash(git commit -q -m 'fonts + accessibility-review skill *)"
+      "Bash(git commit -q -m 'fonts + accessibility-review skill *)",
+      "Bash(git commit -q --amend -m 'fonts + accessibility-review skill *)",
+      "Bash(python3 -m http.server 8124)",
+      "Bash(pkill -f \"http.server 812\")",
+      "Bash(python3 -m http.server 8131 --directory /Users/alex/Desktop/WORK/Wes_Financial_Auto)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8131/design/preview.html)",
+      "Bash(pkill -f \"http.server\")",
+      "Edit(/.claude/skills/design-principles/**)",
+      "Bash(git commit -q -m 'motion rules + GSAP integration *)"
     ],
     "additionalDirectories": [
       "/Users/alex/Desktop/WORK/Wes_Financial_Auto/tmp_clone"
