@@ -10,6 +10,6 @@ bencium-claude-code-design-skill/
 skills/
 ui-ux-pro-max-skill/
 
-# local screenshot artifacts
-*.jpeg
-home-*.png
+# local screenshot artifacts (root only — never assets/)
+/*.jpeg
+/*.png
