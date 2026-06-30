@@ -23,7 +23,11 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8131/design/preview.html)",
       "Bash(pkill -f \"http.server\")",
       "Edit(/.claude/skills/design-principles/**)",
-      "Bash(git commit -q -m 'motion rules + GSAP integration *)"
+      "Bash(git commit -q -m 'motion rules + GSAP integration *)",
+      "Read(//Users/alex/.claude/**)",
+      "Read(//Users/alex/.claude/plugins/**)",
+      "Bash(cat known_marketplaces.json)",
+      "Bash(ls marketplaces *)"
     ],
     "additionalDirectories": [
       "/Users/alex/Desktop/WORK/Wes_Financial_Auto/tmp_clone"
