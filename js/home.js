@@ -50,41 +50,6 @@
     items.forEach(function (el) { io.observe(el); });
   })();
 
-  /* ---------- inventory drag carousel ---------- */
-  (function invDrag() {
-    var rail = document.querySelector('.inv-rail');
-    if (!rail) return;
-    var down = false, moved = false, startX = 0, startScroll = 0;
-
-    rail.addEventListener('pointerdown', function (e) {
-      if (e.pointerType !== 'mouse') return;        // touch / pen use native scroll
-      if (e.button !== 0) return;
-      down = true; moved = false; startX = e.clientX; startScroll = rail.scrollLeft;
-      try { rail.setPointerCapture(e.pointerId); } catch (err) {}
-    });
-    rail.addEventListener('pointermove', function (e) {
-      if (!down) return;
-      var dx = e.clientX - startX;
-      if (Math.abs(dx) > 4) { moved = true; rail.classList.add('dragging'); }
-      rail.scrollLeft = startScroll - dx;
-    });
-    function end() { down = false; rail.classList.remove('dragging'); }
-    rail.addEventListener('pointerup', end);
-    rail.addEventListener('pointercancel', end);
-    // swallow the click that follows a real drag so the card doesn't navigate
-    rail.addEventListener('click', function (e) {
-      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
-    }, true);
-    // keyboard: arrow keys page the rail when it (not a card) holds focus
-    rail.addEventListener('keydown', function (e) {
-      if (e.target !== rail) return;
-      var slide = rail.querySelector('.inv-slide');
-      var step = slide ? slide.getBoundingClientRect().width + 20 : 320;
-      if (e.key === 'ArrowRight') { rail.scrollLeft += step; e.preventDefault(); }
-      else if (e.key === 'ArrowLeft') { rail.scrollLeft -= step; e.preventDefault(); }
-    });
-  })();
-
   /* ---------- subtle parallax (hero + visual break) ---------- */
   (function parallax() {
     if (reduceMotion.matches) return;          // skip entirely under reduced motion

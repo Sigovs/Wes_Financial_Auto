@@ -50,7 +50,7 @@
   <!-- ============================ HERO ============================ -->
   <section class="full-bleed hero" aria-label="Wes Financial Auto">
     <div class="hero__media" data-parallax="0.12" aria-hidden="true">
-      <img class="hero__img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2400&auto=format&fit=crop" alt="" fetchpriority="high">
+      <img class="hero__img" src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=80&w=2400&auto=format&fit=crop" alt="" fetchpriority="high">
     </div>
     <div class="hero__scrim" aria-hidden="true"></div>
 
@@ -79,68 +79,79 @@
     </div>
   </section>
 
-  <!-- ============================ FEATURED INVENTORY (drag carousel) ============================ -->
-  <section class="full-bleed inv" id="inventory" aria-labelledby="inv-title">
-    <div class="container inv__head reveal">
-      <div>
-        <p class="kicker" style="margin-bottom:var(--space-5)"><span>The collection</span></p>
-        <h2 class="type-display-md" id="inv-title">Current inventory</h2>
+  <!-- ============================ FEATURED INVENTORY (3×2 collection wall) ============================ -->
+  <section class="section" id="inventory" aria-labelledby="inv-title">
+    <div class="container">
+      <div class="inv__head reveal">
+        <div>
+          <p class="kicker"><span>The collection</span></p>
+          <h2 class="type-display-md" id="inv-title">Current inventory</h2>
+        </div>
+        <a class="link-arrow" href="inventory.html">View all <span class="arr" aria-hidden="true">→</span></a>
       </div>
-      <a class="link-arrow" href="inventory.html">View all <span class="arr" aria-hidden="true">→</span></a>
-    </div>
 
-    <div class="inv-rail reveal" role="region" aria-label="Current inventory — drag, scroll, or use arrow keys to browse" tabindex="0">
-      <ul class="inv-track">
-        <li class="inv-slide">
-          <a class="vcard" href="vehicle.html" aria-label="2021 Lamborghini Huracán — 239,000 dollars">
-            <div class="vcard__media"><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1000&auto=format&fit=crop" alt="Red Lamborghini Huracán in a bright showroom" loading="lazy" draggable="false"></div>
-            <div class="vcard__scrim" aria-hidden="true"></div>
-            <div class="vcard__body"><div><h3 class="type-h4 vcard__title">Lamborghini Huracán</h3><p class="vcard__meta">2021 · 6,100 mi</p></div><p class="vcard__price" style="font-size:var(--fs-xl)">$239,000</p></div>
-          </a>
-        </li>
-        <li class="inv-slide">
-          <a class="vcard" href="vehicle.html" aria-label="2022 Mercedes-AMG GT — 118,900 dollars">
-            <div class="vcard__media"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1000&auto=format&fit=crop" alt="Mercedes-AMG GT coupe, low three-quarter view" loading="lazy" draggable="false"></div>
-            <div class="vcard__scrim" aria-hidden="true"></div>
-            <div class="vcard__body"><div><h3 class="type-h4 vcard__title">Mercedes-AMG GT</h3><p class="vcard__meta">2022 · 8,900 mi</p></div><p class="vcard__price" style="font-size:var(--fs-xl)">$118,900</p></div>
-          </a>
-        </li>
-        <li class="inv-slide">
-          <a class="vcard" href="vehicle.html" aria-label="2021 Porsche 911 Carrera — 124,500 dollars">
-            <div class="vcard__media"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop&sat=-100" alt="Porsche 911 Carrera in monochrome" loading="lazy" draggable="false"></div>
-            <div class="vcard__scrim" aria-hidden="true"></div>
-            <div class="vcard__body"><div><h3 class="type-h4 vcard__title">Porsche 911 Carrera</h3><p class="vcard__meta">2021 · 12,400 mi</p></div><p class="vcard__price" style="font-size:var(--fs-xl)">$124,500</p></div>
-          </a>
-        </li>
-        <li class="inv-slide">
-          <a class="vcard" href="vehicle.html" aria-label="2020 Audi R8 V10 — 142,000 dollars">
-            <div class="vcard__media"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1000&auto=format&fit=crop" alt="Audi R8 V10 in dramatic side light" loading="lazy" draggable="false"></div>
-            <div class="vcard__scrim" aria-hidden="true"></div>
-            <div class="vcard__body"><div><h3 class="type-h4 vcard__title">Audi R8 V10</h3><p class="vcard__meta">2020 · 15,200 mi</p></div><p class="vcard__price" style="font-size:var(--fs-xl)">$142,000</p></div>
-          </a>
-        </li>
-        <li class="inv-slide">
-          <a class="vcard" href="vehicle.html" aria-label="2023 BMW M8 Competition — 132,500 dollars">
-            <div class="vcard__media"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1000&auto=format&fit=crop&sat=-100" alt="BMW M8 Competition coupe in monochrome" loading="lazy" draggable="false"></div>
-            <div class="vcard__scrim" aria-hidden="true"></div>
-            <div class="vcard__body"><div><h3 class="type-h4 vcard__title">BMW M8 Competition</h3><p class="vcard__meta">2023 · 4,300 mi</p></div><p class="vcard__price" style="font-size:var(--fs-xl)">$132,500</p></div>
-          </a>
-        </li>
-        <li class="inv-slide">
-          <a class="vcard" href="vehicle.html" aria-label="2022 Range Rover Autobiography — 109,800 dollars">
-            <div class="vcard__media"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1000&auto=format&fit=crop" alt="Range Rover Autobiography in dramatic light" loading="lazy" draggable="false"></div>
-            <div class="vcard__scrim" aria-hidden="true"></div>
-            <div class="vcard__body"><div><h3 class="type-h4 vcard__title">Range Rover Autobiography</h3><p class="vcard__meta">2022 · 18,700 mi</p></div><p class="vcard__price" style="font-size:var(--fs-xl)">$109,800</p></div>
-          </a>
-        </li>
-      </ul>
+      <div class="inv-grid stagger">
+        <a class="vcard reveal" href="vehicle.html" aria-label="2021 Lamborghini Huracán — 239,000 dollars">
+          <div class="vcard__media"><span class="vcard__badge">Available</span><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=1100&auto=format&fit=crop" alt="White Lamborghini Huracán, front three-quarter" loading="lazy"></div>
+          <div class="vcard__body">
+            <h3 class="type-h3 vcard__title">Lamborghini Huracán</h3>
+            <p class="vcard__meta">2021 · 6,100 mi · LDF</p>
+            <p class="vcard__price">$239,000</p>
+          </div>
+        </a>
+
+        <a class="vcard reveal" href="vehicle.html" aria-label="2022 Mercedes-AMG GT — 118,900 dollars">
+          <div class="vcard__media"><span class="vcard__badge">Available</span><img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1100&auto=format&fit=crop" alt="Silver Mercedes-AMG GT, front three-quarter" loading="lazy"></div>
+          <div class="vcard__body">
+            <h3 class="type-h3 vcard__title">Mercedes-AMG GT</h3>
+            <p class="vcard__meta">2022 · 8,900 mi · Auto</p>
+            <p class="vcard__price">$118,900</p>
+          </div>
+        </a>
+
+        <a class="vcard reveal" href="vehicle.html" aria-label="2021 Porsche 911 Carrera — 124,500 dollars">
+          <div class="vcard__media"><span class="vcard__badge">Available</span><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1100&auto=format&fit=crop" alt="Porsche 911 Carrera in dramatic low light" loading="lazy"></div>
+          <div class="vcard__body">
+            <h3 class="type-h3 vcard__title">Porsche 911 Carrera</h3>
+            <p class="vcard__meta">2021 · 12,400 mi · PDK</p>
+            <p class="vcard__price">$124,500</p>
+          </div>
+        </a>
+
+        <a class="vcard reveal" href="vehicle.html" aria-label="2020 Audi R8 V10 — 142,000 dollars">
+          <div class="vcard__media"><span class="vcard__badge">Available</span><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1100&auto=format&fit=crop" alt="Audi R8 V10, front three-quarter in dramatic light" loading="lazy"></div>
+          <div class="vcard__body">
+            <h3 class="type-h3 vcard__title">Audi R8 V10</h3>
+            <p class="vcard__meta">2020 · 15,200 mi · S tronic</p>
+            <p class="vcard__price">$142,000</p>
+          </div>
+        </a>
+
+        <a class="vcard reveal" href="vehicle.html" aria-label="2023 BMW M8 Competition — 132,500 dollars">
+          <div class="vcard__media"><span class="vcard__badge">Available</span><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1100&auto=format&fit=crop" alt="BMW M8 Competition, front three-quarter" loading="lazy"></div>
+          <div class="vcard__body">
+            <h3 class="type-h3 vcard__title">BMW M8 Competition</h3>
+            <p class="vcard__meta">2023 · 4,300 mi · M Steptronic</p>
+            <p class="vcard__price">$132,500</p>
+          </div>
+        </a>
+
+        <a class="vcard reveal" href="vehicle.html" aria-label="2022 Range Rover Autobiography — 109,800 dollars">
+          <div class="vcard__media"><span class="vcard__badge">Available</span><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1100&auto=format&fit=crop" alt="Highline vehicle in a dark showroom" loading="lazy"></div>
+          <div class="vcard__body">
+            <h3 class="type-h3 vcard__title">Range Rover Autobiography</h3>
+            <p class="vcard__meta">2022 · 18,700 mi · Auto</p>
+            <p class="vcard__price">$109,800</p>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- ============================ CINEMATIC VISUAL BREAK ============================ -->
   <section class="full-bleed vbreak" aria-label="Selected with intent">
     <div class="vbreak__media" data-parallax="0.16" aria-hidden="true">
-      <img class="vbreak__img" src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=2200&auto=format&fit=crop" alt="" loading="lazy">
+      <img class="vbreak__img" src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=2200&auto=format&fit=crop" alt="" loading="lazy">
     </div>
     <div class="vbreak__scrim" aria-hidden="true"></div>
     <div class="vbreak__copy">
@@ -156,7 +167,7 @@
     <div class="container">
       <div class="grid12" style="row-gap:var(--space-12)">
         <div class="col-span-4 col-start-2 reveal">
-          <p class="kicker" style="margin-bottom:var(--space-5)"><span>Financing</span></p>
+          <p class="kicker"><span>Financing</span></p>
           <h2 class="type-display-md fin__title" id="fin-title">Financing,<br>made simple</h2>
           <p class="fin__copy">A secure application, a clear number, and an appointment-based handoff. No pressure, no gimmicks.</p>
           <div class="fin__cta">
@@ -189,7 +200,7 @@
     <div class="container">
       <div class="grid12" style="align-items:center">
         <div class="col-span-5 col-start-2 reveal">
-          <p class="kicker" style="margin-bottom:var(--space-5)"><span>Sell or consign</span></p>
+          <p class="kicker"><span>Sell or consign</span></p>
           <h2 class="type-display-md about__title" id="sell-title">Sell or consign your highline car</h2>
           <p class="sell__copy">A private, appointment-based evaluation and a curated set of buyers — a clear number before you commit to anything.</p>
           <ul class="sell__list">
@@ -203,7 +214,7 @@
         </div>
         <div class="col-span-6 col-start-7 reveal">
           <div class="sell__media clip-reveal">
-            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop" alt="Highline performance car detailed under showroom lighting" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop" alt="Highline performance car, profile under controlled light" loading="lazy">
           </div>
         </div>
       </div>
@@ -218,11 +229,11 @@
         <a class="link-arrow" href="https://instagram.com" rel="noopener" target="_blank">@placeholder <span class="arr" aria-hidden="true">→</span></a>
       </div>
       <div class="ig-strip reveal">
-        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=600&auto=format&fit=crop" alt="Supercar in the showroom" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
-        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=600&auto=format&fit=crop" alt="Porsche detail in the showroom" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
-        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=600&auto=format&fit=crop" alt="Sports car under dramatic light" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
-        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=600&auto=format&fit=crop" alt="Coupe in three-quarter view" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
-        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=600&auto=format&fit=crop" alt="Highline car detail at dusk" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=600&auto=format&fit=crop" alt="Lamborghini in the showroom" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=80&w=600&auto=format&fit=crop" alt="Audi detail in low light" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=600&auto=format&fit=crop" alt="Exotic profile under dramatic light" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=600&auto=format&fit=crop" alt="Mercedes-AMG GT three-quarter" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=600&auto=format&fit=crop" alt="BMW M three-quarter" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
       </div>
     </div>
   </section>
@@ -232,7 +243,7 @@
     <div class="container">
       <div class="grid12" style="align-items:start">
         <div class="col-span-6 col-start-2 reveal">
-          <p class="kicker" style="margin-bottom:var(--space-5)"><span>About</span></p>
+          <p class="kicker"><span>About</span></p>
           <h2 class="type-display-md about__title" id="about-title">A dealer, not a lot</h2>
           <p class="about__copy">We keep a small, deliberate collection of highline vehicles and sell them the way they deserve to be sold — by appointment, with transparent numbers and financing that respects your time.</p>
           <p class="about__copy">No fluorescent lot, no pressure, no fine print. Just a more personal way to buy a car you actually wanted.</p>
