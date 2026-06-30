@@ -30,6 +30,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 /* section header block -> content grid is block->block */
 .section-head { max-width: 60ch; margin-bottom: var(--space-block); }
 
+/* uppercase headings (section titles, trust labels, vehicle titles) */
+#inv-title, .fin__title, .about__title, .trust__k, .vcard__title { text-transform: uppercase; }
+
 /* ---------------------------------------------------------------------
    NAV
    --------------------------------------------------------------------- */
