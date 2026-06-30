@@ -193,7 +193,10 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .sell__list li { position: relative; padding-left: var(--space-8); color: var(--text-primary); font-size: var(--fs-md); padding-block: var(--space-3); border-top: 1px solid var(--divider); }
 .sell__list li:last-child { border-bottom: 1px solid var(--divider); }
 .sell__list li::before { content: ""; position: absolute; left: 0; top: calc(var(--space-3) + 0.55em); width: var(--space-3); height: 2px; background: var(--accent); }
-.sell__cta { margin-top: var(--space-text-obj); }
+/* text aligns to the top of the photo; CTA pins to the bottom (aligns with photo bottom) */
+.sell__intro { display: flex; flex-direction: column; height: 100%; }
+.sell__cta { margin-top: auto; padding-top: var(--space-block); }
+@media (max-width: 880px) { .sell__cta { margin-top: var(--space-text-obj); padding-top: 0; } }
 .clip-reveal { clip-path: inset(0 0 100% 0); transition: clip-path var(--dur-slower) var(--ease-out); }
 .reveal.in .clip-reveal { clip-path: inset(0 0 0 0); }
 html:not(.js) .clip-reveal { clip-path: none; }
