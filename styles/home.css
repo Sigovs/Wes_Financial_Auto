@@ -138,16 +138,20 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   background: color-mix(in srgb, var(--surface-0) 72%, transparent);
   opacity: 0; pointer-events: none; transition: opacity var(--dur-base) var(--ease-out); }
 .vcard:hover .vcard__hover, .vcard:focus-visible .vcard__hover { opacity: 1; }
-.vcard__title--over { color: var(--text-primary); transform: translateY(var(--space-4)); transition: transform var(--dur-base) var(--ease-out); }
+/* title rises slowly */
+.vcard__title--over { color: var(--text-primary); transform: translateY(var(--space-8)); transition: transform var(--dur-slower) var(--ease-out); }
 .vcard:hover .vcard__title--over { transform: none; }
-.vcard__links { display: flex; flex-wrap: wrap; gap: var(--space-5); margin-top: var(--space-text-obj); }
-.vcard__links span { color: var(--text-secondary); font-size: var(--fs-sm); letter-spacing: var(--ls-wide); text-transform: uppercase;
-  opacity: 0; transform: translateY(var(--space-2));
-  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), color var(--dur-snap) var(--ease-out); }
-.vcard:hover .vcard__links span { opacity: 1; transform: none; }
-.vcard:hover .vcard__links span:nth-child(2) { transition-delay: var(--dur-fast); }
-.vcard:hover .vcard__links span:nth-child(3) { transition-delay: var(--dur-snap); }
-.vcard__links span:hover { color: var(--text-primary); }
+/* spec list: labels left, values right; rows fade in after the title rises */
+.vcard__specs { margin-top: var(--space-text-obj); display: flex; flex-direction: column; gap: var(--space-3); }
+.vcard__spec { display: grid; grid-template-columns: 9ch 1fr; gap: var(--space-4); align-items: baseline;
+  opacity: 0; transform: translateY(var(--space-3));
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+.vcard:hover .vcard__spec { opacity: 1; transform: none; }
+.vcard:hover .vcard__spec:nth-child(1) { transition-delay: var(--dur-snap); }
+.vcard:hover .vcard__spec:nth-child(2) { transition-delay: var(--dur-base); }
+.vcard:hover .vcard__spec:nth-child(3) { transition-delay: var(--dur-slow); }
+.vcard__spec dt { color: var(--text-secondary); font-size: var(--fs-sm); letter-spacing: var(--ls-wide); text-transform: uppercase; }
+.vcard__spec dd { color: var(--text-primary); font-size: var(--fs-sm); }
 /* the body title fades as it "moves" up onto the photo; meta + price stay */
 .vcard__body .vcard__title { transition: opacity var(--dur-base) var(--ease-out); }
 .vcard:hover .vcard__body .vcard__title { opacity: 0; }
