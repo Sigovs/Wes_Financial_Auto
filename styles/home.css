@@ -123,7 +123,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .vcard__price { color: var(--accent); font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-xl); line-height: 1; margin-top: var(--space-text-obj); }
 
 /* unify all photography into one brand tone (dark, restrained, cinematic) */
-.hero__img, .vcard__media img, .vbreak__img, .sell__media img, .ig-item img {
+.hero__img, .vcard__media img, .vbreak__img, .sell__media img, .ig-item img, .about__media img {
   filter: saturate(0.85) contrast(1.03) brightness(0.92);
 }
 /* the visual break is a cinematic pause — push it darker so no single colour dominates */
@@ -189,16 +189,13 @@ html:not(.js) .clip-reveal { clip-path: none; }
 /* ---------------------------------------------------------------------
    ABOUT — editorial, strong aside
    --------------------------------------------------------------------- */
+/* one large image + text on the side (RF-style editorial) */
+.about__media { aspect-ratio: 5 / 6; border-radius: var(--radius-md); overflow: hidden; background: var(--surface-2); }
+.about__media img { width: 100%; height: 100%; object-fit: cover; }
 .about__title { color: var(--text-primary); max-width: 14ch; }
-.about__copy { color: var(--text-secondary); font-size: var(--fs-lg); margin-top: var(--space-text-obj); max-width: 56ch; }
-.about__copy + .about__copy { margin-top: var(--space-text); }
-.about__aside { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-8); }
-.aside-list { list-style: none; display: flex; flex-direction: column; }
-.aside-list > div { padding-block: var(--space-5); border-top: 1px solid var(--divider); }
-.aside-list > div:first-child { border-top: 0; padding-top: 0; }
-.aside-list > div:last-child { padding-bottom: 0; }
-.aside-list .aside__k { color: var(--text-primary); font-family: var(--font-display); font-size: var(--fs-md); font-weight: var(--fw-medium); }
-.aside-list .aside__v { color: var(--text-secondary); font-size: var(--fs-sm); margin-top: var(--space-1); }
+.about__copy { color: var(--text-secondary); font-size: var(--fs-lg); margin-top: var(--space-text-obj); max-width: 46ch; }
+.about__note { color: var(--text-secondary); font-size: var(--fs-sm); letter-spacing: var(--ls-wide); margin-top: var(--space-text-obj); }
+@media (max-width: 1024px) { .about__media { aspect-ratio: 4 / 3; } }
 
 /* ---------------------------------------------------------------------
    FOOTER
