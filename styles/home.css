@@ -128,18 +128,22 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .vcard__badge--pending::before { background: var(--warning); }
 .vcard__badge--sold::before    { background: var(--danger); }
 .vcard__body { display: flex; flex-direction: column; flex: 1; padding: var(--space-6); }
-.vcard__title { color: var(--text-primary); }
+/* two-line title: make on top, model below — reserves a consistent height on every card */
+.vcard__title { display: flex; flex-direction: column; gap: var(--space-1); color: var(--text-primary); }
+.vcard__make { font-family: var(--font-display); font-weight: var(--fw-medium); font-size: var(--fs-sm); color: var(--text-secondary); letter-spacing: var(--ls-wide); line-height: var(--lh-tight); }
+.vcard__model { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-lg); color: var(--text-primary); letter-spacing: var(--ls-tight); line-height: var(--lh-tight); }
 .vcard__meta { color: var(--text-secondary); font-size: var(--fs-sm); margin-top: var(--space-text); letter-spacing: var(--ls-wide); }
 .vcard__price { color: var(--accent); font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-xl); line-height: 1; margin-top: var(--space-text-obj); }
 
 /* hover: photo darkens, title rises to the top, quick-view tags appear; price stays below */
 .vcard__hover { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column;
-  padding: var(--space-12) var(--space-6) var(--space-6);   /* top clears the status badge */
+  /* top clears the status badge with a full spacing step so the title isn't jammed under it */
+  padding: var(--space-16) var(--space-6) var(--space-6);
   background: color-mix(in srgb, var(--surface-0) 72%, transparent);
   opacity: 0; pointer-events: none; transition: opacity var(--dur-base) var(--ease-out); }
 .vcard:hover .vcard__hover, .vcard:focus-visible .vcard__hover { opacity: 1; }
-/* title rises slowly */
-.vcard__title--over { color: var(--text-primary); transform: translateY(var(--space-8)); transition: transform var(--dur-slower) var(--ease-out); }
+/* title rises slowly, only a short distance */
+.vcard__title--over { transform: translateY(var(--space-6)); transition: transform var(--dur-slower) var(--ease-out); }
 .vcard:hover .vcard__title--over { transform: none; }
 /* spec list: labels left, values right; rows fade in after the title rises */
 .vcard__specs { margin-top: var(--space-text-obj); display: flex; flex-direction: column; gap: var(--space-3); }
