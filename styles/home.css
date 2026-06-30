@@ -127,14 +127,18 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .vcard__badge::before { content: ""; width: var(--space-2); height: var(--space-2); border-radius: var(--radius-full); background: var(--success); }
 .vcard__badge--pending::before { background: var(--warning); }
 .vcard__badge--sold::before    { background: var(--danger); }
-.vcard__body { display: flex; flex-direction: column; flex: 1; padding: var(--space-6); }
+.vcard__body { position: relative; display: flex; flex-direction: column; flex: 1; padding: var(--space-6); }
 /* two-line title: make on top, model below — reserves a consistent height on every card */
 .vcard__title { display: flex; flex-direction: column; gap: var(--space-text); color: var(--text-primary); }   /* text -> text */
 .vcard__make { font-family: var(--font-display); font-weight: var(--fw-medium); font-size: var(--fs-sm); color: var(--text-secondary); letter-spacing: var(--ls-wide); line-height: var(--lh-tight); }
 .vcard__model { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-lg); color: var(--text-primary); letter-spacing: var(--ls-tight); line-height: var(--lh-tight); }
-/* on hover the title fades and 3 quick actions take its place */
-.vcard__head { position: relative; }
-.vcard__actions { position: absolute; inset: 0; display: flex; align-items: flex-start; gap: var(--space-2);
+/* on hover the title collapses (meta + price rise under the photo) and the
+   3 quick actions slide in at the bottom. Reverses smoothly on release. */
+.vcard__body .vcard__title { overflow: hidden; max-height: 6em;
+  transition: max-height var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out); }
+.vcard:hover .vcard__body .vcard__title, .vcard:focus-within .vcard__body .vcard__title { max-height: 0; opacity: 0; }
+/* actions are absolute so they don't reserve space — the card stays compact */
+.vcard__actions { position: absolute; left: var(--space-6); bottom: var(--space-6); display: flex; align-items: center; gap: var(--space-2);
   opacity: 0; transform: translateY(var(--space-2)); pointer-events: none;
   transition: opacity var(--dur-base) var(--ease-out) var(--dur-fast), transform var(--dur-base) var(--ease-out) var(--dur-fast); }
 .vcard:hover .vcard__actions, .vcard:focus-within .vcard__actions { opacity: 1; transform: none; pointer-events: auto; }
@@ -169,9 +173,6 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .vcard:hover .vcard__spec:nth-child(3) { transition-delay: var(--dur-slow); }
 .vcard__spec dt { color: var(--text-secondary); font-size: var(--fs-sm); letter-spacing: var(--ls-wide); text-transform: uppercase; }
 .vcard__spec dd { color: var(--text-primary); font-size: var(--fs-sm); }
-/* the body title fades as it "moves" up onto the photo; meta + price stay */
-.vcard__body .vcard__title { transition: opacity var(--dur-base) var(--ease-out); }
-.vcard:hover .vcard__body .vcard__title { opacity: 0; }
 
 /* unify all photography into one brand tone (dark, restrained, cinematic) */
 .hero__img, .vcard__media img, .vbreak__img, .sell__media img, .ig-item img, .about__media img {
