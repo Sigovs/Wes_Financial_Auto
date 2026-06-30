@@ -37,8 +37,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
    NAV
    --------------------------------------------------------------------- */
 .nav__inner { width: 100%; }
-.brand { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-xl); letter-spacing: var(--ls-tight); color: var(--text-primary); text-transform: uppercase; }
-.brand .brand__mark { color: var(--accent); }
+.brand { display: inline-flex; align-items: center; }
+.brand__logo { display: block; height: var(--space-8); width: auto; }
+@media (max-width: 480px) { .brand__logo { height: var(--space-6); } }
 .nav__links { display: flex; align-items: center; gap: var(--space-8); }
 .nav__actions { display: flex; align-items: center; gap: var(--space-5); }
 .nav__phone { font-size: var(--fs-sm); color: var(--text-secondary); white-space: nowrap; transition: color var(--dur-snap) var(--ease-out); }
