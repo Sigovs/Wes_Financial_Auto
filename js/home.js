@@ -36,10 +36,14 @@
 
   /* ---------- scroll reveals (IntersectionObserver) ---------- */
   (function reveals() {
-    var items = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-    if (!items.length) return;
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.stagger'));
+    // individual reveals = those NOT controlled by a .stagger parent
+    var singles = Array.prototype.slice.call(document.querySelectorAll('.reveal'))
+      .filter(function (el) { return !el.closest('.stagger'); });
+    var targets = groups.concat(singles);
+    if (!targets.length) return;
     if (!('IntersectionObserver' in window)) {
-      items.forEach(function (el) { el.classList.add('in'); });
+      targets.forEach(function (el) { el.classList.add('in'); });
       return;
     }
     var io = new IntersectionObserver(function (entries) {
@@ -47,7 +51,7 @@
         if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
-    items.forEach(function (el) { io.observe(el); });
+    targets.forEach(function (el) { io.observe(el); });
   })();
 
   /* ---------- subtle parallax (hero + visual break) ---------- */
