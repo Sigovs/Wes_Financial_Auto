@@ -34,47 +34,6 @@
     });
   }
 
-  /* ---------- hero slider ---------- */
-  (function heroSlider() {
-    var hero = document.querySelector('.hero');
-    if (!hero) return;
-    var slides = Array.prototype.slice.call(hero.querySelectorAll('.hero__slide'));
-    var dots = Array.prototype.slice.call(hero.querySelectorAll('.hero__dot'));
-    if (slides.length < 2) return;
-
-    var i = 0, timer = null, DELAY = 6000;
-
-    function show(n) {
-      i = (n + slides.length) % slides.length;
-      slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
-      dots.forEach(function (d, k) {
-        var active = k === i;
-        d.setAttribute('aria-current', active ? 'true' : 'false');
-      });
-    }
-    function next() { show(i + 1); }
-
-    function start() {
-      if (reduceMotion.matches || timer) return;   // no autoplay under reduced motion
-      timer = window.setInterval(next, DELAY);
-    }
-    function stop() { if (timer) { window.clearInterval(timer); timer = null; } }
-
-    dots.forEach(function (d, k) {
-      d.addEventListener('click', function () { show(k); stop(); start(); });
-    });
-
-    // pause on hover and on keyboard focus within the hero
-    hero.addEventListener('mouseenter', stop);
-    hero.addEventListener('mouseleave', start);
-    hero.addEventListener('focusin', stop);
-    hero.addEventListener('focusout', start);
-    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
-
-    show(0);
-    start();
-  })();
-
   /* ---------- scroll reveals (IntersectionObserver) ---------- */
   (function reveals() {
     var items = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
@@ -89,6 +48,41 @@
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
     items.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ---------- inventory drag carousel ---------- */
+  (function invDrag() {
+    var rail = document.querySelector('.inv-rail');
+    if (!rail) return;
+    var down = false, moved = false, startX = 0, startScroll = 0;
+
+    rail.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;        // touch / pen use native scroll
+      if (e.button !== 0) return;
+      down = true; moved = false; startX = e.clientX; startScroll = rail.scrollLeft;
+      try { rail.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    rail.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) { moved = true; rail.classList.add('dragging'); }
+      rail.scrollLeft = startScroll - dx;
+    });
+    function end() { down = false; rail.classList.remove('dragging'); }
+    rail.addEventListener('pointerup', end);
+    rail.addEventListener('pointercancel', end);
+    // swallow the click that follows a real drag so the card doesn't navigate
+    rail.addEventListener('click', function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
+    // keyboard: arrow keys page the rail when it (not a card) holds focus
+    rail.addEventListener('keydown', function (e) {
+      if (e.target !== rail) return;
+      var slide = rail.querySelector('.inv-slide');
+      var step = slide ? slide.getBoundingClientRect().width + 20 : 320;
+      if (e.key === 'ArrowRight') { rail.scrollLeft += step; e.preventDefault(); }
+      else if (e.key === 'ArrowLeft') { rail.scrollLeft -= step; e.preventDefault(); }
+    });
   })();
 
   /* ---------- subtle parallax (hero + visual break) ---------- */

@@ -27,7 +27,8 @@
       "Read(//Users/alex/.claude/**)",
       "Read(//Users/alex/.claude/plugins/**)",
       "Bash(cat known_marketplaces.json)",
-      "Bash(ls marketplaces *)"
+      "Bash(ls marketplaces *)",
+      "Bash(git commit -q -m 'Build HOME \\(index.html\\): cinematic highline landing page *)"
     ],
     "additionalDirectories": [
       "/Users/alex/Desktop/WORK/Wes_Financial_Auto/tmp_clone"
