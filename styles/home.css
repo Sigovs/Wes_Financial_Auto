@@ -118,7 +118,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .vcard__media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: var(--surface-2); }
 .vcard__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--dur-slower) var(--ease-out); }
 .vcard:hover .vcard__media img, .vcard:focus-visible .vcard__media img { transform: scale(1.05); }
-.vcard__badge { position: absolute; top: var(--space-4); left: var(--space-4); z-index: 2;
+.vcard__badge { position: absolute; top: var(--space-4); right: var(--space-4); z-index: 2;
   display: inline-flex; align-items: center; gap: var(--space-2);
   padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
   background: var(--glass); backdrop-filter: blur(var(--blur-glass)); -webkit-backdrop-filter: blur(var(--blur-glass));
