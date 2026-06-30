@@ -41,7 +41,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .brand__logo { display: block; height: calc(var(--space-8) * 1.3); width: auto; }
 @media (max-width: 480px) { .brand__logo { height: calc(var(--space-6) * 1.3); } }
 .nav__links { display: flex; align-items: center; gap: var(--space-8); }
-.nav__links .nav-link { font-size: var(--fs-md); }   /* 18px */
+.nav__links .nav-link { font-size: var(--fs-base); }   /* 16px */
 .nav__actions { display: flex; align-items: center; gap: var(--space-5); }
 .nav__phone { font-size: var(--fs-sm); color: var(--text-secondary); white-space: nowrap; transition: color var(--dur-snap) var(--ease-out); }
 .nav__phone:hover { color: var(--text-primary); }
@@ -118,24 +118,39 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .vcard__media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: var(--surface-2); }
 .vcard__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--dur-slower) var(--ease-out); }
 .vcard:hover .vcard__media img, .vcard:focus-visible .vcard__media img { transform: scale(1.05); }
-.vcard__badge { position: absolute; top: var(--space-4); left: var(--space-4); z-index: 1;
+.vcard__badge { position: absolute; top: var(--space-4); left: var(--space-4); z-index: 2;
   display: inline-flex; align-items: center; gap: var(--space-2);
   padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
   background: var(--glass); backdrop-filter: blur(var(--blur-glass)); -webkit-backdrop-filter: blur(var(--blur-glass));
   border: 1px solid var(--border-strong);
   font-size: var(--fs-2xs); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--text-secondary); }
 .vcard__badge::before { content: ""; width: var(--space-2); height: var(--space-2); border-radius: var(--radius-full); background: var(--success); }
+.vcard__badge--pending::before { background: var(--warning); }
+.vcard__badge--sold::before    { background: var(--danger); }
 .vcard__body { display: flex; flex-direction: column; flex: 1; padding: var(--space-6); }
 .vcard__title { color: var(--text-primary); }
 .vcard__meta { color: var(--text-secondary); font-size: var(--fs-sm); margin-top: var(--space-text); letter-spacing: var(--ls-wide); }
 .vcard__price { color: var(--accent); font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-xl); line-height: 1; margin-top: var(--space-text-obj); }
-/* CTA pins to the bottom of the panel so it lines up across all cards */
-.vcard__cta { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: auto; padding-top: var(--space-text-obj);
-  color: var(--text-secondary); font-size: var(--fs-sm); letter-spacing: var(--ls-wide); text-transform: uppercase;
-  transition: color var(--dur-snap) var(--ease-out); }
-.vcard:hover .vcard__cta { color: var(--text-primary); }
-.vcard__cta .arr { transition: transform var(--dur-snap) var(--ease-out); }
-.vcard:hover .vcard__cta .arr { transform: translateX(4px); }
+
+/* hover: photo darkens, title rises to the top, quick-view tags appear; price stays below */
+.vcard__hover { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column;
+  padding: var(--space-12) var(--space-6) var(--space-6);   /* top clears the status badge */
+  background: color-mix(in srgb, var(--surface-0) 72%, transparent);
+  opacity: 0; pointer-events: none; transition: opacity var(--dur-base) var(--ease-out); }
+.vcard:hover .vcard__hover, .vcard:focus-visible .vcard__hover { opacity: 1; }
+.vcard__title--over { color: var(--text-primary); transform: translateY(var(--space-4)); transition: transform var(--dur-base) var(--ease-out); }
+.vcard:hover .vcard__title--over { transform: none; }
+.vcard__links { display: flex; flex-wrap: wrap; gap: var(--space-5); margin-top: var(--space-text-obj); }
+.vcard__links span { color: var(--text-secondary); font-size: var(--fs-sm); letter-spacing: var(--ls-wide); text-transform: uppercase;
+  opacity: 0; transform: translateY(var(--space-2));
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), color var(--dur-snap) var(--ease-out); }
+.vcard:hover .vcard__links span { opacity: 1; transform: none; }
+.vcard:hover .vcard__links span:nth-child(2) { transition-delay: var(--dur-fast); }
+.vcard:hover .vcard__links span:nth-child(3) { transition-delay: var(--dur-snap); }
+.vcard__links span:hover { color: var(--text-primary); }
+/* the body title fades as it "moves" up onto the photo; meta + price stay */
+.vcard__body .vcard__title { transition: opacity var(--dur-base) var(--ease-out); }
+.vcard:hover .vcard__body .vcard__title { opacity: 0; }
 
 /* unify all photography into one brand tone (dark, restrained, cinematic) */
 .hero__img, .vcard__media img, .vbreak__img, .sell__media img, .ig-item img, .about__media img {
