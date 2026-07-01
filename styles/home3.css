@@ -1,0 +1,225 @@
+/* =====================================================================
+   home3.css — index3.html
+   Design system ported from Vegas Auto Gallery (styles.html) — EVERYTHING
+   EXCEPT COLORS. Colors keep coming from our tokens.css (dark red theme).
+   Type scale, weights, spacing, radii, shadow, motion + base typography.
+   ===================================================================== */
+
+:root {
+  /* ---- families (Vegas) ---- */
+  --font-display: 'Oswald', 'Arial Narrow', system-ui, sans-serif;   /* display / headings */
+  --font-sans:    'Roboto Condensed', system-ui, -apple-system, sans-serif; /* UI / body */
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;         /* meta / kickers */
+
+  /* ---- type scale (px, Vegas) ---- */
+  --text-6xl: 95px;
+  --text-5xl: 61px;
+  --text-4xl: 49px;
+  --text-3xl: 39px;
+  --text-2xl: 31px;
+  --text-xl:  25px;
+  --text-lg:  20px;
+  --text-base:16px;
+  --text-sm:  14px;
+  --text-xs:  13px;
+
+  /* ---- weights (Vegas) ---- */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* ---- spacing (Vegas scale — namespaced --sp-* so utilities' --space-* stay intact) ---- */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  16px;
+  --sp-4:  24px;
+  --sp-5:  32px;
+  --sp-6:  48px;
+  --sp-7:  64px;
+  --sp-8:  80px;
+  --sp-9:  96px;
+  --sp-10: 128px;
+  --sp-11: 144px;
+  --sp-12: 180px;
+
+  /* ---- radius / shadow / motion (Vegas) ---- */
+  --radius:      4px;
+  --radius-lg:   10px;
+  --shadow:      0 12px 32px rgba(0, 0, 0, .40);
+  --transition:      .25s ease;
+  --transition-slow: .6s ease;
+}
+
+/* =====================================================================
+   BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--surface-0);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =====================================================================
+   TYPOGRAPHY (Vegas system — colors mapped to our tokens)
+   ===================================================================== */
+
+/* big display — Oswald Bold, near-solid line-height, faint tracking, uppercase */
+.display {
+  font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: var(--text-6xl); line-height: 1; letter-spacing: .005em;
+  text-transform: uppercase; color: var(--text-primary);
+}
+
+/* headings — Oswald Medium, uppercase, tight tracking */
+h1, .h1 { font-family: var(--font-display); font-weight: var(--weight-medium);
+  font-size: var(--text-5xl); line-height: 1.05; letter-spacing: .01em;
+  text-transform: uppercase; color: var(--text-primary); margin: 0; }
+h2, .h2 { font-family: var(--font-display); font-weight: var(--weight-medium);
+  font-size: var(--text-4xl); line-height: 1.05; letter-spacing: .01em;
+  text-transform: uppercase; color: var(--text-primary); margin: 0; }
+h3, .h3 { font-family: var(--font-display); font-weight: var(--weight-medium);
+  font-size: var(--text-2xl); line-height: 1.1; letter-spacing: .01em;
+  text-transform: uppercase; color: var(--text-primary); margin: 0; }
+h4, .h4 { font-family: var(--font-sans); font-weight: var(--weight-semibold);
+  font-size: var(--text-lg); line-height: 1.3; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--text-primary); margin: 0; }
+
+/* light section headings — the Vegas signature (thin, tall, wide-set) */
+.heading-light {
+  font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: 50px; line-height: 60px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--text-primary); margin: 0;
+}
+.heading-sm-light {
+  font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: 30px; line-height: 40px; letter-spacing: 6px;
+  text-transform: uppercase; color: var(--text-primary);
+}
+
+/* eyebrows / kickers */
+.eyebrow {
+  display: inline-block; font-family: var(--font-sans); font-weight: var(--weight-medium);
+  font-size: var(--text-sm); letter-spacing: .2em; text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.eyebrow--oswald {
+  font-family: var(--font-display); font-weight: var(--weight-regular);
+  font-size: var(--text-sm); line-height: 22px; letter-spacing: 3px;
+}
+.kicker {
+  display: inline-block; font-family: var(--font-mono); font-weight: var(--weight-regular);
+  font-size: var(--text-xs); line-height: 20px; text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* body copy */
+.lead { font-family: var(--font-sans); font-weight: var(--weight-regular);
+  font-size: var(--text-lg); line-height: 1.5; color: var(--text-secondary); margin: 0; }
+p { font-family: var(--font-sans); font-weight: var(--weight-regular);
+  font-size: var(--text-base); line-height: 1.6; color: var(--text-secondary); margin: 0; }
+
+/* editorial link */
+.link {
+  font-family: var(--font-sans); font-weight: var(--weight-medium);
+  font-size: var(--text-sm); letter-spacing: .2em; text-transform: uppercase;
+  color: var(--text-primary); text-decoration: none;
+  transition: color var(--transition);
+}
+.link:hover { color: var(--accent); }
+
+/* ---- inventory card type helpers (Vegas) ---- */
+.inv-card__title {
+  font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: var(--text-lg); line-height: 30px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--text-primary);
+}
+.inv-card__meta {
+  font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: var(--text-base); line-height: 32px; letter-spacing: .64px;
+  text-transform: uppercase; color: var(--text-primary);
+}
+.inv-card__address {
+  font-family: var(--font-mono); font-weight: var(--weight-light);
+  font-size: var(--text-sm); line-height: 20px; text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* =====================================================================
+   BUTTONS (Vegas .btn — Roboto Condensed Medium, uppercase, wide track)
+   ===================================================================== */
+.btn3 {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
+  font-family: var(--font-sans); font-weight: var(--weight-medium);
+  font-size: var(--text-sm); letter-spacing: .2em; text-transform: uppercase;
+  padding: var(--sp-3) var(--sp-5); border-radius: var(--radius);
+  border: 1px solid transparent; text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.btn3--primary { background: var(--accent); color: var(--on-accent); }
+.btn3--primary:hover { background: var(--accent-hover); }
+.btn3--secondary { background: var(--surface-2); color: var(--text-primary); border-color: var(--border-strong); }
+.btn3--secondary:hover { border-color: var(--border-stronger); background: var(--surface-3, var(--surface-2)); }
+.btn3:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* =====================================================================
+   NAV / HEADER
+   ===================================================================== */
+.skip-link { position: absolute; left: var(--sp-3); top: var(--sp-2); z-index: var(--z-toast);
+  transform: translateY(-200%); background: var(--accent); color: var(--on-accent);
+  padding: var(--sp-2) var(--sp-3); border-radius: var(--radius); text-decoration: none;
+  font-family: var(--font-sans); font-size: var(--text-sm); transition: transform var(--transition); }
+.skip-link:focus { transform: translateY(0); }
+
+.nav3 { position: sticky; top: 0; z-index: var(--z-nav);
+  background: color-mix(in srgb, var(--surface-0) 90%, transparent);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border); }
+.nav3__inner { position: relative; max-width: var(--container); margin-inline: auto;
+  padding: var(--sp-3) var(--sp-6); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-6); }
+
+.nav3__brand { display: inline-flex; align-items: center; flex: none; }
+.nav3__brand img { display: block; height: 40px; width: auto; }
+
+.nav3__menu { display: flex; align-items: center; gap: var(--sp-7); }
+.nav3__links { display: flex; align-items: center; gap: var(--sp-5); }
+.nav3__links a {
+  font-family: var(--font-sans); font-weight: var(--weight-medium);
+  font-size: var(--text-sm); letter-spacing: .15em; text-transform: uppercase;
+  color: var(--text-secondary); text-decoration: none; transition: color var(--transition);
+}
+.nav3__links a:hover, .nav3__links a:focus-visible { color: var(--text-primary); outline: none; }
+
+.nav3__actions { display: flex; align-items: center; gap: var(--sp-4); }
+.nav3__phone {
+  display: inline-flex; align-items: center; gap: var(--sp-2); white-space: nowrap;
+  font-family: var(--font-sans); font-weight: var(--weight-medium);
+  font-size: var(--text-sm); letter-spacing: .08em; color: var(--text-primary);
+  text-decoration: none; transition: color var(--transition);
+}
+.nav3__phone svg { width: 16px; height: 16px; flex: none; }
+.nav3__phone:hover { color: var(--accent); }
+
+.nav3__toggle { display: none; background: none; border: 0; color: var(--text-primary);
+  cursor: pointer; padding: var(--sp-1); }
+.nav3__toggle svg { width: 26px; height: 26px; display: block; }
+
+@media (max-width: 1024px) {
+  .nav3__toggle { display: inline-flex; }
+  .nav3__menu { position: absolute; top: 100%; left: 0; right: 0; display: none;
+    flex-direction: column; align-items: flex-start; gap: var(--sp-5);
+    background: var(--surface-1); border-bottom: 1px solid var(--border);
+    padding: var(--sp-5) var(--sp-6); }
+  .nav3__menu.open { display: flex; }
+  .nav3__links { flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
+  .nav3__actions { flex-wrap: wrap; gap: var(--sp-3); }
+}
