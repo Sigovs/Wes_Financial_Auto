@@ -272,7 +272,7 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .nav3__brand { display: inline-flex; align-items: center; flex: none; }
 /* larger over the hero, shrinks once the nav goes solid on scroll */
 .nav3__brand img { display: block; height: 60px; width: auto; transition: height var(--transition); }
-.nav3.solid .nav3__brand img { height: 40px; }
+.nav3.solid .nav3__brand img { height: 48px; }
 
 .nav3__menu { display: flex; align-items: center; gap: var(--sp-7); }
 .nav3__links { display: flex; align-items: center; gap: var(--sp-5); }
