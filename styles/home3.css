@@ -53,6 +53,35 @@
 }
 
 /* =====================================================================
+   PALETTE — index3 (client-supplied). Overrides tokens.css for this page.
+   Raw hex lives here (this is index3's token layer); components use roles.
+   ===================================================================== */
+:root {
+  /* surface ladder (dark → depth by hue shift) */
+  --surface-0: #18171D;   /* page background — darkest */
+  --surface-1: #29292D;   /* cards, sections */
+  --surface-2: #2A2626;   /* raised cards, inputs — warm */
+  --surface-3: #253136;   /* top panels, highlights — cool */
+
+  /* accents */
+  --accent:        #552324;   /* primary — CTAs, prices (muted bordeaux) */
+  --accent-hover:  color-mix(in srgb, var(--accent) 80%, #ffffff);
+  --accent-active: color-mix(in srgb, var(--accent) 88%, #000000);
+  --accent-bg:     color-mix(in srgb, var(--accent) 18%, transparent);
+  --accent-border: color-mix(in srgb, var(--accent) 45%, transparent);
+  --on-accent:     #F6F1EE;   /* warm off-white on bordeaux */
+  --accent-2:      #51493D;   /* secondary — bronze/olive detail */
+
+  /* hairlines derived from the surfaces */
+  --border:          color-mix(in srgb, #ffffff 8%,  var(--surface-1));
+  --border-strong:   color-mix(in srgb, #ffffff 15%, var(--surface-1));
+  --border-stronger: color-mix(in srgb, #ffffff 22%, var(--surface-1));
+  --divider:         color-mix(in srgb, #ffffff 6%,  var(--surface-0));
+
+  --focus-ring: 0 0 0 2px var(--surface-0), 0 0 0 4px var(--accent);
+}
+
+/* =====================================================================
    BASE
    ===================================================================== */
 *, *::before, *::after { box-sizing: border-box; }
