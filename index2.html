@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wes Financial Auto — Highline inventory, real financing</title>
+<meta name="description" content="A private highline showroom. Curated $80k–$100k vehicles, clear financing, and appointment-based buying.">
+
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/utilities.css">
+<link rel="stylesheet" href="styles/home.css">
+<link rel="stylesheet" href="styles/home2.css">
+</head>
+<body id="top">
+
+<a class="btn btn-primary" href="#main" style="position:absolute;left:var(--space-4);top:var(--space-2);transform:translateY(-200%);z-index:var(--z-toast);transition:transform var(--dur-base) var(--ease-out)" onfocus="this.style.transform='translateY(0)'" onblur="this.style.transform='translateY(-200%)'">Skip to content</a>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="site-nav">
+  <div class="container nav__inner">
+    <div class="row-between">
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="assets/img/hero/logo.svg" alt="Wes Financial Auto" width="182" height="57">
+      </a>
+
+      <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <nav class="nav__links" aria-label="Primary">
+          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link" href="inventory.html">Inventory</a>
+          <a class="nav-link" href="financing.html">Financing</a>
+          <a class="nav-link" href="sell.html">Sell your car</a>
+        </nav>
+        <div class="nav__actions">
+          <a class="nav__phone" href="tel:+18882255937" aria-label="Call us at (888) 225-5937">(888) 225-5937</a>
+          <a class="btn btn-primary" href="financing.html">Get pre-approved</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="full-bleed hero" aria-label="Wes Financial Auto">
+    <div class="hero__media" data-parallax="0.12" aria-hidden="true">
+      <img class="hero__img" src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=80&w=2400&auto=format&fit=crop" alt="" fetchpriority="high">
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <div class="container">
+        <p class="kicker hero__kicker"><span>By appointment</span></p>
+        <h1 class="type-display-xl hero__title">Rare inventory.<br>Real financing.</h1>
+        <p class="hero__sub">A curated highline collection. Financing without pressure.</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary btn-xl" href="inventory.html">View inventory <span class="arr" aria-hidden="true">→</span></a>
+          <a class="hero__textlink" href="sell.html">Sell your car <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TRUST RAIL ============================ -->
+  <section class="full-bleed trust" aria-label="What sets us apart">
+    <div class="container">
+      <div class="trust__grid">
+        <div class="trust__item"><p class="trust__k">Curated</p><p class="trust__v">Hand-selected highline inventory</p></div>
+        <div class="trust__item"><p class="trust__k">Transparent</p><p class="trust__v">Clear price, clear terms</p></div>
+        <div class="trust__item"><p class="trust__k">By appointment</p><p class="trust__v">Private, unhurried viewings</p></div>
+        <div class="trust__item"><p class="trust__k">Financing</p><p class="trust__v">Secure and pressure-free</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FEATURED INVENTORY (3×2 collection wall) ============================ -->
+  <section class="section" id="inventory" aria-labelledby="inv-title">
+    <div class="container">
+      <div class="inv__head reveal">
+        <div>
+          <p class="kicker"><span>The collection</span></p>
+          <h2 class="type-display-md" id="inv-title">Current inventory</h2>
+        </div>
+        <a class="link-arrow" href="inventory.html">View all <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="inv-grid stagger">
+        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2021 Lamborghini Huracán — 239,000 dollars">
+          <div class="vcard__media">
+            <span class="vcard__badge vcard__badge--available">Available</span>
+            <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=1100&auto=format&fit=crop" alt="White Lamborghini Huracán, front three-quarter" loading="lazy">
+            <div class="vcard__hover" aria-hidden="true">
+              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">Lamborghini</span><span class="vcard__model">Huracán</span></h3>
+              <dl class="vcard__specs">
+                <div class="vcard__spec"><dt>Interior</dt><dd>Nero Ade leather</dd></div>
+                <div class="vcard__spec"><dt>Exterior</dt><dd>Bianco Monocerus</dd></div>
+                <div class="vcard__spec"><dt>Engine</dt><dd>5.2L V10 · 602 hp</dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><span class="vcard__make">Lamborghini</span><span class="vcard__model">Huracán</span></h3>
+            <p class="vcard__meta">2021 · 6,100 mi · LDF</p>
+            <p class="vcard__price">$239,000</p>
+            <div class="vcard__actions" aria-hidden="true">
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
+            </div>
+          </div>
+        </a></div>
+
+        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2022 Mercedes-AMG GT — 118,900 dollars">
+          <div class="vcard__media">
+            <span class="vcard__badge vcard__badge--pending">Sale pending</span>
+            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1100&auto=format&fit=crop" alt="Silver Mercedes-AMG GT, front three-quarter" loading="lazy">
+            <div class="vcard__hover" aria-hidden="true">
+              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">Mercedes-AMG</span><span class="vcard__model">GT</span></h3>
+              <dl class="vcard__specs">
+                <div class="vcard__spec"><dt>Interior</dt><dd>Black Nappa</dd></div>
+                <div class="vcard__spec"><dt>Exterior</dt><dd>Selenite Grey</dd></div>
+                <div class="vcard__spec"><dt>Engine</dt><dd>4.0L V8 biturbo</dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><span class="vcard__make">Mercedes-AMG</span><span class="vcard__model">GT</span></h3>
+            <p class="vcard__meta">2022 · 8,900 mi · Auto</p>
+            <p class="vcard__price">$118,900</p>
+            <div class="vcard__actions" aria-hidden="true">
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
+            </div>
+          </div>
+        </a></div>
+
+        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2021 Porsche 911 Carrera — 124,500 dollars">
+          <div class="vcard__media">
+            <span class="vcard__badge vcard__badge--sold">Sold</span>
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1100&auto=format&fit=crop" alt="Porsche 911 Carrera in dramatic low light" loading="lazy">
+            <div class="vcard__hover" aria-hidden="true">
+              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">Porsche</span><span class="vcard__model">911 Carrera</span></h3>
+              <dl class="vcard__specs">
+                <div class="vcard__spec"><dt>Interior</dt><dd>Bordeaux Red</dd></div>
+                <div class="vcard__spec"><dt>Exterior</dt><dd>GT Silver</dd></div>
+                <div class="vcard__spec"><dt>Engine</dt><dd>3.0L flat-6</dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><span class="vcard__make">Porsche</span><span class="vcard__model">911 Carrera</span></h3>
+            <p class="vcard__meta">2021 · 12,400 mi · PDK</p>
+            <p class="vcard__price">$124,500</p>
+            <div class="vcard__actions" aria-hidden="true">
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
+            </div>
+          </div>
+        </a></div>
+
+        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2020 Audi R8 V10 — 142,000 dollars">
+          <div class="vcard__media">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1100&auto=format&fit=crop" alt="Audi R8 V10, front three-quarter in dramatic light" loading="lazy">
+            <div class="vcard__hover" aria-hidden="true">
+              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">Audi</span><span class="vcard__model">R8 V10</span></h3>
+              <dl class="vcard__specs">
+                <div class="vcard__spec"><dt>Interior</dt><dd>Black Fine Nappa</dd></div>
+                <div class="vcard__spec"><dt>Exterior</dt><dd>Ara Blue</dd></div>
+                <div class="vcard__spec"><dt>Engine</dt><dd>5.2L V10 · 562 hp</dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><span class="vcard__make">Audi</span><span class="vcard__model">R8 V10</span></h3>
+            <p class="vcard__meta">2020 · 15,200 mi · S tronic</p>
+            <p class="vcard__price">$142,000</p>
+            <div class="vcard__actions" aria-hidden="true">
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
+            </div>
+          </div>
+        </a></div>
+
+        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2023 BMW M8 Competition — 132,500 dollars">
+          <div class="vcard__media">
+            <span class="vcard__badge vcard__badge--available">Available</span>
+            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1100&auto=format&fit=crop" alt="BMW M8 Competition, front three-quarter" loading="lazy">
+            <div class="vcard__hover" aria-hidden="true">
+              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">BMW</span><span class="vcard__model">M8 Competition</span></h3>
+              <dl class="vcard__specs">
+                <div class="vcard__spec"><dt>Interior</dt><dd>Silverstone Merino</dd></div>
+                <div class="vcard__spec"><dt>Exterior</dt><dd>Alpine White</dd></div>
+                <div class="vcard__spec"><dt>Engine</dt><dd>4.4L V8 · 617 hp</dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><span class="vcard__make">BMW</span><span class="vcard__model">M8 Competition</span></h3>
+            <p class="vcard__meta">2023 · 4,300 mi · M Steptronic</p>
+            <p class="vcard__price">$132,500</p>
+            <div class="vcard__actions" aria-hidden="true">
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
+            </div>
+          </div>
+        </a></div>
+
+        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2022 Range Rover Autobiography — 109,800 dollars">
+          <div class="vcard__media">
+            <span class="vcard__badge vcard__badge--pending">Sale pending</span>
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1100&auto=format&fit=crop" alt="Highline vehicle in a dark showroom" loading="lazy">
+            <div class="vcard__hover" aria-hidden="true">
+              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">Range Rover</span><span class="vcard__model">Autobiography</span></h3>
+              <dl class="vcard__specs">
+                <div class="vcard__spec"><dt>Interior</dt><dd>Ebony / Ivory</dd></div>
+                <div class="vcard__spec"><dt>Exterior</dt><dd>Firenze Red</dd></div>
+                <div class="vcard__spec"><dt>Engine</dt><dd>5.0L V8 supercharged</dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><span class="vcard__make">Range Rover</span><span class="vcard__model">Autobiography</span></h3>
+            <p class="vcard__meta">2022 · 18,700 mi · Auto</p>
+            <p class="vcard__price">$109,800</p>
+            <div class="vcard__actions" aria-hidden="true">
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
+              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
+            </div>
+          </div>
+        </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CINEMATIC VISUAL BREAK ============================ -->
+  <section class="full-bleed vbreak" aria-label="Selected with intent">
+    <div class="vbreak__media" data-parallax="0.16" aria-hidden="true">
+      <img class="vbreak__img" src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2200&auto=format&fit=crop" alt="" loading="lazy">
+    </div>
+    <div class="vbreak__scrim" aria-hidden="true"></div>
+    <div class="vbreak__copy">
+      <div class="container reveal">
+        <p class="kicker vbreak__kicker"><span>The standard</span></p>
+        <p class="type-display-xl vbreak__line caps">Selected with intent.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FINANCING ============================ -->
+  <section class="full-bleed bleed-inset section" id="financing" aria-labelledby="fin-title">
+    <div class="container">
+      <div class="grid12" style="row-gap:var(--space-12)">
+        <div class="col-span-4 col-start-2 reveal fin__intro">
+          <p class="kicker"><span>Financing</span></p>
+          <h2 class="type-display-md fin__title" id="fin-title">Financing,<br>made simple</h2>
+          <p class="fin__copy">A secure application, a clear number, and an appointment-based handoff. No pressure, no gimmicks.</p>
+          <div class="fin__cta">
+            <a class="btn btn-primary btn-xl" href="financing.html">Get pre-approved <span class="arr" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="col-span-5 col-start-7 reveal">
+          <ol class="cstep-list stagger" aria-label="How financing works">
+            <li class="cstep reveal">
+              <span class="cstep__num">01</span>
+              <div><h3 class="type-h3 cstep__title caps-light">Apply securely</h3><p class="cstep__copy">A short, encrypted application — only the details we need.</p></div>
+            </li>
+            <li class="cstep reveal">
+              <span class="cstep__num">02</span>
+              <div><h3 class="type-h3 cstep__title caps-light">Get a clear number</h3><p class="cstep__copy">A transparent rate and term, nothing buried in fine print.</p></div>
+            </li>
+            <li class="cstep reveal">
+              <span class="cstep__num">03</span>
+              <div><h3 class="type-h3 cstep__title caps-light">Drive by appointment</h3><p class="cstep__copy">Finalize in person, unhurried, and drive away the same day.</p></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SELL YOUR CAR ============================ -->
+  <section class="section" id="sell" aria-labelledby="sell-title">
+    <div class="container">
+      <div class="grid12">
+        <div class="col-span-6 reveal">
+          <div class="sell__media clip-reveal">
+            <img src="https://images.unsplash.com/photo-1542228262-3d663b306a53?q=80&w=1200&auto=format&fit=crop" alt="Highline coupe on an open road, front three-quarter" loading="lazy">
+          </div>
+        </div>
+        <div class="col-span-5 col-start-8 reveal sell__intro">
+          <p class="kicker"><span>Sell or consign</span></p>
+          <h2 class="type-display-md about__title" id="sell-title">Sell or consign your highline car</h2>
+          <p class="sell__copy">A private, appointment-based evaluation and a curated set of buyers — a clear number before you commit to anything.</p>
+          <ul class="sell__list">
+            <li>Private, appointment-based evaluation</li>
+            <li>Direct purchase or consignment options</li>
+            <li>A clear number before you move forward</li>
+          </ul>
+          <div class="sell__cta">
+            <a class="btn btn-primary btn-xl" href="sell.html">Get an offer <span class="arr" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ INSTAGRAM (quiet strip) ============================ -->
+  <section class="section-sm" id="showroom" aria-labelledby="ig-title">
+    <div class="container">
+      <div class="ig-head reveal">
+        <h2 class="type-h3 caps-light" id="ig-title">From the showroom</h2>
+        <a class="link-arrow" href="https://instagram.com" rel="noopener" target="_blank">@placeholder <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <div class="ig-strip reveal">
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=600&auto=format&fit=crop" alt="Lamborghini in the showroom" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=80&w=600&auto=format&fit=crop" alt="Audi detail in low light" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=600&auto=format&fit=crop" alt="Exotic profile under dramatic light" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=600&auto=format&fit=crop" alt="Mercedes-AMG GT three-quarter" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+        <a class="ig-item" href="https://instagram.com" rel="noopener" target="_blank" aria-label="Showroom photo on Instagram"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=600&auto=format&fit=crop" alt="BMW M three-quarter" loading="lazy"><span class="ig-item__veil" aria-hidden="true"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ABOUT (full-bleed image + text on the side) ============================ -->
+  <section class="full-bleed about" id="about" aria-labelledby="about-title">
+    <div class="about__media" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=2400&auto=format&fit=crop" alt="" loading="lazy">
+    </div>
+    <div class="about__scrim" aria-hidden="true"></div>
+    <div class="about__inner">
+      <div class="container">
+        <div class="grid12">
+          <div class="col-span-5 reveal">
+            <p class="kicker"><span>About</span></p>
+            <h2 class="type-display-lg about__title" id="about-title">A dealer, not a lot</h2>
+            <p class="about__copy">A small, deliberate collection of highline vehicles — sold by appointment, with transparent numbers and financing that respects your time.</p>
+            <p class="about__note">By appointment · Est. 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="full-bleed site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <img class="footer__logo" src="assets/img/hero/logo.svg" alt="Wes Financial Auto" width="182" height="57">
+        <p class="footer__tagline">A private highline showroom — curated inventory, real financing, by appointment.</p>
+        <address class="footer__addr">
+          <a href="https://maps.google.com/?q=5952+N.+Telegraph+Road,+Dearborn+Heights,+MI+48127" rel="noopener" target="_blank">5952 N. Telegraph Road, Dearborn Heights, MI 48127</a>
+          <a href="tel:+18882255937">(888) 225-5937</a>
+        </address>
+      </div>
+      <nav aria-label="Footer">
+        <p class="footer__h">Explore</p>
+        <ul class="footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="inventory.html">Inventory</a></li>
+          <li><a href="financing.html">Financing</a></li>
+          <li><a href="sell.html">Sell your car</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="footer__h">Contact</p>
+        <ul class="footer__list">
+          <li><a href="https://maps.google.com/?q=5952+N.+Telegraph+Road,+Dearborn+Heights,+MI+48127" rel="noopener" target="_blank">5952 N. Telegraph Road<br>Dearborn Heights, MI 48127</a></li>
+          <li><a href="tel:+18882255937">(888) 225-5937</a></li>
+          <li><a href="mailto:hello@wesfinancialauto.com">hello@wesfinancialauto.com</a></li>
+          <li><span>By appointment</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__h">Social</p>
+        <ul class="footer__list">
+          <li><a href="https://instagram.com" rel="noopener" target="_blank">Instagram</a></li>
+          <li><a href="https://facebook.com" rel="noopener" target="_blank">Facebook</a></li>
+          <li><a href="https://youtube.com" rel="noopener" target="_blank">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__legal">Inventory, pricing, and financing terms are subject to approval and availability.</p>
+      <p class="footer__copy">© 2026 Wes Financial Auto</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/home.js" defer></script>
+</body>
+</html>

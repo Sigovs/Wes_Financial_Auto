@@ -1,0 +1,89 @@
+/* =====================================================================
+   home2.css — EDITORIAL BLACK layer for index2.html
+   Loaded AFTER home.css; overrides by source order (no !important).
+   Goal: kill the SaaS "dark dashboard" — remove card chrome, let imagery
+   and typography carry it, cut red to a single accent, add black air.
+   Tokens only.
+   ===================================================================== */
+
+/* ---------- deeper, quieter ground ---------- */
+body { background: var(--surface-0); }
+
+/* ---------- one accent only: hero stays red, every other CTA is a quiet outline ---------- */
+.nav__actions .btn-primary,
+.fin__cta .btn-primary,
+.sell__cta .btn-primary {
+  background: transparent; color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+.nav__actions .btn-primary:hover,
+.fin__cta .btn-primary:hover,
+.sell__cta .btn-primary:hover {
+  background: transparent; border-color: var(--text-primary); color: var(--text-primary);
+}
+
+/* ---------- bigger, more confident editorial type ---------- */
+.type-display-md { font-size: var(--fs-4xl); letter-spacing: var(--ls-tighter); }   /* section heads -> 64 */
+.section-head, .inv__head, .ig-head, .sec-head { margin-bottom: var(--space-16); }
+
+/* =====================================================================
+   INVENTORY — from cards to an editorial collection wall
+   ===================================================================== */
+.inv { }
+.inv-grid { gap: var(--space-12) var(--space-8); }        /* more air between rows */
+
+/* the card is no longer a box — just an image with a caption beneath it */
+.vcard { background: none; border: 0; border-radius: 0; overflow: visible; height: auto; }
+.vcard:hover { transform: none; box-shadow: none; border: 0; }
+.vcard__media { aspect-ratio: 4 / 3; border-radius: var(--radius-sm); }
+
+/* caption sits on the page, no panel */
+.vcard__body { padding: var(--space-5) 0 0; }
+/* title always visible in the caption (no collapse), quiet meta, light price */
+.vcard__body .vcard__title,
+.vcard:hover .vcard__body .vcard__title,
+.vcard:focus-within .vcard__body .vcard__title { max-height: none; opacity: 1; }
+.vcard__make { font-size: var(--fs-xs); letter-spacing: var(--ls-widest); color: var(--text-muted); }
+.vcard__model { font-size: var(--fs-xl); }
+.vcard__price { color: var(--text-primary); font-family: var(--font-display); font-weight: var(--fw-medium);
+  font-size: var(--fs-md); letter-spacing: var(--ls-normal); margin-top: var(--space-3); }
+
+/* drop the quick-action pills — chrome */
+.vcard__actions { display: none; }
+
+/* hover reveals only the spec sheet over a darkened photo — no title duplicate, no panel */
+.vcard__hover { background: color-mix(in srgb, var(--surface-0) 80%, transparent); justify-content: center;
+  padding: var(--space-8); }
+.vcard__title--over { display: none; }
+.vcard__specs { margin-top: 0; gap: var(--space-4); }
+.vcard__spec dt { color: var(--text-muted); }
+
+/* status: even quieter — no dot, just a hairline label top-left, on the image */
+.vcard__media::after { height: 55%; background: linear-gradient(color-mix(in srgb, var(--surface-0) 65%, transparent), transparent); }
+.vcard__badge { top: var(--space-4); left: var(--space-4); right: auto; color: var(--text-secondary); }
+.vcard__badge::before { display: none; }
+
+/* =====================================================================
+   TRUST RAIL — from a bordered strip to a quiet editorial line
+   ===================================================================== */
+.trust { background: none; border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
+.trust__item { border-left: 0; padding: var(--space-8) var(--space-6) var(--space-8) 0; }
+.trust__k { font-size: var(--fs-md); font-weight: var(--fw-medium); }
+
+/* =====================================================================
+   HERO — a touch more scale + air (keep concept)
+   ===================================================================== */
+.hero__title { max-width: 14ch; }
+.hero__sub { font-size: var(--fs-md); max-width: 38ch; }
+
+/* =====================================================================
+   FINANCING — architectural, quieter numbers (accent only as a hairline)
+   ===================================================================== */
+.cstep { gap: var(--space-12); }
+.cstep__num { color: var(--text-muted); font-weight: var(--fw-regular); }
+
+/* =====================================================================
+   INSTAGRAM — smaller, quieter footprint
+   ===================================================================== */
+.ig-strip { gap: var(--space-3); }
+.ig-head { margin-bottom: var(--space-8); }
