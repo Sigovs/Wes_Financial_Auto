@@ -64,12 +64,12 @@
   --surface-3: #253136;   /* top panels, highlights — cool */
 
   /* accents */
-  --accent:        #552324;   /* primary — CTAs, prices (muted bordeaux) */
+  --accent:        #33518D;   /* primary — CTAs, prices (deep blue) */
   --accent-hover:  color-mix(in srgb, var(--accent) 80%, #ffffff);
   --accent-active: color-mix(in srgb, var(--accent) 88%, #000000);
   --accent-bg:     color-mix(in srgb, var(--accent) 18%, transparent);
   --accent-border: color-mix(in srgb, var(--accent) 45%, transparent);
-  --on-accent:     #F6F1EE;   /* warm off-white on bordeaux */
+  --on-accent:     #F5F7FA;   /* cool off-white on blue */
   --accent-2:      #51493D;   /* secondary — bronze/olive detail */
 
   /* hairlines derived from the surfaces */
