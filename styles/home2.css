@@ -22,15 +22,42 @@ body { background: var(--surface-0); }
   background: transparent; border-color: var(--text-primary); color: var(--text-primary);
 }
 
+/* ---------- display face: editorial serif italic ---------- */
+:root { --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif; }
+.type-display-xl, .type-display-lg, .type-display-md,
+.type-h1, .type-h2, .type-h3, .type-h4,
+.hero__title, .vcard__model, .vbreak__line, .fin__title, .about__title, .cstep__num, .caps {
+  font-style: italic; letter-spacing: var(--ls-normal);
+}
+
 /* ---------- bigger, more confident editorial type ---------- */
-.type-display-md { font-size: var(--fs-4xl); letter-spacing: var(--ls-tighter); }   /* section heads -> 64 */
+.type-display-md { font-size: var(--fs-4xl); }   /* section heads -> 64 */
 .section-head, .inv__head, .ig-head, .sec-head { margin-bottom: var(--space-16); }
 
 /* =====================================================================
-   INVENTORY — from cards to an editorial collection wall
+   INVENTORY — one full-bleed, edge-to-edge drag carousel
    ===================================================================== */
-.inv { }
-.inv-grid { gap: var(--space-12) var(--space-8); }        /* more air between rows */
+.inv__head { margin-bottom: var(--space-12); }
+.inv-rail {
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+  /* snap respects the leading inset so the first slide lines up with .container */
+  scroll-padding-inline: max(var(--gutter), calc((100vw - var(--container)) / 2));
+  cursor: grab; scrollbar-width: none;
+}
+.inv-rail::-webkit-scrollbar { display: none; }
+.inv-rail:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent); }
+.inv-rail.dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+.inv-rail.dragging a { pointer-events: none; }
+.inv-track {
+  list-style: none; display: flex; gap: var(--space-8); align-items: flex-start;
+  /* first slide lines up with .container; bleeds to the right edge */
+  padding-inline: max(var(--gutter), calc((100vw - var(--container)) / 2));
+  padding-block: var(--space-2);
+}
+.inv-slide { flex: 0 0 calc(var(--container) / 4 - var(--space-8)); scroll-snap-align: start; }
+@media (max-width: 1024px) { .inv-slide { flex-basis: 42%; } }
+@media (max-width: 680px)  { .inv-slide { flex-basis: 80%; } }
 
 /* the card is no longer a box — just an image with a caption beneath it */
 .vcard { background: none; border: 0; border-radius: 0; overflow: visible; height: auto; }

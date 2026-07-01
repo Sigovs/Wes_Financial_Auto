@@ -10,7 +10,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/tokens.css">
 <link rel="stylesheet" href="styles/utilities.css">
 <link rel="stylesheet" href="styles/home.css">
@@ -83,18 +83,17 @@
   </section>
 
   <!-- ============================ FEATURED INVENTORY (3×2 collection wall) ============================ -->
-  <section class="section" id="inventory" aria-labelledby="inv-title">
-    <div class="container">
-      <div class="inv__head reveal">
-        <div>
-          <p class="kicker"><span>The collection</span></p>
-          <h2 class="type-display-md" id="inv-title">Current inventory</h2>
-        </div>
-        <a class="link-arrow" href="inventory.html">View all <span class="arr" aria-hidden="true">→</span></a>
+  <section class="full-bleed inv section" id="inventory" aria-labelledby="inv-title">
+    <div class="container inv__head reveal">
+      <div>
+        <p class="kicker"><span>The collection</span></p>
+        <h2 class="type-display-md" id="inv-title">Current inventory</h2>
       </div>
-
-      <div class="inv-grid stagger">
-        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2021 Lamborghini Huracán — 239,000 dollars">
+      <a class="link-arrow" href="inventory.html">View all <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+    <div class="inv-rail" role="region" aria-label="Current inventory — drag, scroll, or use arrow keys" tabindex="0">
+      <ul class="inv-track">
+        <li class="inv-slide"><a class="vcard" href="vehicle.html" aria-label="2021 Lamborghini Huracán — 239,000 dollars">
           <div class="vcard__media">
             <span class="vcard__badge vcard__badge--available">Available</span>
             <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=1100&auto=format&fit=crop" alt="White Lamborghini Huracán, front three-quarter" loading="lazy">
@@ -117,9 +116,9 @@
               <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
             </div>
           </div>
-        </a></div>
+        </a></li>
 
-        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2022 Mercedes-AMG GT — 118,900 dollars">
+        <li class="inv-slide"><a class="vcard" href="vehicle.html" aria-label="2022 Mercedes-AMG GT — 118,900 dollars">
           <div class="vcard__media">
             <span class="vcard__badge vcard__badge--pending">Sale pending</span>
             <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1100&auto=format&fit=crop" alt="Silver Mercedes-AMG GT, front three-quarter" loading="lazy">
@@ -142,9 +141,9 @@
               <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
             </div>
           </div>
-        </a></div>
+        </a></li>
 
-        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2021 Porsche 911 Carrera — 124,500 dollars">
+        <li class="inv-slide"><a class="vcard" href="vehicle.html" aria-label="2021 Porsche 911 Carrera — 124,500 dollars">
           <div class="vcard__media">
             <span class="vcard__badge vcard__badge--sold">Sold</span>
             <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1100&auto=format&fit=crop" alt="Porsche 911 Carrera in dramatic low light" loading="lazy">
@@ -167,9 +166,9 @@
               <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
             </div>
           </div>
-        </a></div>
+        </a></li>
 
-        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2020 Audi R8 V10 — 142,000 dollars">
+        <li class="inv-slide"><a class="vcard" href="vehicle.html" aria-label="2020 Audi R8 V10 — 142,000 dollars">
           <div class="vcard__media">
             <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1100&auto=format&fit=crop" alt="Audi R8 V10, front three-quarter in dramatic light" loading="lazy">
             <div class="vcard__hover" aria-hidden="true">
@@ -191,9 +190,9 @@
               <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
             </div>
           </div>
-        </a></div>
+        </a></li>
 
-        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2023 BMW M8 Competition — 132,500 dollars">
+        <li class="inv-slide"><a class="vcard" href="vehicle.html" aria-label="2023 BMW M8 Competition — 132,500 dollars">
           <div class="vcard__media">
             <span class="vcard__badge vcard__badge--available">Available</span>
             <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1100&auto=format&fit=crop" alt="BMW M8 Competition, front three-quarter" loading="lazy">
@@ -216,9 +215,9 @@
               <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
             </div>
           </div>
-        </a></div>
+        </a></li>
 
-        <div class="reveal"><a class="vcard" href="vehicle.html" aria-label="2022 Range Rover Autobiography — 109,800 dollars">
+        <li class="inv-slide"><a class="vcard" href="vehicle.html" aria-label="2022 Range Rover Autobiography — 109,800 dollars">
           <div class="vcard__media">
             <span class="vcard__badge vcard__badge--pending">Sale pending</span>
             <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1100&auto=format&fit=crop" alt="Highline vehicle in a dark showroom" loading="lazy">
@@ -241,8 +240,8 @@
               <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
             </div>
           </div>
-        </a></div>
-      </div>
+        </a></li>
+      </ul>
     </div>
   </section>
 
@@ -405,5 +404,6 @@
 </footer>
 
 <script src="js/home.js" defer></script>
+<script src="js/home2.js" defer></script>
 </body>
 </html>
