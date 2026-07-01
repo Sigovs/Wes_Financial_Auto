@@ -152,6 +152,16 @@
   });
 })();
 
+/* index3 — honor reduced motion for background video (show poster, don't loop) */
+(function bgVideo() {
+  'use strict';
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  Array.prototype.slice.call(document.querySelectorAll('video[autoplay]')).forEach(function (v) {
+    v.removeAttribute('autoplay'); v.removeAttribute('loop');
+    try { v.pause(); } catch (e) {}
+  });
+})();
+
 /* index3 — staircase slide-in reveal for titles (.r-step groups) */
 (function reveals() {
   'use strict';

@@ -414,7 +414,7 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
    ===================================================================== */
 .vbreak3 { position: relative; overflow: hidden; min-height: 74vh; display: flex; align-items: center; }
 .vbreak3__media { position: absolute; top: -40%; left: 0; right: 0; height: 180%; z-index: 0; will-change: transform; }
-.vbreak3__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 58%; }
+.vbreak3__media img, .vbreak3__media video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 58%; }
 /* left darken for text + long, soft top/bottom fade into the page ground (no hard edge) */
 .vbreak3__scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
