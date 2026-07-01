@@ -431,12 +431,18 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
    FEATURE SECTIONS — Financing + Sell/Consign (editorial split)
    ===================================================================== */
 .feature3 { padding-block: var(--sp-9); }
-/* small accent radial glow below the Financing section */
+/* organic accent glow below the Financing section — irregular blob with soft
+   concave indentations (union of several offset radial lobes), no hard edges */
 .feature3#financing { position: relative; isolation: isolate; }
-.feature3#financing::after { content: ""; position: absolute; left: 50%; bottom: -40px; z-index: -1;
-  transform: translateX(-50%); width: min(720px, 82vw); height: 300px; pointer-events: none;
-  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 22%, transparent), transparent 68%);
-  filter: blur(24px); }
+.feature3#financing::after { content: ""; position: absolute; left: 50%; bottom: -70px; z-index: -1;
+  transform: translateX(-50%); width: min(940px, 92vw); height: 440px; pointer-events: none;
+  background:
+    radial-gradient(38% 52% at 26% 42%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 70%),
+    radial-gradient(30% 60% at 46% 66%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
+    radial-gradient(46% 34% at 58% 30%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 72%),
+    radial-gradient(34% 48% at 74% 56%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
+    radial-gradient(26% 40% at 40% 30%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 72%);
+  filter: blur(30px); }
 .feat3 { align-items: stretch; row-gap: var(--sp-6); }   /* photo + text share the row height */
 .feat3__media { display: flex; }
 
