@@ -342,10 +342,34 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
   background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius);
   transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition); }
 .inv-card:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: var(--shadow); }
-.inv-card__media { display: block; aspect-ratio: 3 / 2; overflow: hidden; background: var(--surface-2); }
+.inv-card__media { position: relative; display: block; aspect-ratio: 3 / 2; overflow: hidden; background: var(--surface-2); }
+.inv-card__photo { display: block; width: 100%; height: 100%; }
 .inv-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: center;
   transition: transform var(--transition-slow); }
 .inv-card:hover .inv-card__media img { transform: scale(1.04); }
+
+/* hover actions — slide up from the bottom of the photo, staggered */
+.inv-card__actions { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  display: flex; gap: var(--sp-2); padding: var(--sp-3);
+  background: linear-gradient(to top, color-mix(in srgb, var(--surface-0) 82%, transparent), transparent);
+  opacity: 0; transition: opacity var(--transition); pointer-events: none; }
+.inv-card:hover .inv-card__actions, .inv-card:focus-within .inv-card__actions { opacity: 1; pointer-events: auto; }
+.inv3-rail.dragging .inv-card__actions { pointer-events: none; }
+
+.inv-card__act { display: inline-flex; align-items: center; gap: var(--sp-1);
+  font-family: var(--font-sans); font-weight: var(--weight-medium); font-size: var(--text-xs);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-primary);
+  background: color-mix(in srgb, var(--surface-2) 80%, transparent);
+  border: 1px solid var(--border); border-radius: var(--radius); padding: var(--sp-2) var(--sp-3);
+  cursor: pointer; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  transform: translateY(10px); opacity: 0;
+  transition: transform var(--transition), opacity var(--transition), background var(--transition), border-color var(--transition); }
+.inv-card:hover .inv-card__act, .inv-card:focus-within .inv-card__act { transform: none; opacity: 1; }
+.inv-card:hover .inv-card__act:nth-child(2) { transition-delay: .05s; }
+.inv-card:hover .inv-card__act:nth-child(3) { transition-delay: .1s; }
+.inv-card__act:hover { background: var(--surface-3); border-color: var(--border-strong); }
+.inv-card__act:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.inv-card__act svg { width: 14px; height: 14px; flex: none; }
 .inv-card__body { display: flex; flex-direction: column; padding: var(--sp-4); }
 /* title reserves two lines: year make / model — keeps every card aligned */
 .inv-card__body .inv-card__title { display: flex; flex-direction: column;
