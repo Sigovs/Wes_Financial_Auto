@@ -552,7 +552,7 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .footer3__cta { margin-top: auto; align-self: flex-start; }
 
 .footer3__logo img { display: block; height: 34px; width: auto;
-  filter: grayscale(1) brightness(0.92); opacity: .5; }
+  filter: grayscale(1) brightness(1); opacity: .65; }
 .footer3__tagline { margin-top: var(--sp-4); max-width: 34ch; font-size: var(--text-sm);
   line-height: 1.6; color: var(--text-secondary); }
 .footer3__social { display: flex; gap: var(--sp-3); margin-top: var(--sp-4); }
