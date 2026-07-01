@@ -129,6 +129,29 @@
   rail.addEventListener('wheel', glideStop, { passive: true });
 })();
 
+/* index3 — feature photos: pointer-following 3D tilt on hover (deck + depth slices) */
+(function tilt() {
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var medias = Array.prototype.slice.call(document.querySelectorAll('.feat3__media'));
+  var TILT = 9;   // degrees either side
+
+  medias.forEach(function (m) {
+    var deck = m.querySelector('.feat3__deck');
+    if (!deck) return;
+    m.addEventListener('pointermove', function (e) {
+      if (reduce.matches) return;
+      var r = m.getBoundingClientRect();
+      var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+      var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+      var rotY = Math.max(-1, Math.min(1, dx)) * TILT;
+      var rotX = -Math.max(-1, Math.min(1, dy)) * TILT;
+      deck.style.transform = 'rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg)';
+    });
+    m.addEventListener('pointerleave', function () { deck.style.transform = ''; });
+  });
+})();
+
 /* index3 — staircase slide-in reveal for titles (.r-step groups) */
 (function reveals() {
   'use strict';

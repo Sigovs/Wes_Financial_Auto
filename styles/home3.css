@@ -456,23 +456,25 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 
 /* photo as 3 slices — at rest they reconstruct one image; on hover they split
    into 3 cards that separate and gently float */
+.feat3__media { perspective: 1000px; }   /* 3D depth for the pointer tilt */
 .feat3__deck { flex: 1; display: flex; gap: 0; width: 100%; height: 100%;
-  border-radius: var(--radius); overflow: hidden; transition: gap var(--transition), border-radius var(--transition); }
+  border-radius: var(--radius); overflow: hidden; transform-style: preserve-3d;
+  transition: transform .18s ease, gap var(--transition), border-radius var(--transition); }
 .feat3__slice { flex: 1 1 0; min-width: 0; background-color: var(--surface-2);
   background-repeat: no-repeat; background-size: 300% 100%;
-  transition: box-shadow var(--transition), border-radius var(--transition); }
+  transition: transform var(--transition), box-shadow var(--transition), border-radius var(--transition); }
 .feat3__slice:nth-child(1) { background-position: 0% center; }
 .feat3__slice:nth-child(2) { background-position: 50% center; }
 .feat3__slice:nth-child(3) { background-position: 100% center; }
+/* hover: split into 3 cards at different depths (parallax under the tilt) */
 .feat3__media:hover .feat3__deck { gap: var(--sp-2); overflow: visible; border-radius: 0; }
-.feat3__media:hover .feat3__slice { box-shadow: var(--shadow-lg); border-radius: var(--radius);
-  animation: floatY 3.4s ease-in-out infinite; }
-.feat3__media:hover .feat3__slice:nth-child(2) { animation-delay: .5s; }
-.feat3__media:hover .feat3__slice:nth-child(3) { animation-delay: 1s; }
-@keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+.feat3__media:hover .feat3__slice { box-shadow: var(--shadow-lg); border-radius: var(--radius); }
+.feat3__media:hover .feat3__slice:nth-child(1) { transform: translateZ(24px); }
+.feat3__media:hover .feat3__slice:nth-child(2) { transform: translateZ(60px); }
+.feat3__media:hover .feat3__slice:nth-child(3) { transform: translateZ(36px); }
 @media (prefers-reduced-motion: reduce) {
-  .feat3__media:hover .feat3__deck { gap: 0; }
-  .feat3__media:hover .feat3__slice { animation: none; }
+  .feat3__media:hover .feat3__deck { gap: 0; transform: none !important; }
+  .feat3__media:hover .feat3__slice { transform: none; box-shadow: none; }
 }
 
 .feat3__body .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
