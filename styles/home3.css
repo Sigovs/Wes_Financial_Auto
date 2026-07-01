@@ -337,9 +337,9 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .inv3-rail:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent); }
 .inv3-rail.dragging { cursor: grabbing; user-select: none; -webkit-user-select: none; }
 .inv3-rail.dragging a { pointer-events: none; }
-.inv3-track { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--sp-4); width: max-content; }
+.inv3-track { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--sp-3); width: max-content; }
 /* 4 large fully in view + a small peek each side */
-.inv3-slide { flex: 0 0 calc(100vw / 4.4 - var(--sp-4)); }
+.inv3-slide { flex: 0 0 calc(100vw / 4.4 - var(--sp-3)); }
 
 .inv-card { position: relative; display: flex; flex-direction: column; height: 100%; overflow: hidden;
   background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius);
@@ -375,18 +375,20 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .inv-card__act:hover { background: color-mix(in srgb, var(--c-white) 8%, transparent); }
 .inv-card__act:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .inv-card__act svg { width: 14px; height: 14px; flex: none; }
-.inv-card__body { display: flex; flex-direction: column; padding: var(--sp-4); }
+.inv-card__body { display: flex; flex-direction: column; padding: var(--sp-3); }
 /* title reserves two lines: year make / model — keeps every card aligned */
 .inv-card__body .inv-card__title { display: flex; flex-direction: column;
-  min-height: calc(30px * 2); margin-bottom: var(--sp-3); }
-.inv-card__ymake, .inv-card__model { display: block; }
+  min-height: calc(24px * 2); margin-bottom: 0; }
+.inv-card__ymake, .inv-card__model { display: block; line-height: 24px; }
+/* thin divider above the price */
 .inv-card__price { font-family: var(--font-display); font-weight: var(--weight-light);
-  font-size: var(--text-xl); letter-spacing: .5px; color: var(--text-strong); }
+  font-size: var(--text-lg); letter-spacing: .5px; color: var(--text-strong);
+  border-top: 1px solid var(--border); margin-top: var(--sp-3); padding-top: var(--sp-3); }
 .inv-card__miles { font-family: var(--font-sans); font-size: var(--text-sm); letter-spacing: .04em;
-  text-transform: uppercase; color: var(--text-muted); margin-top: var(--sp-2); }
+  text-transform: uppercase; color: var(--text-muted); margin-top: var(--sp-1); }
 
-@media (max-width: 900px) { .inv3-slide { flex-basis: calc(100vw / 2.3 - var(--sp-4)); } }
-@media (max-width: 560px) { .inv3-slide { flex-basis: calc(100vw / 1.25 - var(--sp-4)); } }
+@media (max-width: 900px) { .inv3-slide { flex-basis: calc(100vw / 2.3 - var(--sp-3)); } }
+@media (max-width: 560px) { .inv3-slide { flex-basis: calc(100vw / 1.25 - var(--sp-3)); } }
 
 /* =====================================================================
    VISUAL BREAK — full-bleed cinematic band with scroll parallax
