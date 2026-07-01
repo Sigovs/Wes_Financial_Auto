@@ -12,6 +12,7 @@
   --font-mono:    'JetBrains Mono', ui-monospace, monospace;         /* meta / kickers */
 
   /* ---- type scale (px, Vegas) ---- */
+  --text-display: 100px;   /* hero display — Oswald Light */
   --text-6xl: 95px;
   --text-5xl: 61px;
   --text-4xl: 49px;
@@ -120,10 +121,10 @@ body {
    TYPOGRAPHY (Vegas system — colors mapped to our tokens)
    ===================================================================== */
 
-/* big display — Oswald Bold, near-solid line-height, faint tracking, uppercase */
+/* big display — Oswald Light 100px, near-solid line-height, faint tracking, uppercase */
 .display {
-  font-family: var(--font-display); font-weight: var(--weight-bold);
-  font-size: var(--text-6xl); line-height: 1; letter-spacing: .005em;
+  font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: var(--text-display); line-height: 1; letter-spacing: .005em;
   text-transform: uppercase; color: var(--text-primary);
 }
 
