@@ -66,6 +66,7 @@
   --c-steel:  #253136;   /* cool dark */
   --c-blue:   #33518D;   /* accent — deep blue */
   --c-bronze: #51493D;   /* secondary — bronze/olive */
+  --c-pure:   #FFFFFF;   /* pure white — max emphasis / mixes */
   --c-white:  #F5F7FA;   /* cool off-white */
   --c-grey:   #A9A9A9;   /* neutral grey — body copy */
 
@@ -76,6 +77,7 @@
   --surface-3: var(--c-steel);   /* top panels, highlights — cool */
 
   /* ---- text (locked, cool greys on the dark ground) ---- */
+  --text-strong:    var(--c-pure);   /* #FFFFFF — max emphasis */
   --text-primary:   #F1F2F5;
   --text-body:      var(--c-grey);   /* #A9A9A9 — default body copy */
   --text-secondary: #A7ADB8;
