@@ -265,7 +265,7 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   border-bottom-color: var(--border); }
 .nav3__inner { position: relative; max-width: var(--container); margin-inline: auto;
-  padding: var(--sp-3) var(--sp-6); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-6); }
+  padding: var(--sp-5) var(--sp-6) var(--sp-3); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-6); }
 
 .nav3__brand { display: inline-flex; align-items: center; flex: none; }
 /* larger over the hero, shrinks once the nav goes solid on scroll */
@@ -450,32 +450,11 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
   border-radius: var(--radius); display: grid; place-items: center; overflow: hidden; }
 .media-ph span { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: .2em;
   text-transform: uppercase; color: var(--text-muted); }
-/* real photo — fills the media block (equal height with the text) */
+/* real photo — fills the media block (equal height with the text), 3D tilt on hover */
 .feat3__photo { flex: 1; width: 100%; height: 100%; object-fit: cover; object-position: center;
-  border-radius: var(--radius); background: var(--surface-2); }
-
-/* photo as 3 slices — at rest they reconstruct one image; on hover they split
-   into 3 cards that separate and gently float */
-.feat3__media { perspective: 1000px; }   /* 3D depth for the pointer tilt */
-.feat3__deck { flex: 1; display: flex; gap: 0; width: 100%; height: 100%;
-  border-radius: var(--radius); overflow: hidden; transform-style: preserve-3d;
-  transition: transform .18s ease, gap var(--transition), border-radius var(--transition); }
-.feat3__slice { flex: 1 1 0; min-width: 0; background-color: var(--surface-2);
-  background-repeat: no-repeat; background-size: 300% 100%;
-  transition: transform var(--transition), box-shadow var(--transition), border-radius var(--transition); }
-.feat3__slice:nth-child(1) { background-position: 0% center; }
-.feat3__slice:nth-child(2) { background-position: 50% center; }
-.feat3__slice:nth-child(3) { background-position: 100% center; }
-/* hover: split into 3 cards at different depths (parallax under the tilt) */
-.feat3__media:hover .feat3__deck { gap: var(--sp-2); overflow: visible; border-radius: 0; }
-.feat3__media:hover .feat3__slice { box-shadow: var(--shadow-lg); border-radius: var(--radius); }
-.feat3__media:hover .feat3__slice:nth-child(1) { transform: translateZ(24px); }
-.feat3__media:hover .feat3__slice:nth-child(2) { transform: translateZ(60px); }
-.feat3__media:hover .feat3__slice:nth-child(3) { transform: translateZ(36px); }
-@media (prefers-reduced-motion: reduce) {
-  .feat3__media:hover .feat3__deck { gap: 0; transform: none !important; }
-  .feat3__media:hover .feat3__slice { transform: none; box-shadow: none; }
-}
+  border-radius: var(--radius); background: var(--surface-2); will-change: transform;
+  transition: transform .18s ease, box-shadow var(--transition); }
+.feat3__media:hover .feat3__photo { box-shadow: var(--shadow-lg); }
 
 .feat3__body .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
 .feat3__title { font-family: var(--font-display); font-weight: var(--weight-light);
@@ -499,8 +478,8 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
    INSTAGRAM — editorial collage (1 large + 4 small), hover glyph
    ===================================================================== */
 .ig3 { padding-block: var(--sp-9); }
-.ig3__head { display: flex; justify-content: space-between; align-items: flex-end;
-  gap: var(--sp-4); flex-wrap: wrap; margin-bottom: var(--sp-6); }
+.ig3__head { display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: var(--sp-4); margin-bottom: var(--sp-6); }
 .ig3__head .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--sp-2); }
 .ig3__handle { text-transform: none; letter-spacing: .04em; font-size: var(--text-base);
   display: inline-flex; align-items: center; gap: var(--sp-2); }
@@ -508,11 +487,9 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .ig3__handle:hover .arr { transform: translateX(4px); }
 
 .ig3-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-2);
-  grid-template-areas: "a a b c" "a a d e"; }
+  grid-template-areas: "a a b c" "a a d e"; max-width: 780px; margin-inline: auto; }
 .ig3-item { position: relative; overflow: hidden; border-radius: var(--radius);
-  aspect-ratio: 1; background: var(--surface-2); display: block; will-change: transform;
-  transition: transform .18s ease, box-shadow var(--transition); }
-.ig3-item:hover { box-shadow: var(--shadow-lg); }
+  aspect-ratio: 1; background: var(--surface-2); display: block; }
 .ig3-item:nth-child(1) { grid-area: a; }
 .ig3-item:nth-child(2) { grid-area: b; }
 .ig3-item:nth-child(3) { grid-area: c; }

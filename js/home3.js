@@ -137,8 +137,8 @@
   var TILT = 9;   // degrees either side
 
   medias.forEach(function (m) {
-    var deck = m.querySelector('.feat3__deck');
-    if (!deck) return;
+    var photo = m.querySelector('.feat3__photo');
+    if (!photo) return;
     m.addEventListener('pointermove', function (e) {
       if (reduce.matches) return;
       var r = m.getBoundingClientRect();
@@ -146,25 +146,9 @@
       var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
       var rotY = Math.max(-1, Math.min(1, dx)) * TILT;
       var rotX = -Math.max(-1, Math.min(1, dy)) * TILT;
-      deck.style.transform = 'rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg)';
+      photo.style.transform = 'perspective(900px) rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg)';
     });
-    m.addEventListener('pointerleave', function () { deck.style.transform = ''; });
-  });
-
-  /* Instagram images: same pointer 3D tilt, applied to each image (no slicing) */
-  var igItems = Array.prototype.slice.call(document.querySelectorAll('.ig3-item'));
-  var IG_TILT = 8;
-  igItems.forEach(function (el) {
-    el.addEventListener('pointermove', function (e) {
-      if (reduce.matches) return;
-      var r = el.getBoundingClientRect();
-      var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
-      var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
-      var rotY = Math.max(-1, Math.min(1, dx)) * IG_TILT;
-      var rotX = -Math.max(-1, Math.min(1, dy)) * IG_TILT;
-      el.style.transform = 'perspective(900px) rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg)';
-    });
-    el.addEventListener('pointerleave', function () { el.style.transform = ''; });
+    m.addEventListener('pointerleave', function () { photo.style.transform = ''; });
   });
 })();
 
