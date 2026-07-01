@@ -37,7 +37,13 @@
       "Bash(git commit -q -m 'Fix logo alt to West Financial Group *)",
       "Bash(git commit -q -m 'Inventory: move status badge to top-right *)",
       "Bash(git commit -q -m 'Sell: swap image left / text right, add a column of spacing between them; plate-free image *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git commit -q -m 'index2: inventory full-bleed drag carousel; display face -> serif italic \\(Playfair\\) *)",
+      "Bash(perl -0pi -e 's{<ul class=\"inv-track\">}{<ul class=\"inv-track stagger\">}' index2.html)",
+      "Bash(perl -0pi -e 's{<li class=\"inv-slide\">}{<li class=\"inv-slide reveal\">}g' index2.html)",
+      "Bash(git commit -q -m 'index2: Sell horizontal \\(heading on top, landscape image + staircase steps slide-in\\); trust pillars staircase reveal; inventory slides enter from right; Instagram hover glyph *)",
+      "Bash(python3 -m http.server 8200)",
+      "Bash(git commit -q -m 'index2: fix Sell image overflowing into steps column \\(aspect-ratio + height:100% conflict\\) -> width-based image, centered steps *)"
     ],
     "additionalDirectories": [
       "/Users/alex/Desktop/WORK/Wes_Financial_Auto/tmp_clone"
