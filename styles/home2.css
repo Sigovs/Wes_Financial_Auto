@@ -22,16 +22,16 @@ body { background: var(--surface-0); }
   background: transparent; border-color: var(--text-primary); color: var(--text-primary);
 }
 
-/* ---------- type: clean Swiss neutral (Helvetica) across the board ---------- */
+/* ---------- type: Vegas Auto Gallery faces — Oswald (display) + Roboto Condensed (body) ---------- */
 :root {
-  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Oswald', 'Arial Narrow', system-ui, sans-serif;
+  --font-sans: 'Roboto Condensed', system-ui, -apple-system, sans-serif;
 }
+/* Oswald is condensed — let big headings breathe (no negative tracking) and go uppercase */
 .type-display-xl, .type-display-lg, .type-display-md,
 .type-h1, .type-h2, .type-h3, .type-h4,
-.hero__title, .vcard__model, .vbreak__line, .fin__title, .about__title, .cstep__num, .caps {
-  font-style: normal; letter-spacing: var(--ls-tight);
-}
+.hero__title, .vbreak__line, .fin__title, .about__title, .cstep__num, .caps {
+  font-style: normal; text-transform: uppercase; letter-spacing: var(--ls-wide); }
 
 /* ---------- bigger, more confident editorial type ---------- */
 .type-display-md { font-size: var(--fs-4xl); }   /* section heads -> 64 */
