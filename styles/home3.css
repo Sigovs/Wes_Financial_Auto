@@ -70,8 +70,10 @@
   --c-pure:   #FFFFFF;   /* pure white — max emphasis / mixes */
   --c-white:  #F5F7FA;   /* cool off-white */
   --c-grey:   #A9A9A9;   /* neutral grey — body copy */
+  --c-abyss:  #0E0E12;   /* near-black — footer ground */
 
   /* ---- surface ladder (depth by hue shift) ---- */
+  --surface-sink: var(--c-abyss); /* deepest ground — footer / sinks below the page */
   --surface-0: var(--c-ink);     /* page background */
   --surface-1: var(--c-slate);   /* cards, sections */
   --surface-2: var(--c-umber);   /* raised cards, inputs — warm */
@@ -429,6 +431,7 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .vbreak3__cta { margin-top: var(--sp-5); }
 
 /* About — visual break with centered content */
+.vbreak3--about .vbreak3__media { top: -50%; height: 200%; }   /* extra room for the stronger parallax */
 .vbreak3--about .vbreak3__inner { text-align: center; max-width: 62ch; margin-inline: auto; }
 .vbreak3--about .vbreak3__title { max-width: none; margin-inline: auto; }
 .vbreak3--about .vbreak3__lead { color: var(--text-secondary); margin: var(--space-text-obj) auto 0; max-width: 54ch; }
@@ -437,9 +440,9 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
   text-transform: uppercase; color: var(--text-secondary); }
 /* centered content wants an even darken (not left-weighted) + soft top/bottom fade */
 .vbreak3--about .vbreak3__scrim { background:
-  linear-gradient(to bottom, var(--surface-0), color-mix(in srgb, var(--surface-0) 45%, transparent) 26%, transparent 50%),
-  linear-gradient(to top,    var(--surface-0), color-mix(in srgb, var(--surface-0) 45%, transparent) 26%, transparent 50%),
-  radial-gradient(ellipse at center, color-mix(in srgb, var(--surface-0) 30%, transparent), color-mix(in srgb, var(--surface-0) 62%, transparent) 100%); }
+  linear-gradient(to bottom, var(--surface-0), transparent 42%),
+  linear-gradient(to top,    var(--surface-0), transparent 42%),
+  radial-gradient(ellipse at center, color-mix(in srgb, var(--surface-0) 50%, transparent), color-mix(in srgb, var(--surface-0) 82%, transparent) 100%); }
 
 /* =====================================================================
    FEATURE SECTIONS — Financing + Sell/Consign (editorial split)
@@ -530,7 +533,8 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 /* =====================================================================
    FOOTER — brand + expanded menu + address/hours + map + legal bar
    ===================================================================== */
-.footer3 { background: var(--surface-1); border-top: 1px solid var(--divider); position: relative; isolation: isolate; }
+.footer3 { background: linear-gradient(to bottom, var(--surface-0), var(--surface-sink) 240px);
+  position: relative; isolation: isolate; }
 /* organic (irregular) accent glow across the top of the footer — slightly lighter */
 .footer3::before { content: ""; position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
   width: min(1120px, 92vw); height: 460px; z-index: -1; pointer-events: none;
@@ -542,7 +546,10 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
     radial-gradient(26% 40% at 40% 28%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 72%);
   filter: blur(34px); }
 .footer3__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: var(--sp-6);
-  padding-block: var(--sp-8); align-items: start; }
+  padding-top: var(--sp-10); padding-bottom: var(--sp-9); align-items: stretch; }
+/* brand + contact columns are flex so their CTAs align to the bottom (same level) */
+.footer3__brand, .footer3__contact { display: flex; flex-direction: column; }
+.footer3__cta { margin-top: auto; align-self: flex-start; }
 
 .footer3__logo img { display: block; height: 34px; width: auto;
   filter: grayscale(1) brightness(0.92); opacity: .5; }
@@ -566,7 +573,7 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .footer3__meta { list-style: none; margin: var(--sp-3) 0 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-1); font-size: var(--text-sm); }
 .footer3__hours { margin-top: var(--sp-3); font-size: var(--text-xs); letter-spacing: .04em;
   text-transform: uppercase; color: var(--text-muted); }
-.footer3__dir { margin-top: var(--sp-4); }
+.footer3__dir { margin-top: auto; align-self: flex-start; padding-top: var(--sp-4); }
 
 /* map — full-bleed band, filtered to sit in the dark theme */
 .footer3__map { position: relative; height: 320px; border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider);
@@ -574,7 +581,7 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .footer3__map iframe { width: 100%; height: 100%; border: 0; display: block;
   filter: grayscale(1) invert(0.92) contrast(0.9) brightness(0.9); }
 
-.footer3__legal { background: var(--surface-0); }
+.footer3__legal { background: transparent; }
 .footer3__legal-row { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3);
   flex-wrap: wrap; padding-block: var(--sp-4); font-size: var(--text-xs); color: var(--text-muted); letter-spacing: .03em; }
 .footer3__legal-links { display: inline-flex; gap: var(--sp-4); }
