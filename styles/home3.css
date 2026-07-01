@@ -265,7 +265,7 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   border-bottom-color: var(--border); }
 .nav3__inner { position: relative; max-width: var(--container); margin-inline: auto;
-  padding: var(--sp-5) var(--sp-6) var(--sp-3); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-6); }
+  padding: var(--sp-5) var(--gutter) var(--sp-3); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-6); }
 
 .nav3__brand { display: inline-flex; align-items: center; flex: none; }
 /* larger over the hero, shrinks once the nav goes solid on scroll */
@@ -530,12 +530,22 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 /* =====================================================================
    FOOTER — brand + expanded menu + address/hours + map + legal bar
    ===================================================================== */
-.footer3 { background: var(--surface-1); border-top: 1px solid var(--divider); }
+.footer3 { background: var(--surface-1); border-top: 1px solid var(--divider); position: relative; isolation: isolate; }
+/* organic (irregular) accent glow across the top of the footer — slightly lighter */
+.footer3::before { content: ""; position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
+  width: min(1120px, 92vw); height: 460px; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(38% 52% at 24% 40%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%),
+    radial-gradient(30% 60% at 44% 64%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 70%),
+    radial-gradient(46% 34% at 60% 30%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 72%),
+    radial-gradient(34% 48% at 76% 56%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 70%),
+    radial-gradient(26% 40% at 40% 28%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 72%);
+  filter: blur(34px); }
 .footer3__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: var(--sp-6);
   padding-block: var(--sp-8); align-items: start; }
 
 .footer3__logo img { display: block; height: 34px; width: auto;
-  filter: grayscale(1) brightness(0.92); opacity: .9; }
+  filter: grayscale(1) brightness(0.92); opacity: .5; }
 .footer3__tagline { margin-top: var(--sp-4); max-width: 34ch; font-size: var(--text-sm);
   line-height: 1.6; color: var(--text-secondary); }
 .footer3__social { display: flex; gap: var(--sp-3); margin-top: var(--sp-4); }
