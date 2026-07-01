@@ -248,7 +248,9 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
   padding: var(--sp-3) var(--sp-6); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-6); }
 
 .nav3__brand { display: inline-flex; align-items: center; flex: none; }
-.nav3__brand img { display: block; height: 40px; width: auto; }
+/* larger over the hero, shrinks once the nav goes solid on scroll */
+.nav3__brand img { display: block; height: 60px; width: auto; transition: height var(--transition); }
+.nav3.solid .nav3__brand img { height: 40px; }
 
 .nav3__menu { display: flex; align-items: center; gap: var(--sp-7); }
 .nav3__links { display: flex; align-items: center; gap: var(--sp-5); }
@@ -343,7 +345,10 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
   transition: transform var(--transition-slow); }
 .inv-card:hover .inv-card__media img { transform: scale(1.04); }
 .inv-card__body { display: flex; flex-direction: column; padding: var(--sp-4); }
-.inv-card__body .inv-card__title { margin-bottom: var(--sp-3); }
+/* title reserves two lines: year make / model — keeps every card aligned */
+.inv-card__body .inv-card__title { display: flex; flex-direction: column;
+  min-height: calc(30px * 2); margin-bottom: var(--sp-3); }
+.inv-card__ymake, .inv-card__model { display: block; }
 .inv-card__price { font-family: var(--font-display); font-weight: var(--weight-light);
   font-size: var(--text-xl); letter-spacing: .5px; color: var(--text-strong); }
 .inv-card__miles { font-family: var(--font-sans); font-size: var(--text-sm); letter-spacing: .04em;
