@@ -328,10 +328,12 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .inv3-arrow svg { width: 20px; height: 20px; }
 
 /* edge-to-edge rail */
-.inv3-rail { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; cursor: grab; -webkit-overflow-scrolling: touch; }
+.inv3-rail { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; cursor: grab;
+  scroll-behavior: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
 .inv3-rail::-webkit-scrollbar { display: none; }
 .inv3-rail:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent); }
-.inv3-rail.dragging { cursor: grabbing; }
+.inv3-rail.dragging { cursor: grabbing; user-select: none; -webkit-user-select: none; }
+.inv3-rail.dragging a { pointer-events: none; }
 .inv3-track { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--sp-4); width: max-content; }
 /* 4 large fully in view + a small peek each side */
 .inv3-slide { flex: 0 0 calc(100vw / 4.4 - var(--sp-4)); }

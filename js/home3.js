@@ -77,9 +77,19 @@
   window.addEventListener('resize', function () { measure(); recenter(); });
   window.addEventListener('load', function () { measure(); recenter(); });
 
+  /* inertia glide (shared by drag release) */
+  var vx = 0, glideId = null;
+  function glideStop() { if (glideId) { cancelAnimationFrame(glideId); glideId = null; } }
+  function glide() {
+    if (Math.abs(vx) < 0.35) { glideId = null; return; }
+    rail.scrollLeft -= vx;
+    vx *= 0.94;                     // friction
+    glideId = requestAnimationFrame(glide);
+  }
+
   var prev = document.querySelector('.inv3 [data-prev]');
   var next = document.querySelector('.inv3 [data-next]');
-  function page(dir) { rail.scrollBy({ left: dir * step, behavior: 'smooth' }); }
+  function page(dir) { glideStop(); rail.scrollBy({ left: dir * step, behavior: 'smooth' }); }
   if (prev) prev.addEventListener('click', function () { page(-1); });
   if (next) next.addEventListener('click', function () { page(1); });
   rail.addEventListener('keydown', function (e) {
@@ -87,23 +97,34 @@
     else if (e.key === 'ArrowLeft') { page(-1); e.preventDefault(); }
   });
 
-  /* incremental drag (mid-drag wrap teleport is preserved) */
+  /* mouse drag with inertia (touch & trackpad use native momentum scroll) */
   var down = false, moved = false, lastX = 0, startX = 0;
   rail.addEventListener('pointerdown', function (e) {
-    if (e.pointerType === 'mouse' && e.button !== 0) return;
-    down = true; moved = false; lastX = startX = e.clientX;
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;   // mouse only
+    glideStop();
+    down = true; moved = false; vx = 0; lastX = startX = e.clientX;
+    rail.classList.add('dragging');
     try { rail.setPointerCapture(e.pointerId); } catch (err) {}
   });
   rail.addEventListener('pointermove', function (e) {
     if (!down) return;
-    rail.scrollLeft -= (e.clientX - lastX);
+    var dx = e.clientX - lastX;
     lastX = e.clientX;
-    if (Math.abs(e.clientX - startX) > 4) { moved = true; rail.classList.add('dragging'); }
+    rail.scrollLeft -= dx;
+    vx = vx * 0.7 + dx * 0.3;                                  // smoothed velocity
+    if (Math.abs(e.clientX - startX) > 4) moved = true;
   });
-  function end() { down = false; rail.classList.remove('dragging'); }
-  rail.addEventListener('pointerup', end);
-  rail.addEventListener('pointercancel', end);
+  function release() {
+    if (!down) return;
+    down = false; rail.classList.remove('dragging');
+    if (Math.abs(vx) > 0.8) { glideStop(); glideId = requestAnimationFrame(glide); }  // fling
+  }
+  rail.addEventListener('pointerup', release);
+  rail.addEventListener('pointercancel', release);
+  rail.addEventListener('lostpointercapture', release);
   rail.addEventListener('click', function (e) {
     if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
   }, true);
+  /* a fresh wheel/touch scroll should cancel any running glide */
+  rail.addEventListener('wheel', glideStop, { passive: true });
 })();
