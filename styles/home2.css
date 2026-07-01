@@ -46,7 +46,7 @@ body { background: var(--surface-0); }
 .coll-grid { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-6); }
 
 .ccard { display: block; }
-.ccard__media { position: relative; aspect-ratio: 4 / 5; overflow: hidden;
+.ccard__media { position: relative; aspect-ratio: 3 / 2; overflow: hidden;
   border-radius: var(--radius-md); background: var(--surface-2); }
 .ccard__media img { width: 100%; height: 100%; object-fit: cover; object-position: center;
   transition: transform var(--dur-slower) var(--ease-out); }
