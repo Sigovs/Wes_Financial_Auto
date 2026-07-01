@@ -11,6 +11,13 @@
   window.addEventListener('resize', setNavH);
   window.addEventListener('load', setNavH);
 
+  /* transparent header over the hero -> solid once scrolled */
+  function onScroll() {
+    if (nav) nav.classList.toggle('solid', window.scrollY > 40);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
   /* mobile menu toggle */
   var toggle = document.querySelector('.nav3__toggle');
   var menu = document.getElementById('nav3-menu');
