@@ -428,6 +428,19 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
   text-transform: uppercase; color: var(--text-strong); max-width: 16ch; margin: 0; }
 .vbreak3__cta { margin-top: var(--sp-5); }
 
+/* About — visual break with centered content */
+.vbreak3--about .vbreak3__inner { text-align: center; max-width: 62ch; margin-inline: auto; }
+.vbreak3--about .vbreak3__title { max-width: none; margin-inline: auto; }
+.vbreak3--about .vbreak3__lead { color: var(--text-secondary); margin: var(--space-text-obj) auto 0; max-width: 54ch; }
+.vbreak3--about .vbreak3__proof { margin-top: var(--sp-4); font-family: var(--font-display);
+  font-weight: var(--weight-regular); font-size: var(--text-sm); letter-spacing: .18em;
+  text-transform: uppercase; color: var(--text-secondary); }
+/* centered content wants an even darken (not left-weighted) + soft top/bottom fade */
+.vbreak3--about .vbreak3__scrim { background:
+  linear-gradient(to bottom, var(--surface-0), color-mix(in srgb, var(--surface-0) 45%, transparent) 26%, transparent 50%),
+  linear-gradient(to top,    var(--surface-0), color-mix(in srgb, var(--surface-0) 45%, transparent) 26%, transparent 50%),
+  radial-gradient(ellipse at center, color-mix(in srgb, var(--surface-0) 30%, transparent), color-mix(in srgb, var(--surface-0) 62%, transparent) 100%); }
+
 /* =====================================================================
    FEATURE SECTIONS — Financing + Sell/Consign (editorial split)
    ===================================================================== */
