@@ -29,7 +29,15 @@
       "Bash(cat known_marketplaces.json)",
       "Bash(ls marketplaces *)",
       "Bash(git commit -q -m 'Build HOME \\(index.html\\): cinematic highline landing page *)",
-      "Bash(git commit -q -m 'Redesign HOME: luxury editorial direction + drag inventory carousel *)"
+      "Bash(git commit -q -m 'Redesign HOME: luxury editorial direction + drag inventory carousel *)",
+      "Bash(git commit -q -m 'Redesign HOME static direction: collection wall, unified imagery, spacing system *)",
+      "WebFetch(domain:www.ryanfriedmanmotorcars.com)",
+      "Bash(git commit -q -m 'About: one large image + text on the side \\(RF-style editorial\\) *)",
+      "Bash(git commit -q -m 'Add assets/img folder for real photography \\(per-section + README\\) *)",
+      "Bash(git commit -q -m 'Fix logo alt to West Financial Group *)",
+      "Bash(git commit -q -m 'Inventory: move status badge to top-right *)",
+      "Bash(git commit -q -m 'Sell: swap image left / text right, add a column of spacing between them; plate-free image *)",
+      "Bash(git commit *)"
     ],
     "additionalDirectories": [
       "/Users/alex/Desktop/WORK/Wes_Financial_Auto/tmp_clone"
