@@ -53,30 +53,48 @@
 }
 
 /* =====================================================================
-   PALETTE — index3 (client-supplied). Overrides tokens.css for this page.
-   Raw hex lives here (this is index3's token layer); components use roles.
+   COLOR SCHEME — index3 (LOCKED). Self-contained; overrides tokens.css
+   for this page. Raw hex only in the "brand" block; every component
+   consumes a ROLE below — never a raw hex.
    ===================================================================== */
 :root {
-  /* surface ladder (dark → depth by hue shift) */
-  --surface-0: #18171D;   /* page background — darkest */
-  --surface-1: #29292D;   /* cards, sections */
-  --surface-2: #2A2626;   /* raised cards, inputs — warm */
-  --surface-3: #253136;   /* top panels, highlights — cool */
+  /* ---- brand (the only place raw hex lives) ---- */
+  --c-ink:    #18171D;   /* darkest — page ground */
+  --c-slate:  #29292D;   /* neutral dark */
+  --c-umber:  #2A2626;   /* warm dark */
+  --c-steel:  #253136;   /* cool dark */
+  --c-blue:   #33518D;   /* accent — deep blue */
+  --c-bronze: #51493D;   /* secondary — bronze/olive */
+  --c-white:  #F5F7FA;   /* cool off-white */
 
-  /* accents */
-  --accent:        #33518D;   /* primary — CTAs, prices (deep blue) */
-  --accent-hover:  color-mix(in srgb, var(--accent) 80%, #ffffff);
+  /* ---- surface ladder (depth by hue shift) ---- */
+  --surface-0: var(--c-ink);     /* page background */
+  --surface-1: var(--c-slate);   /* cards, sections */
+  --surface-2: var(--c-umber);   /* raised cards, inputs — warm */
+  --surface-3: var(--c-steel);   /* top panels, highlights — cool */
+
+  /* ---- text (locked, cool greys on the dark ground) ---- */
+  --text-primary:   #F1F2F5;
+  --text-secondary: #A7ADB8;
+  --text-muted:     #6B7280;
+
+  /* ---- accent (primary action / price) ---- */
+  --accent:        var(--c-blue);
+  --accent-hover:  color-mix(in srgb, var(--accent) 82%, var(--c-white));
   --accent-active: color-mix(in srgb, var(--accent) 88%, #000000);
-  --accent-bg:     color-mix(in srgb, var(--accent) 18%, transparent);
+  --accent-bg:     color-mix(in srgb, var(--accent) 16%, transparent);
   --accent-border: color-mix(in srgb, var(--accent) 45%, transparent);
-  --on-accent:     #F5F7FA;   /* cool off-white on blue */
-  --accent-2:      #51493D;   /* secondary — bronze/olive detail */
+  --on-accent:     var(--c-white);
 
-  /* hairlines derived from the surfaces */
-  --border:          color-mix(in srgb, #ffffff 8%,  var(--surface-1));
-  --border-strong:   color-mix(in srgb, #ffffff 15%, var(--surface-1));
-  --border-stronger: color-mix(in srgb, #ffffff 22%, var(--surface-1));
-  --divider:         color-mix(in srgb, #ffffff 6%,  var(--surface-0));
+  /* ---- secondary accent (bronze detail) ---- */
+  --accent-2:      var(--c-bronze);
+  --accent-2-hover: color-mix(in srgb, var(--accent-2) 80%, var(--c-white));
+
+  /* ---- hairlines derived from the surfaces ---- */
+  --border:          color-mix(in srgb, var(--c-white) 8%,  var(--surface-1));
+  --border-strong:   color-mix(in srgb, var(--c-white) 15%, var(--surface-1));
+  --border-stronger: color-mix(in srgb, var(--c-white) 22%, var(--surface-1));
+  --divider:         color-mix(in srgb, var(--c-white) 6%,  var(--surface-0));
 
   --focus-ring: 0 0 0 2px var(--surface-0), 0 0 0 4px var(--accent);
 }
