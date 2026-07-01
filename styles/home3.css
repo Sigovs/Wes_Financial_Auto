@@ -114,9 +114,14 @@
   transition-delay: calc(var(--i, 0) * .13s); }
 .r-step.in .r-in { opacity: 1; transform: none; }
 .r-in.line { display: block; }
-html:not(.js) .r-in { opacity: 1; transform: none; }
+/* .r-up — slide in from the bottom (used for the photo blocks) */
+.r-up { opacity: 0; transform: translateY(3rem);
+  transition: opacity .7s ease, transform .9s cubic-bezier(.2, .6, .25, 1);
+  transition-delay: calc(var(--i, 0) * .13s); }
+.r-step.in .r-up { opacity: 1; transform: none; }
+html:not(.js) .r-in, html:not(.js) .r-up { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .r-in { opacity: 1; transform: none; transition: none; }
+  .r-in, .r-up { opacity: 1; transform: none; transition: none; }
 }
 
 /* =====================================================================
@@ -421,6 +426,42 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .vbreak3__title { font-family: var(--font-display); font-weight: var(--weight-light);
   font-size: clamp(2.2rem, 6.5vw, 72px); line-height: 1.05; letter-spacing: 1px;
   text-transform: uppercase; color: var(--text-strong); max-width: 16ch; margin: 0; }
+
+/* =====================================================================
+   FEATURE SECTIONS — Financing + Sell/Consign (editorial split)
+   ===================================================================== */
+.feature3 { padding-block: var(--sp-9); }
+.feat3 { align-items: stretch; row-gap: var(--sp-6); }   /* photo + text share the row height */
+.feat3__media { display: flex; }
+
+.media-ph { flex: 1; height: 100%; background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: var(--radius); display: grid; place-items: center; overflow: hidden; }
+.media-ph span { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: .2em;
+  text-transform: uppercase; color: var(--text-muted); }
+
+.feat3__body .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
+.feat3__title { font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: clamp(1.9rem, 3.4vw, 42px); line-height: 1.1; letter-spacing: .5px;
+  text-transform: uppercase; color: var(--text-primary); margin: 0 0 var(--space-text-obj); }
+.feat3__lead { margin-bottom: var(--sp-4); }
+
+.flist { list-style: none; margin: 0; padding: 0; }
+.flist__item { display: flex; gap: var(--sp-4); padding: var(--sp-4) 0; border-top: 1px solid var(--border); }
+.flist__item:last-child { border-bottom: 1px solid var(--border); }
+.flist__num { font-family: var(--font-display); font-weight: var(--weight-light); font-size: var(--text-2xl);
+  line-height: 1; color: var(--text-muted); min-width: 2.2ch; }
+.flist__title { display: block; font-family: var(--font-display); font-weight: var(--weight-medium);
+  font-size: var(--text-lg); letter-spacing: 1px; text-transform: uppercase; color: var(--text-primary);
+  margin-bottom: var(--sp-1); }
+.flist__copy { font-size: var(--text-base); color: var(--text-body); }
+
+.feat3__cta { margin-top: var(--sp-5); }
+
+@media (max-width: 860px) {
+  .feat3 > * { grid-column: 1 / -1; }
+  .feature3--alt .feat3__media { grid-row: 1; }   /* image on top when stacked */
+  .media-ph { height: auto; aspect-ratio: 4 / 3; }  /* give the photo a height when stacked */
+}
 
 @media (max-width: 1024px) {
   .nav3__toggle { display: inline-flex; }
