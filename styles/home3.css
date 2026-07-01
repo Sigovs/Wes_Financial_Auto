@@ -220,7 +220,11 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .btn3--primary { background: var(--accent); color: var(--on-accent); }
 .btn3--primary:hover { background: var(--accent-hover); }
 .btn3--secondary { background: var(--surface-2); color: var(--text-primary); border-color: var(--border-strong); }
-.btn3--secondary:hover { border-color: var(--border-stronger); background: var(--surface-3, var(--surface-2)); }
+.btn3--secondary:hover { border-color: var(--border-stronger); background: var(--surface-3); }
+.btn3--bronze { background: var(--accent-2); color: var(--text-strong); }
+.btn3--bronze:hover { background: var(--accent-2-hover); }
+.btn3--dark { background: color-mix(in srgb, var(--surface-3) 88%, transparent); color: var(--text-primary); border-color: var(--border); }
+.btn3--dark:hover { background: var(--surface-3); border-color: var(--border-strong); }
 .btn3:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 
 /* =====================================================================
@@ -264,6 +268,36 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .nav3__toggle { display: none; background: none; border: 0; color: var(--text-primary);
   cursor: pointer; padding: var(--sp-1); }
 .nav3__toggle svg { width: 26px; height: 26px; display: block; }
+
+/* =====================================================================
+   HERO — full screen, never folds (fits one screen on any device)
+   height = viewport minus the nav; content vertically centered; clipped.
+   ===================================================================== */
+.hero3 {
+  position: relative;
+  min-height: calc(100vh - var(--nav-h, 72px));
+  min-height: calc(100svh - var(--nav-h, 72px));   /* svh: no fold from mobile UI chrome */
+  display: flex; flex-direction: column; justify-content: center;
+  overflow: hidden;
+  padding-block: var(--sp-6);
+}
+.hero3__img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+.hero3__scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to top, color-mix(in srgb, var(--surface-0) 88%, transparent), color-mix(in srgb, var(--surface-0) 20%, transparent) 60%),
+    linear-gradient(to right, color-mix(in srgb, var(--surface-0) 70%, transparent), transparent 62%);
+}
+.hero3__inner { position: relative; z-index: 1; width: 100%; text-align: left; }
+.hero3__eyebrow { color: var(--text-secondary); margin-bottom: var(--sp-4); }
+/* fixed 100px on desktop, fluid down so the hero never folds on small screens */
+.hero3__title { font-size: clamp(2.5rem, 9.5vw, var(--text-display)); color: var(--text-strong);
+  margin-bottom: var(--sp-4); }
+.hero3__lead { max-width: 46ch; margin-bottom: var(--sp-6); }
+.hero3__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
 
 @media (max-width: 1024px) {
   .nav3__toggle { display: inline-flex; }
