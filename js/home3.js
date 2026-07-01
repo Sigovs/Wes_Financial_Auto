@@ -129,6 +129,20 @@
   rail.addEventListener('wheel', glideStop, { passive: true });
 })();
 
+/* index3 — staircase slide-in reveal for titles (.r-step groups) */
+(function reveals() {
+  'use strict';
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.r-step'));
+  if (!steps.length) return;
+  if (!('IntersectionObserver' in window)) { steps.forEach(function (s) { s.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+  steps.forEach(function (s) { io.observe(s); });
+})();
+
 /* index3 — scroll parallax on [data-parallax] media (skipped for reduced motion) */
 (function parallax() {
   'use strict';
