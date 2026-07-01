@@ -22,12 +22,15 @@ body { background: var(--surface-0); }
   background: transparent; border-color: var(--text-primary); color: var(--text-primary);
 }
 
-/* ---------- display face: editorial serif italic ---------- */
-:root { --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif; }
+/* ---------- type: clean Swiss neutral (Helvetica) across the board ---------- */
+:root {
+  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 .type-display-xl, .type-display-lg, .type-display-md,
 .type-h1, .type-h2, .type-h3, .type-h4,
 .hero__title, .vcard__model, .vbreak__line, .fin__title, .about__title, .cstep__num, .caps {
-  font-style: italic; letter-spacing: var(--ls-normal);
+  font-style: normal; letter-spacing: var(--ls-tight);
 }
 
 /* ---------- bigger, more confident editorial type ---------- */
@@ -104,10 +107,41 @@ body { background: var(--surface-0); }
 .hero__sub { font-size: var(--fs-md); max-width: 38ch; }
 
 /* =====================================================================
-   FINANCING — architectural, quieter numbers (accent only as a hairline)
+   FINANCING — no step numbers, just a calm info block
    ===================================================================== */
-.cstep { gap: var(--space-12); }
-.cstep__num { color: var(--text-muted); font-weight: var(--fw-regular); }
+.cstep__num { display: none; }
+.cstep { grid-template-columns: 1fr; gap: 0; }
+
+/* =====================================================================
+   SELL — animated feature carousel (image swaps per active step)
+   ===================================================================== */
+.sf-media { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-md); overflow: hidden; background: var(--surface-2); }
+.sf-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transform: scale(1.05);
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slower) var(--ease-out); }
+.sf-img.is-active { opacity: 1; transform: scale(1); }
+
+.sf-steps { list-style: none; margin-top: var(--space-8); }
+.sf-step { border-top: 1px solid var(--border); }
+.sf-step:last-child { border-bottom: 1px solid var(--border); }
+.sf-step__btn { display: block; width: 100%; text-align: left; padding: var(--space-5) 0; cursor: pointer; background: none; border: 0; color: inherit; }
+.sf-step__btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.sf-step__title { display: block; font-family: var(--font-display); font-weight: var(--fw-medium); font-size: var(--fs-xl);
+  color: var(--text-muted); letter-spacing: var(--ls-tight); transition: color var(--dur-base) var(--ease-out); }
+.sf-step.is-active .sf-step__title { color: var(--text-primary); }
+.sf-step__copy { display: block; max-height: 0; opacity: 0; overflow: hidden; color: var(--text-secondary); font-size: var(--fs-sm);
+  transition: max-height var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out), margin-top var(--dur-base) var(--ease-out); }
+.sf-step.is-active .sf-step__copy { max-height: 6em; opacity: 1; margin-top: var(--space-text); }
+.sf-step__bar { display: block; height: 2px; background: var(--divider); margin-top: var(--space-4); overflow: hidden;
+  max-height: 0; opacity: 0; transition: opacity var(--dur-base) var(--ease-out), max-height var(--dur-base) var(--ease-out); }
+.sf-step.is-active .sf-step__bar { max-height: 2px; opacity: 1; }
+.sf-step__fill { display: block; height: 100%; width: 0; background: var(--text-primary); }
+.sf-step.is-active .sf-step__fill { animation: sf-progress 5s linear forwards; }
+@keyframes sf-progress { from { width: 0; } to { width: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  .sf-step.is-active .sf-step__fill { animation: none; width: 100%; }
+  .sf-img { transition: opacity var(--dur-base) var(--ease-out); transform: none; }
+}
 
 /* =====================================================================
    INSTAGRAM — smaller, quieter footprint
