@@ -106,12 +106,19 @@ body { background: var(--surface-0); }
 .trust { background: none; border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
 .trust__item { border-left: 0; padding: var(--space-8) var(--space-6) var(--space-8) 0; }
 .trust__k { font-size: var(--fs-md); font-weight: var(--fw-medium); }
-/* staircase from the left — each pillar steps up to the right, reveals bottom-up one by one */
+/* enters as a staircase (each pillar drops from a different height, one by one),
+   then settles into a level row */
 .trust__grid { align-items: start; }
-.trust__item:nth-child(1) { margin-top: var(--space-12); }
-.trust__item:nth-child(2) { margin-top: var(--space-8); }
-.trust__item:nth-child(3) { margin-top: var(--space-4); }
-.trust__item:nth-child(4) { margin-top: 0; }
+.trust__grid.stagger > .trust__item {
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+.trust__grid.stagger > .trust__item:nth-child(1) { transform: translateY(var(--space-4)); }
+.trust__grid.stagger > .trust__item:nth-child(2) { transform: translateY(var(--space-8)); }
+.trust__grid.stagger > .trust__item:nth-child(3) { transform: translateY(var(--space-12)); }
+.trust__grid.stagger > .trust__item:nth-child(4) { transform: translateY(var(--space-16)); }
+.trust__grid.stagger.in > .trust__item { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .trust__grid.stagger > .trust__item { transform: none; transition: none; }
+}
 
 /* =====================================================================
    HERO — a touch more scale + air (keep concept)
