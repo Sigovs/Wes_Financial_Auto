@@ -430,11 +430,10 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 /* =====================================================================
    FEATURE SECTIONS — Financing + Sell/Consign (editorial split)
    ===================================================================== */
-.feature3 { padding-block: var(--sp-9); }
-/* organic accent glow below the Financing section — irregular blob with soft
+.feature3 { padding-block: var(--sp-9); position: relative; isolation: isolate; }
+/* organic accent glow below the feature sections — irregular blob with soft
    concave indentations (union of several offset radial lobes), no hard edges */
-.feature3#financing { position: relative; isolation: isolate; }
-.feature3#financing::after { content: ""; position: absolute; left: 50%; bottom: -70px; z-index: -1;
+.feature3::after { content: ""; position: absolute; left: 50%; bottom: -70px; z-index: -1;
   transform: translateX(-50%); width: min(940px, 92vw); height: 440px; pointer-events: none;
   background:
     radial-gradient(38% 52% at 26% 42%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 70%),
