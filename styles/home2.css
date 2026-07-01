@@ -38,67 +38,70 @@ body { background: var(--surface-0); }
 .section-head, .inv__head, .ig-head, .sec-head { margin-bottom: var(--space-16); }
 
 /* =====================================================================
-   INVENTORY — one full-bleed, edge-to-edge drag carousel
+   THE COLLECTION — cinematic, one-vehicle-at-a-time carousel
+   (Ryan-Friedman concept: a single large car fills the frame; browse
+    one at a time. Our design language: dark, quiet, editorial.)
    ===================================================================== */
-.inv__head { margin-bottom: var(--space-12); }
-.inv-rail {
-  overflow-x: auto; overflow-y: hidden;
-  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
-  /* snap respects the leading inset so the first slide lines up with .container */
-  scroll-padding-inline: max(var(--gutter), calc((100vw - var(--container)) / 2));
-  cursor: grab; scrollbar-width: none;
+.coll__head { display: flex; justify-content: space-between; align-items: flex-end;
+  gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-12); }
+
+.coll-stage { position: relative; width: 100%; height: 82vh; overflow: hidden; background: var(--surface-1); }
+.coll-stage:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent); }
+
+.coll-track { list-style: none; position: absolute; inset: 0; }
+
+/* every slide stacks; only the active one is visible (slow crossfade) */
+.coll-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden;
+  transition: opacity var(--dur-slower) var(--ease-out), visibility 0s linear var(--dur-slower); }
+.coll-slide.is-active { opacity: 1; visibility: visible; transition: opacity var(--dur-slower) var(--ease-out); }
+
+.coll-photo { position: absolute; inset: 0; display: block; }
+.coll-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+/* house scrim: darken bottom + left so the caption always reads */
+.coll-scrim { position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to top, color-mix(in srgb, var(--surface-0) 88%, transparent), transparent 52%),
+    linear-gradient(to right, color-mix(in srgb, var(--surface-0) 66%, transparent), transparent 58%); }
+
+/* caption, bottom-left, aligned to the container gutter */
+.coll-cap { position: absolute; left: 0; right: 0; bottom: var(--space-16); z-index: 2; }
+.coll-cap__status { font-size: var(--fs-2xs); text-transform: uppercase; letter-spacing: var(--ls-widest);
+  color: var(--text-secondary); margin-bottom: var(--space-5); }
+.coll-cap__make { font-family: var(--font-display); font-size: var(--fs-sm); font-weight: var(--fw-medium);
+  text-transform: uppercase; letter-spacing: var(--ls-wide); color: var(--text-secondary); }
+.coll-cap__model { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-4xl);
+  line-height: var(--lh-tight); letter-spacing: var(--ls-tight); color: var(--text-primary); margin-top: var(--space-text); }
+.coll-cap__row { display: flex; align-items: baseline; gap: var(--space-8); margin-top: var(--space-text-obj); }
+.coll-cap__meta { font-size: var(--fs-sm); letter-spacing: var(--ls-wide); color: var(--text-secondary); }
+.coll-cap__price { font-family: var(--font-display); font-weight: var(--fw-medium); font-size: var(--fs-lg);
+  letter-spacing: var(--ls-tight); color: var(--text-primary); }
+
+/* controls, bottom-right on the same baseline as the caption */
+.coll-ui { position: absolute; left: 0; right: 0; bottom: var(--space-16); z-index: 3;
+  display: flex; justify-content: flex-end; align-items: center; gap: var(--space-8); pointer-events: none; }
+.coll-count { font-family: var(--font-mono); font-size: var(--fs-sm); letter-spacing: var(--ls-wide); color: var(--text-muted); }
+.coll-count [data-cur] { color: var(--text-primary); }
+.coll-count__sep { margin: 0 var(--space-2); }
+.coll-nav { display: flex; gap: var(--space-3); pointer-events: auto; }
+.coll-arrow { width: var(--space-12); height: var(--space-12); display: inline-grid; place-items: center;
+  border: 1px solid var(--border-strong); border-radius: var(--radius-full); color: var(--text-primary);
+  background: color-mix(in srgb, var(--surface-0) 35%, transparent);
+  -webkit-backdrop-filter: blur(var(--blur-glass)); backdrop-filter: blur(var(--blur-glass));
+  cursor: pointer; transition: background var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
+.coll-arrow:hover { background: var(--surface-0); border-color: var(--text-primary); }
+.coll-arrow:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.coll-arrow svg { width: var(--space-5); height: var(--space-5); }
+
+@media (max-width: 680px) {
+  .coll-stage { height: 68vh; }
+  .coll-cap, .coll-ui { bottom: var(--space-8); }
+  .coll-cap__model { font-size: var(--fs-3xl); }
+  .coll-ui { justify-content: space-between; }
 }
-.inv-rail::-webkit-scrollbar { display: none; }
-.inv-rail:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent); }
-.inv-rail.dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
-.inv-rail.dragging a { pointer-events: none; }
-.inv-track {
-  list-style: none; display: flex; gap: var(--space-8); align-items: flex-start;
-  /* first slide lines up with .container; bleeds to the right edge */
-  padding-inline: max(var(--gutter), calc((100vw - var(--container)) / 2));
-  padding-block: var(--space-2);
-}
-.inv-slide { flex: 0 0 calc(var(--container) / 4 - var(--space-8)); scroll-snap-align: start; }
-/* slides enter one by one from the right */
-.inv-track.stagger > .inv-slide { opacity: 0; transform: translateX(var(--space-16));
-  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
-.inv-track.stagger.in > .inv-slide { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .inv-track.stagger > .inv-slide { opacity: 1; transform: none; transition: none; }
+  .coll-slide { transition: opacity var(--dur-base) var(--ease-out); }
 }
-@media (max-width: 1024px) { .inv-slide { flex-basis: 42%; } }
-@media (max-width: 680px)  { .inv-slide { flex-basis: 80%; } }
-
-/* the card is no longer a box — just an image with a caption beneath it */
-.vcard { background: none; border: 0; border-radius: 0; overflow: visible; height: auto; }
-.vcard:hover { transform: none; box-shadow: none; border: 0; }
-.vcard__media { aspect-ratio: 4 / 3; border-radius: var(--radius-sm); }
-
-/* caption sits on the page, no panel */
-.vcard__body { padding: var(--space-5) 0 0; }
-/* title always visible in the caption (no collapse), quiet meta, light price */
-.vcard__body .vcard__title,
-.vcard:hover .vcard__body .vcard__title,
-.vcard:focus-within .vcard__body .vcard__title { max-height: none; opacity: 1; }
-.vcard__make { font-size: var(--fs-xs); letter-spacing: var(--ls-widest); color: var(--text-muted); }
-.vcard__model { font-size: var(--fs-xl); }
-.vcard__price { color: var(--text-primary); font-family: var(--font-display); font-weight: var(--fw-medium);
-  font-size: var(--fs-md); letter-spacing: var(--ls-normal); margin-top: var(--space-3); }
-
-/* drop the quick-action pills — chrome */
-.vcard__actions { display: none; }
-
-/* hover reveals only the spec sheet over a darkened photo — no title duplicate, no panel */
-.vcard__hover { background: color-mix(in srgb, var(--surface-0) 80%, transparent); justify-content: center;
-  padding: var(--space-8); }
-.vcard__title--over { display: none; }
-.vcard__specs { margin-top: 0; gap: var(--space-4); }
-.vcard__spec dt { color: var(--text-muted); }
-
-/* status: even quieter — no dot, just a hairline label top-left, on the image */
-.vcard__media::after { height: 55%; background: linear-gradient(color-mix(in srgb, var(--surface-0) 65%, transparent), transparent); }
-.vcard__badge { top: var(--space-4); left: var(--space-4); right: auto; color: var(--text-secondary); }
-.vcard__badge::before { display: none; }
 
 /* =====================================================================
    TRUST RAIL — from a bordered strip to a quiet editorial line

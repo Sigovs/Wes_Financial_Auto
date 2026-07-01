@@ -30,35 +30,58 @@
   set(0); start();
 })();
 
-/* index2 — inventory drag carousel (mouse drag; touch/trackpad use native scroll) */
-(function () {
+/* index2 — The Collection: cinematic one-at-a-time carousel (arrows, keys, swipe) */
+(function collection() {
   'use strict';
-  var rail = document.querySelector('.inv-rail');
-  if (!rail) return;
-  var down = false, moved = false, startX = 0, startScroll = 0;
+  var stage = document.querySelector('.coll-stage');
+  if (!stage) return;
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.coll-slide'));
+  if (slides.length < 2) return;
+  var cur = stage.querySelector('[data-cur]');
+  var total = stage.querySelector('[data-total]');
+  var prev = stage.querySelector('[data-prev]');
+  var next = stage.querySelector('[data-next]');
+  var i = 0;
 
-  rail.addEventListener('pointerdown', function (e) {
-    if (e.pointerType !== 'mouse' || e.button !== 0) return;
-    down = true; moved = false; startX = e.clientX; startScroll = rail.scrollLeft;
-    try { rail.setPointerCapture(e.pointerId); } catch (err) {}
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  if (total) total.textContent = pad(slides.length);
+
+  function show(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function (s, k) {
+      var on = k === i;
+      s.classList.toggle('is-active', on);
+      s.setAttribute('aria-hidden', on ? 'false' : 'true');
+      var link = s.querySelector('.coll-photo');
+      if (link) { on ? link.removeAttribute('tabindex') : link.setAttribute('tabindex', '-1'); }
+    });
+    if (cur) cur.textContent = pad(i + 1);
+  }
+
+  if (prev) prev.addEventListener('click', function () { show(i - 1); });
+  if (next) next.addEventListener('click', function () { show(i + 1); });
+  stage.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { show(i + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft') { show(i - 1); e.preventDefault(); }
   });
-  rail.addEventListener('pointermove', function (e) {
-    if (!down) return;
-    var dx = e.clientX - startX;
-    if (Math.abs(dx) > 4) { moved = true; rail.classList.add('dragging'); }
-    rail.scrollLeft = startScroll - dx;
+
+  /* pointer swipe (suppress the photo's click when it was a drag) */
+  var down = false, moved = false, x0 = 0;
+  stage.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    down = true; moved = false; x0 = e.clientX;
   });
-  function end() { down = false; rail.classList.remove('dragging'); }
-  rail.addEventListener('pointerup', end);
-  rail.addEventListener('pointercancel', end);
-  rail.addEventListener('click', function (e) {
+  stage.addEventListener('pointermove', function (e) {
+    if (down && Math.abs(e.clientX - x0) > 10) moved = true;
+  });
+  stage.addEventListener('pointerup', function (e) {
+    if (!down) return; down = false;
+    var dx = e.clientX - x0;
+    if (Math.abs(dx) > 40) show(dx < 0 ? i + 1 : i - 1);
+  });
+  stage.addEventListener('click', function (e) {
     if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
   }, true);
-  rail.addEventListener('keydown', function (e) {
-    if (e.target !== rail) return;
-    var slide = rail.querySelector('.inv-slide');
-    var step = slide ? slide.getBoundingClientRect().width + 32 : 320;
-    if (e.key === 'ArrowRight') { rail.scrollLeft += step; e.preventDefault(); }
-    else if (e.key === 'ArrowLeft') { rail.scrollLeft -= step; e.preventDefault(); }
-  });
+
+  show(0);
 })();

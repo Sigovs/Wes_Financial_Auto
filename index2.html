@@ -82,166 +82,117 @@
     </div>
   </section>
 
-  <!-- ============================ FEATURED INVENTORY (3×2 collection wall) ============================ -->
-  <section class="full-bleed inv section" id="inventory" aria-labelledby="inv-title">
-    <div class="container inv__head reveal">
+  <!-- ============================ THE COLLECTION — cinematic one-at-a-time carousel ============================ -->
+  <section class="full-bleed coll" id="inventory" aria-labelledby="inv-title" aria-roledescription="carousel">
+    <div class="container coll__head reveal">
       <div>
         <p class="kicker"><span>The collection</span></p>
         <h2 class="type-display-md" id="inv-title">Current inventory</h2>
       </div>
-      <a class="link-arrow" href="inventory.html">View all <span class="arr" aria-hidden="true">→</span></a>
+      <a class="link-arrow" href="inventory.html">View all <span class="arr" aria-hidden="true">&#8594;</span></a>
     </div>
-    <div class="inv-rail" role="region" aria-label="Current inventory — drag, scroll, or use arrow keys" tabindex="0">
-      <ul class="inv-track stagger">
-        <li class="inv-slide reveal"><a class="vcard" href="vehicle.html" aria-label="2021 Lamborghini Huracán — 239,000 dollars">
-          <div class="vcard__media">
-            <span class="vcard__badge vcard__badge--available">Available</span>
-            <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=1100&auto=format&fit=crop" alt="White Lamborghini Huracán, front three-quarter" loading="lazy">
-            <div class="vcard__hover" aria-hidden="true">
-              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">Lamborghini</span><span class="vcard__model">Huracán</span></h3>
-              <dl class="vcard__specs">
-                <div class="vcard__spec"><dt>Interior</dt><dd>Nero Ade leather</dd></div>
-                <div class="vcard__spec"><dt>Exterior</dt><dd>Bianco Monocerus</dd></div>
-                <div class="vcard__spec"><dt>Engine</dt><dd>5.2L V10 · 602 hp</dd></div>
-              </dl>
-            </div>
-          </div>
-          <div class="vcard__body">
-            <h3 class="vcard__title"><span class="vcard__make">Lamborghini</span><span class="vcard__model">Huracán</span></h3>
-            <p class="vcard__meta">2021 · 6,100 mi · LDF</p>
-            <p class="vcard__price">$239,000</p>
-            <div class="vcard__actions" aria-hidden="true">
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
-            </div>
-          </div>
-        </a></li>
 
-        <li class="inv-slide reveal"><a class="vcard" href="vehicle.html" aria-label="2022 Mercedes-AMG GT — 118,900 dollars">
-          <div class="vcard__media">
-            <span class="vcard__badge vcard__badge--pending">Sale pending</span>
-            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1100&auto=format&fit=crop" alt="Silver Mercedes-AMG GT, front three-quarter" loading="lazy">
-            <div class="vcard__hover" aria-hidden="true">
-              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">Mercedes-AMG</span><span class="vcard__model">GT</span></h3>
-              <dl class="vcard__specs">
-                <div class="vcard__spec"><dt>Interior</dt><dd>Black Nappa</dd></div>
-                <div class="vcard__spec"><dt>Exterior</dt><dd>Selenite Grey</dd></div>
-                <div class="vcard__spec"><dt>Engine</dt><dd>4.0L V8 biturbo</dd></div>
-              </dl>
+    <div class="coll-stage reveal" role="region" aria-label="Current inventory — use the arrow keys or the buttons to browse" tabindex="0">
+      <ul class="coll-track">
+        <li class="coll-slide is-active" aria-hidden="false">
+          <a class="coll-photo" href="vehicle.html" aria-label="Lamborghini Huracán — $239,000">
+            <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=1900&auto=format&fit=crop" alt="White Lamborghini Huracán, front three-quarter" loading="lazy" draggable="false">
+          </a>
+          <div class="coll-scrim" aria-hidden="true"></div>
+          <div class="container coll-cap">
+            <p class="coll-cap__status">Available</p>
+            <p class="coll-cap__make">Lamborghini</p>
+            <h3 class="coll-cap__model">Huracán</h3>
+            <div class="coll-cap__row">
+              <span class="coll-cap__meta">2021 · 6,100 mi · LDF</span>
+              <span class="coll-cap__price">$239,000</span>
             </div>
           </div>
-          <div class="vcard__body">
-            <h3 class="vcard__title"><span class="vcard__make">Mercedes-AMG</span><span class="vcard__model">GT</span></h3>
-            <p class="vcard__meta">2022 · 8,900 mi · Auto</p>
-            <p class="vcard__price">$118,900</p>
-            <div class="vcard__actions" aria-hidden="true">
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
+        </li>
+        <li class="coll-slide" aria-hidden="true">
+          <a class="coll-photo" href="vehicle.html" tabindex="-1" aria-label="Mercedes-AMG GT — $118,900">
+            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1900&auto=format&fit=crop" alt="Silver Mercedes-AMG GT, front three-quarter" loading="lazy" draggable="false">
+          </a>
+          <div class="coll-scrim" aria-hidden="true"></div>
+          <div class="container coll-cap">
+            <p class="coll-cap__status">Sale pending</p>
+            <p class="coll-cap__make">Mercedes-AMG</p>
+            <h3 class="coll-cap__model">GT</h3>
+            <div class="coll-cap__row">
+              <span class="coll-cap__meta">2022 · 8,900 mi · Auto</span>
+              <span class="coll-cap__price">$118,900</span>
             </div>
           </div>
-        </a></li>
-
-        <li class="inv-slide reveal"><a class="vcard" href="vehicle.html" aria-label="2021 Porsche 911 Carrera — 124,500 dollars">
-          <div class="vcard__media">
-            <span class="vcard__badge vcard__badge--sold">Sold</span>
-            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1100&auto=format&fit=crop" alt="Porsche 911 Carrera in dramatic low light" loading="lazy">
-            <div class="vcard__hover" aria-hidden="true">
-              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">Porsche</span><span class="vcard__model">911 Carrera</span></h3>
-              <dl class="vcard__specs">
-                <div class="vcard__spec"><dt>Interior</dt><dd>Bordeaux Red</dd></div>
-                <div class="vcard__spec"><dt>Exterior</dt><dd>GT Silver</dd></div>
-                <div class="vcard__spec"><dt>Engine</dt><dd>3.0L flat-6</dd></div>
-              </dl>
+        </li>
+        <li class="coll-slide" aria-hidden="true">
+          <a class="coll-photo" href="vehicle.html" tabindex="-1" aria-label="Porsche 911 Carrera — $124,500">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1900&auto=format&fit=crop" alt="Porsche 911 Carrera in dramatic low light" loading="lazy" draggable="false">
+          </a>
+          <div class="coll-scrim" aria-hidden="true"></div>
+          <div class="container coll-cap">
+            <p class="coll-cap__status">Sold</p>
+            <p class="coll-cap__make">Porsche</p>
+            <h3 class="coll-cap__model">911 Carrera</h3>
+            <div class="coll-cap__row">
+              <span class="coll-cap__meta">2021 · 12,400 mi · PDK</span>
+              <span class="coll-cap__price">$124,500</span>
             </div>
           </div>
-          <div class="vcard__body">
-            <h3 class="vcard__title"><span class="vcard__make">Porsche</span><span class="vcard__model">911 Carrera</span></h3>
-            <p class="vcard__meta">2021 · 12,400 mi · PDK</p>
-            <p class="vcard__price">$124,500</p>
-            <div class="vcard__actions" aria-hidden="true">
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
+        </li>
+        <li class="coll-slide" aria-hidden="true">
+          <a class="coll-photo" href="vehicle.html" tabindex="-1" aria-label="Audi R8 V10 — $142,000">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1900&auto=format&fit=crop" alt="Audi R8 V10, front three-quarter in dramatic light" loading="lazy" draggable="false">
+          </a>
+          <div class="coll-scrim" aria-hidden="true"></div>
+          <div class="container coll-cap">
+            <p class="coll-cap__status">Available</p>
+            <p class="coll-cap__make">Audi</p>
+            <h3 class="coll-cap__model">R8 V10</h3>
+            <div class="coll-cap__row">
+              <span class="coll-cap__meta">2020 · 15,200 mi · S tronic</span>
+              <span class="coll-cap__price">$142,000</span>
             </div>
           </div>
-        </a></li>
-
-        <li class="inv-slide reveal"><a class="vcard" href="vehicle.html" aria-label="2020 Audi R8 V10 — 142,000 dollars">
-          <div class="vcard__media">
-            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1100&auto=format&fit=crop" alt="Audi R8 V10, front three-quarter in dramatic light" loading="lazy">
-            <div class="vcard__hover" aria-hidden="true">
-              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">Audi</span><span class="vcard__model">R8 V10</span></h3>
-              <dl class="vcard__specs">
-                <div class="vcard__spec"><dt>Interior</dt><dd>Black Fine Nappa</dd></div>
-                <div class="vcard__spec"><dt>Exterior</dt><dd>Ara Blue</dd></div>
-                <div class="vcard__spec"><dt>Engine</dt><dd>5.2L V10 · 562 hp</dd></div>
-              </dl>
+        </li>
+        <li class="coll-slide" aria-hidden="true">
+          <a class="coll-photo" href="vehicle.html" tabindex="-1" aria-label="BMW M8 Competition — $132,500">
+            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1900&auto=format&fit=crop" alt="BMW M8 Competition, front three-quarter" loading="lazy" draggable="false">
+          </a>
+          <div class="coll-scrim" aria-hidden="true"></div>
+          <div class="container coll-cap">
+            <p class="coll-cap__status">Available</p>
+            <p class="coll-cap__make">BMW</p>
+            <h3 class="coll-cap__model">M8 Competition</h3>
+            <div class="coll-cap__row">
+              <span class="coll-cap__meta">2023 · 4,300 mi · M Steptronic</span>
+              <span class="coll-cap__price">$132,500</span>
             </div>
           </div>
-          <div class="vcard__body">
-            <h3 class="vcard__title"><span class="vcard__make">Audi</span><span class="vcard__model">R8 V10</span></h3>
-            <p class="vcard__meta">2020 · 15,200 mi · S tronic</p>
-            <p class="vcard__price">$142,000</p>
-            <div class="vcard__actions" aria-hidden="true">
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
+        </li>
+        <li class="coll-slide" aria-hidden="true">
+          <a class="coll-photo" href="vehicle.html" tabindex="-1" aria-label="Range Rover Autobiography — $109,800">
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1900&auto=format&fit=crop" alt="Range Rover Autobiography in a dark showroom" loading="lazy" draggable="false">
+          </a>
+          <div class="coll-scrim" aria-hidden="true"></div>
+          <div class="container coll-cap">
+            <p class="coll-cap__status">Sale pending</p>
+            <p class="coll-cap__make">Range Rover</p>
+            <h3 class="coll-cap__model">Autobiography</h3>
+            <div class="coll-cap__row">
+              <span class="coll-cap__meta">2022 · 18,700 mi · Auto</span>
+              <span class="coll-cap__price">$109,800</span>
             </div>
           </div>
-        </a></li>
-
-        <li class="inv-slide reveal"><a class="vcard" href="vehicle.html" aria-label="2023 BMW M8 Competition — 132,500 dollars">
-          <div class="vcard__media">
-            <span class="vcard__badge vcard__badge--available">Available</span>
-            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1100&auto=format&fit=crop" alt="BMW M8 Competition, front three-quarter" loading="lazy">
-            <div class="vcard__hover" aria-hidden="true">
-              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">BMW</span><span class="vcard__model">M8 Competition</span></h3>
-              <dl class="vcard__specs">
-                <div class="vcard__spec"><dt>Interior</dt><dd>Silverstone Merino</dd></div>
-                <div class="vcard__spec"><dt>Exterior</dt><dd>Alpine White</dd></div>
-                <div class="vcard__spec"><dt>Engine</dt><dd>4.4L V8 · 617 hp</dd></div>
-              </dl>
-            </div>
-          </div>
-          <div class="vcard__body">
-            <h3 class="vcard__title"><span class="vcard__make">BMW</span><span class="vcard__model">M8 Competition</span></h3>
-            <p class="vcard__meta">2023 · 4,300 mi · M Steptronic</p>
-            <p class="vcard__price">$132,500</p>
-            <div class="vcard__actions" aria-hidden="true">
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
-            </div>
-          </div>
-        </a></li>
-
-        <li class="inv-slide reveal"><a class="vcard" href="vehicle.html" aria-label="2022 Range Rover Autobiography — 109,800 dollars">
-          <div class="vcard__media">
-            <span class="vcard__badge vcard__badge--pending">Sale pending</span>
-            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1100&auto=format&fit=crop" alt="Highline vehicle in a dark showroom" loading="lazy">
-            <div class="vcard__hover" aria-hidden="true">
-              <h3 class="vcard__title vcard__title--over"><span class="vcard__make">Range Rover</span><span class="vcard__model">Autobiography</span></h3>
-              <dl class="vcard__specs">
-                <div class="vcard__spec"><dt>Interior</dt><dd>Ebony / Ivory</dd></div>
-                <div class="vcard__spec"><dt>Exterior</dt><dd>Firenze Red</dd></div>
-                <div class="vcard__spec"><dt>Engine</dt><dd>5.0L V8 supercharged</dd></div>
-              </dl>
-            </div>
-          </div>
-          <div class="vcard__body">
-            <h3 class="vcard__title"><span class="vcard__make">Range Rover</span><span class="vcard__model">Autobiography</span></h3>
-            <p class="vcard__meta">2022 · 18,700 mi · Auto</p>
-            <p class="vcard__price">$109,800</p>
-            <div class="vcard__actions" aria-hidden="true">
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</span>
-              <span class="vcard__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</span>
-            </div>
-          </div>
-        </a></li>
+        </li>
       </ul>
+
+      <div class="container coll-ui">
+        <p class="coll-count" aria-hidden="true"><span data-cur>01</span><span class="coll-count__sep">/</span><span data-total>06</span></p>
+        <div class="coll-nav">
+          <button class="coll-arrow" data-prev type="button" aria-label="Previous vehicle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="coll-arrow" data-next type="button" aria-label="Next vehicle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
     </div>
   </section>
 
