@@ -510,7 +510,9 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 .ig3-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-2);
   grid-template-areas: "a a b c" "a a d e"; }
 .ig3-item { position: relative; overflow: hidden; border-radius: var(--radius);
-  aspect-ratio: 1; background: var(--surface-2); display: block; }
+  aspect-ratio: 1; background: var(--surface-2); display: block; will-change: transform;
+  transition: transform .18s ease, box-shadow var(--transition); }
+.ig3-item:hover { box-shadow: var(--shadow-lg); }
 .ig3-item:nth-child(1) { grid-area: a; }
 .ig3-item:nth-child(2) { grid-area: b; }
 .ig3-item:nth-child(3) { grid-area: c; }
