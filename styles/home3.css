@@ -495,6 +495,46 @@ p { font-family: var(--font-sans); font-weight: var(--weight-regular);
 
 .feat3__cta { margin-top: var(--sp-5); }
 
+/* =====================================================================
+   INSTAGRAM — editorial collage (1 large + 4 small), hover glyph
+   ===================================================================== */
+.ig3 { padding-block: var(--sp-9); }
+.ig3__head { display: flex; justify-content: space-between; align-items: flex-end;
+  gap: var(--sp-4); flex-wrap: wrap; margin-bottom: var(--sp-6); }
+.ig3__head .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--sp-2); }
+.ig3__handle { text-transform: none; letter-spacing: .04em; font-size: var(--text-base);
+  display: inline-flex; align-items: center; gap: var(--sp-2); }
+.ig3__handle .arr { transition: transform var(--transition); }
+.ig3__handle:hover .arr { transform: translateX(4px); }
+
+.ig3-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-2);
+  grid-template-areas: "a a b c" "a a d e"; }
+.ig3-item { position: relative; overflow: hidden; border-radius: var(--radius);
+  aspect-ratio: 1; background: var(--surface-2); display: block; }
+.ig3-item:nth-child(1) { grid-area: a; }
+.ig3-item:nth-child(2) { grid-area: b; }
+.ig3-item:nth-child(3) { grid-area: c; }
+.ig3-item:nth-child(4) { grid-area: d; }
+.ig3-item:nth-child(5) { grid-area: e; }
+.ig3-item img { width: 100%; height: 100%; object-fit: cover; object-position: center;
+  transition: transform var(--transition-slow); }
+.ig3-item:hover img, .ig3-item:focus-visible img { transform: scale(1.05); }
+.ig3-item:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.ig3-item__veil { position: absolute; inset: 0; pointer-events: none;
+  background: color-mix(in srgb, var(--surface-0) 44%, transparent);
+  opacity: 0; transition: opacity var(--transition); }
+.ig3-item:hover .ig3-item__veil, .ig3-item:focus-visible .ig3-item__veil { opacity: 1; }
+.ig3-item__icon { position: absolute; inset: 0; margin: auto; width: var(--sp-6); height: var(--sp-6);
+  background: var(--c-white); pointer-events: none; opacity: 0; transform: scale(.82);
+  transition: opacity var(--transition), transform var(--transition);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2' width='20' height='20' rx='5' ry='5'/%3E%3Cpath d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'/%3E%3Cline x1='17.5' y1='6.5' x2='17.51' y2='6.5'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2' width='20' height='20' rx='5' ry='5'/%3E%3Cpath d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'/%3E%3Cline x1='17.5' y1='6.5' x2='17.51' y2='6.5'/%3E%3C/svg%3E") center / contain no-repeat; }
+.ig3-item:hover .ig3-item__icon, .ig3-item:focus-visible .ig3-item__icon { opacity: 1; transform: scale(1); }
+
+@media (max-width: 700px) {
+  .ig3-grid { grid-template-columns: repeat(2, 1fr); grid-template-areas: "a a" "b c" "d e"; }
+}
+
 @media (max-width: 860px) {
   .feat3 > * { grid-column: 1 / -1; }
   .feature3--alt .feat3__media { grid-row: 1; }   /* image on top when stacked */
