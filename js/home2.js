@@ -30,58 +30,80 @@
   set(0); start();
 })();
 
-/* index2 — The Collection: cinematic one-at-a-time carousel (arrows, keys, swipe) */
+/* index2 — The Collection: full-bleed infinite rail (drag / scroll / arrows, loops seamlessly) */
 (function collection() {
   'use strict';
-  var stage = document.querySelector('.coll-stage');
-  if (!stage) return;
-  var slides = Array.prototype.slice.call(stage.querySelectorAll('.coll-slide'));
-  if (slides.length < 2) return;
-  var cur = stage.querySelector('[data-cur]');
-  var total = stage.querySelector('[data-total]');
-  var prev = stage.querySelector('[data-prev]');
-  var next = stage.querySelector('[data-next]');
-  var i = 0;
+  var rail = document.querySelector('.coll-rail');
+  if (!rail) return;
+  var track = rail.querySelector('.coll-track');
+  var originals = Array.prototype.slice.call(track.children);
+  if (originals.length < 2) return;
 
-  function pad(n) { return (n < 10 ? '0' : '') + n; }
-  if (total) total.textContent = pad(slides.length);
-
-  function show(n) {
-    i = (n + slides.length) % slides.length;
-    slides.forEach(function (s, k) {
-      var on = k === i;
-      s.classList.toggle('is-active', on);
-      s.setAttribute('aria-hidden', on ? 'false' : 'true');
-      var link = s.querySelector('.coll-photo');
-      if (link) { on ? link.removeAttribute('tabindex') : link.setAttribute('tabindex', '-1'); }
-    });
-    if (cur) cur.textContent = pad(i + 1);
+  /* clone SETS_SIDE sets on each side so the middle band always has content to loop through */
+  var SETS_SIDE = 2;
+  function mkClone(li) {
+    var c = li.cloneNode(true);
+    c.setAttribute('aria-hidden', 'true');
+    c.classList.add('is-clone');
+    var a = c.querySelector('a'); if (a) a.tabIndex = -1;
+    return c;
+  }
+  for (var s = 0; s < SETS_SIDE; s++) {
+    var pre = document.createDocumentFragment(), post = document.createDocumentFragment();
+    originals.forEach(function (li) { pre.appendChild(mkClone(li)); post.appendChild(mkClone(li)); });
+    track.appendChild(post);
+    track.insertBefore(pre, track.firstChild);
   }
 
-  if (prev) prev.addEventListener('click', function () { show(i - 1); });
-  if (next) next.addEventListener('click', function () { show(i + 1); });
-  stage.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowRight') { show(i + 1); e.preventDefault(); }
-    else if (e.key === 'ArrowLeft') { show(i - 1); e.preventDefault(); }
+  var unit = 0, step = 0, peek = 0;
+  function measure() {
+    unit = track.scrollWidth / (SETS_SIDE * 2 + 1);   // width of one set (all sets identical)
+    step = unit / originals.length;                    // one card + gap
+    peek = step * 0.3;                                 // ~30% peeking on the left
+  }
+  function recenter() { rail.scrollLeft = unit * SETS_SIDE - peek; }
+
+  /* seamless wrap: keep the scroll position inside the middle band */
+  function wrap() {
+    if (!unit) return;
+    var lo = unit * (SETS_SIDE - 0.5);
+    var hi = unit * (SETS_SIDE + 0.5);
+    if (rail.scrollLeft < lo) rail.scrollLeft += unit;
+    else if (rail.scrollLeft > hi) rail.scrollLeft -= unit;
+  }
+
+  measure(); recenter();
+  rail.addEventListener('scroll', wrap, { passive: true });
+  window.addEventListener('resize', function () { measure(); recenter(); });
+  window.addEventListener('load', function () { measure(); recenter(); });
+
+  var prev = document.querySelector('[data-prev]');
+  var next = document.querySelector('[data-next]');
+  function page(dir) { rail.scrollBy({ left: dir * step, behavior: 'smooth' }); }
+  if (prev) prev.addEventListener('click', function () { page(-1); });
+  if (next) next.addEventListener('click', function () { page(1); });
+  rail.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { page(1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft') { page(-1); e.preventDefault(); }
   });
 
-  /* pointer swipe (suppress the photo's click when it was a drag) */
-  var down = false, moved = false, x0 = 0;
-  stage.addEventListener('pointerdown', function (e) {
+  /* incremental drag (so a mid-drag wrap teleport isn't undone) */
+  var down = false, moved = false, lastX = 0, startX = 0;
+  rail.addEventListener('pointerdown', function (e) {
     if (e.pointerType === 'mouse' && e.button !== 0) return;
-    down = true; moved = false; x0 = e.clientX;
+    down = true; moved = false; lastX = startX = e.clientX;
+    try { rail.setPointerCapture(e.pointerId); } catch (err) {}
   });
-  stage.addEventListener('pointermove', function (e) {
-    if (down && Math.abs(e.clientX - x0) > 10) moved = true;
+  rail.addEventListener('pointermove', function (e) {
+    if (!down) return;
+    rail.scrollLeft -= (e.clientX - lastX);
+    lastX = e.clientX;
+    if (Math.abs(e.clientX - startX) > 4) { moved = true; rail.classList.add('dragging'); }
   });
-  stage.addEventListener('pointerup', function (e) {
-    if (!down) return; down = false;
-    var dx = e.clientX - x0;
-    if (Math.abs(dx) > 40) show(dx < 0 ? i + 1 : i - 1);
-  });
-  stage.addEventListener('click', function (e) {
+  function end() { down = false; rail.classList.remove('dragging'); }
+  rail.addEventListener('pointerup', end);
+  rail.addEventListener('pointercancel', end);
+  rail.addEventListener('click', function (e) {
     if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
   }, true);
-
-  show(0);
 })();

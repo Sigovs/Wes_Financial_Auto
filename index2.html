@@ -82,71 +82,89 @@
     </div>
   </section>
 
-  <!-- ============================ THE COLLECTION — four cars, horizontal ============================ -->
-  <section class="section coll" id="inventory" aria-labelledby="inv-title">
+  <!-- ============================ THE COLLECTION — full-bleed infinite rail ============================ -->
+  <section class="full-bleed coll section" id="inventory" aria-labelledby="inv-title">
     <div class="container">
       <div class="coll__head reveal">
         <div>
           <p class="kicker"><span>The collection</span></p>
           <h2 class="type-display-md" id="inv-title">Current inventory</h2>
         </div>
-        <a class="link-arrow" href="inventory.html">View all <span class="arr" aria-hidden="true">&#8594;</span></a>
+        <div class="coll__tools">
+          <a class="link-arrow" href="inventory.html">View all <span class="arr" aria-hidden="true">&#8594;</span></a>
+          <div class="coll-nav">
+            <button class="coll-arrow" data-prev type="button" aria-label="Previous vehicles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button class="coll-arrow" data-next type="button" aria-label="Next vehicles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
       </div>
-      <ul class="coll-grid stagger">
-        <li class="reveal"><a class="ccard" href="vehicle.html" aria-label="Lamborghini Huracán — $239,000">
+    </div>
+    <div class="coll-rail" role="region" aria-label="Current inventory — scroll, drag, or use arrow keys to browse" tabindex="0">
+      <ul class="coll-track">
+        <li class="ccard-slide"><a class="ccard" href="vehicle.html" aria-label="2021 Lamborghini Huracán — $239,000">
           <div class="ccard__media">
-            <span class="ccard__status">Available</span>
-            <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=1000&auto=format&fit=crop" alt="White Lamborghini Huracán, front three-quarter" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=1100&auto=format&fit=crop" alt="White Lamborghini Huracán, front three-quarter" loading="lazy" draggable="false">
           </div>
           <div class="ccard__body">
-            <p class="ccard__make">Lamborghini</p>
-            <h3 class="ccard__model">Huracán</h3>
-            <div class="ccard__row">
-              <span class="ccard__meta">2021 · 6,100 mi</span>
-              <span class="ccard__price">$239,000</span>
-            </div>
+            <h3 class="ccard__title">2021 Lamborghini Huracán</h3>
+            <p class="ccard__price">$239,000</p>
+            <p class="ccard__meta">6,100 mi · LDF</p>
+            <span class="ccard__cta">View details <span class="arr" aria-hidden="true">&#8594;</span></span>
           </div>
         </a></li>
-        <li class="reveal"><a class="ccard" href="vehicle.html" aria-label="Mercedes-AMG GT — $118,900">
+        <li class="ccard-slide"><a class="ccard" href="vehicle.html" aria-label="2022 Mercedes-AMG GT — $118,900">
           <div class="ccard__media">
-            <span class="ccard__status">Sale pending</span>
-            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1000&auto=format&fit=crop" alt="Silver Mercedes-AMG GT, front three-quarter" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1100&auto=format&fit=crop" alt="Silver Mercedes-AMG GT, front three-quarter" loading="lazy" draggable="false">
           </div>
           <div class="ccard__body">
-            <p class="ccard__make">Mercedes-AMG</p>
-            <h3 class="ccard__model">GT</h3>
-            <div class="ccard__row">
-              <span class="ccard__meta">2022 · 8,900 mi</span>
-              <span class="ccard__price">$118,900</span>
-            </div>
+            <h3 class="ccard__title">2022 Mercedes-AMG GT</h3>
+            <p class="ccard__price">$118,900</p>
+            <p class="ccard__meta">8,900 mi · Auto</p>
+            <span class="ccard__cta">View details <span class="arr" aria-hidden="true">&#8594;</span></span>
           </div>
         </a></li>
-        <li class="reveal"><a class="ccard" href="vehicle.html" aria-label="Porsche 911 Carrera — $124,500">
+        <li class="ccard-slide"><a class="ccard" href="vehicle.html" aria-label="2021 Porsche 911 Carrera — $124,500">
           <div class="ccard__media">
-            <span class="ccard__status">Sold</span>
-            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1000&auto=format&fit=crop" alt="Porsche 911 Carrera in dramatic low light" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1100&auto=format&fit=crop" alt="Porsche 911 Carrera in dramatic low light" loading="lazy" draggable="false">
           </div>
           <div class="ccard__body">
-            <p class="ccard__make">Porsche</p>
-            <h3 class="ccard__model">911 Carrera</h3>
-            <div class="ccard__row">
-              <span class="ccard__meta">2021 · 12,400 mi</span>
-              <span class="ccard__price">$124,500</span>
-            </div>
+            <h3 class="ccard__title">2021 Porsche 911 Carrera</h3>
+            <p class="ccard__price">$124,500</p>
+            <p class="ccard__meta">12,400 mi · PDK</p>
+            <span class="ccard__cta">View details <span class="arr" aria-hidden="true">&#8594;</span></span>
           </div>
         </a></li>
-        <li class="reveal"><a class="ccard" href="vehicle.html" aria-label="Audi R8 V10 — $142,000">
+        <li class="ccard-slide"><a class="ccard" href="vehicle.html" aria-label="2020 Audi R8 V10 — $142,000">
           <div class="ccard__media">
-            <span class="ccard__status">Available</span>
-            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1000&auto=format&fit=crop" alt="Audi R8 V10, front three-quarter in dramatic light" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1100&auto=format&fit=crop" alt="Audi R8 V10, front three-quarter in dramatic light" loading="lazy" draggable="false">
           </div>
           <div class="ccard__body">
-            <p class="ccard__make">Audi</p>
-            <h3 class="ccard__model">R8 V10</h3>
-            <div class="ccard__row">
-              <span class="ccard__meta">2020 · 15,200 mi</span>
-              <span class="ccard__price">$142,000</span>
-            </div>
+            <h3 class="ccard__title">2020 Audi R8 V10</h3>
+            <p class="ccard__price">$142,000</p>
+            <p class="ccard__meta">15,200 mi · S tronic</p>
+            <span class="ccard__cta">View details <span class="arr" aria-hidden="true">&#8594;</span></span>
+          </div>
+        </a></li>
+        <li class="ccard-slide"><a class="ccard" href="vehicle.html" aria-label="2023 BMW M8 Competition — $132,500">
+          <div class="ccard__media">
+            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1100&auto=format&fit=crop" alt="BMW M8 Competition, front three-quarter" loading="lazy" draggable="false">
+          </div>
+          <div class="ccard__body">
+            <h3 class="ccard__title">2023 BMW M8 Competition</h3>
+            <p class="ccard__price">$132,500</p>
+            <p class="ccard__meta">4,300 mi · M Steptronic</p>
+            <span class="ccard__cta">View details <span class="arr" aria-hidden="true">&#8594;</span></span>
+          </div>
+        </a></li>
+        <li class="ccard-slide"><a class="ccard" href="vehicle.html" aria-label="2022 Range Rover Autobiography — $109,800">
+          <div class="ccard__media">
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1100&auto=format&fit=crop" alt="Range Rover Autobiography in a dark showroom" loading="lazy" draggable="false">
+          </div>
+          <div class="ccard__body">
+            <h3 class="ccard__title">2022 Range Rover Autobiography</h3>
+            <p class="ccard__price">$109,800</p>
+            <p class="ccard__meta">18,700 mi · Auto</p>
+            <span class="ccard__cta">View details <span class="arr" aria-hidden="true">&#8594;</span></span>
           </div>
         </a></li>
       </ul>

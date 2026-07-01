@@ -38,40 +38,55 @@ body { background: var(--surface-0); }
 .section-head, .inv__head, .ig-head, .sec-head { margin-bottom: var(--space-16); }
 
 /* =====================================================================
-   THE COLLECTION — four cars in a horizontal row (editorial cards)
+   THE COLLECTION — full-bleed, infinite horizontal rail
+   ~4 cards fully in view + ~30% peeking on each side; drag / scroll /
+   arrows; loops seamlessly (JS clones sets on both sides).
    ===================================================================== */
 .coll__head { display: flex; justify-content: space-between; align-items: flex-end;
   gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-12); }
+.coll__tools { display: flex; align-items: center; gap: var(--space-8); }
+.coll-nav { display: flex; gap: var(--space-3); }
+.coll-arrow { width: var(--space-12); height: var(--space-12); display: inline-grid; place-items: center;
+  border: 1px solid var(--border-strong); border-radius: var(--radius-full); color: var(--text-primary);
+  background: transparent; cursor: pointer;
+  transition: background var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
+.coll-arrow:hover { background: var(--surface-2); border-color: var(--text-primary); }
+.coll-arrow:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.coll-arrow svg { width: var(--space-5); height: var(--space-5); }
 
-.coll-grid { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-6); }
+/* the rail is edge-to-edge; the first card starts at the container gutter */
+.coll-rail { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; cursor: grab; -webkit-overflow-scrolling: touch; }
+.coll-rail::-webkit-scrollbar { display: none; }
+.coll-rail:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent); }
+.coll-rail.dragging { cursor: grabbing; }
+.coll-track { list-style: none; display: flex; gap: var(--space-6); width: max-content; }
+/* 4 full + ~0.3 each side = 4.6 across the viewport */
+.ccard-slide { flex: 0 0 calc(100vw / 4.6 - var(--space-6)); }
 
-.ccard { display: block; }
-.ccard__media { position: relative; aspect-ratio: 3 / 2; overflow: hidden;
-  border-radius: var(--radius-md); background: var(--surface-2); }
+.ccard { display: flex; flex-direction: column; height: 100%; overflow: hidden;
+  background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.ccard:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: var(--shadow-lg); }
+.ccard:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.ccard__media { aspect-ratio: 3 / 2; overflow: hidden; background: var(--surface-2); }
 .ccard__media img { width: 100%; height: 100%; object-fit: cover; object-position: center;
   transition: transform var(--dur-slower) var(--ease-out); }
-.ccard:hover .ccard__media img, .ccard:focus-visible .ccard__media img { transform: scale(1.04); }
-.ccard:focus-visible { outline: none; }
-.ccard:focus-visible .ccard__media { box-shadow: var(--focus-ring); }
-/* top scrim so the status label always reads */
-.ccard__media::after { content: ""; position: absolute; inset: 0 0 auto 0; height: 40%; pointer-events: none;
-  background: linear-gradient(color-mix(in srgb, var(--surface-0) 60%, transparent), transparent); }
-.ccard__status { position: absolute; top: var(--space-4); left: var(--space-4); z-index: 1;
-  font-size: var(--fs-2xs); text-transform: uppercase; letter-spacing: var(--ls-widest); color: var(--text-secondary); }
+.ccard:hover .ccard__media img { transform: scale(1.04); }
 
-.ccard__body { padding: var(--space-5) 0 0; }
-.ccard__make { font-family: var(--font-display); font-size: var(--fs-xs); font-weight: var(--fw-medium);
-  text-transform: uppercase; letter-spacing: var(--ls-wide); color: var(--text-muted); }
-.ccard__model { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-xl);
-  line-height: var(--lh-tight); letter-spacing: var(--ls-tight); color: var(--text-primary); margin-top: var(--space-2); }
-.ccard__row { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-4);
-  margin-top: var(--space-text-obj); }
-.ccard__meta { font-size: var(--fs-sm); letter-spacing: var(--ls-wide); color: var(--text-secondary); }
-.ccard__price { font-family: var(--font-display); font-weight: var(--fw-medium); font-size: var(--fs-md);
-  letter-spacing: var(--ls-tight); color: var(--text-primary); }
+.ccard__body { display: flex; flex-direction: column; flex: 1; padding: var(--space-6); }
+.ccard__title { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-lg);
+  line-height: var(--lh-tight); letter-spacing: var(--ls-tight); color: var(--text-primary); }
+.ccard__price { font-family: var(--font-display); font-weight: var(--fw-medium); font-size: var(--fs-xl);
+  letter-spacing: var(--ls-tight); color: var(--text-primary); margin-top: var(--space-text); }
+.ccard__meta { font-size: var(--fs-sm); letter-spacing: var(--ls-wide); color: var(--text-secondary); margin-top: var(--space-2); }
+.ccard__cta { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-5);
+  font-size: var(--fs-sm); color: var(--text-secondary); transition: color var(--dur-snap) var(--ease-out); }
+.ccard__cta .arr { transition: transform var(--dur-snap) var(--ease-out); }
+.ccard:hover .ccard__cta { color: var(--text-primary); }
+.ccard:hover .ccard__cta .arr { transform: translateX(4px); }
 
-@media (max-width: 1024px) { .coll-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); } }
-@media (max-width: 560px)  { .coll-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .ccard-slide { flex-basis: calc(100vw / 2.4 - var(--space-6)); } }
+@media (max-width: 560px) { .ccard-slide { flex-basis: calc(100vw / 1.3 - var(--space-6)); } }
 
 /* =====================================================================
    TRUST RAIL — from a bordered strip to a quiet editorial line
