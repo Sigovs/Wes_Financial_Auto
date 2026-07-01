@@ -67,6 +67,7 @@
   --c-blue:   #33518D;   /* accent — deep blue */
   --c-bronze: #51493D;   /* secondary — bronze/olive */
   --c-white:  #F5F7FA;   /* cool off-white */
+  --c-grey:   #A9A9A9;   /* neutral grey — body copy */
 
   /* ---- surface ladder (depth by hue shift) ---- */
   --surface-0: var(--c-ink);     /* page background */
@@ -76,6 +77,7 @@
 
   /* ---- text (locked, cool greys on the dark ground) ---- */
   --text-primary:   #F1F2F5;
+  --text-body:      var(--c-grey);   /* #A9A9A9 — default body copy */
   --text-secondary: #A7ADB8;
   --text-muted:     #6B7280;
 
@@ -108,7 +110,7 @@
 body {
   margin: 0;
   background: var(--surface-0);
-  color: var(--text-primary);
+  color: var(--text-body);
   font-family: var(--font-sans);
   font-weight: var(--weight-regular);
   font-size: var(--text-base);
@@ -174,7 +176,7 @@ h4, .h4 { font-family: var(--font-sans); font-weight: var(--weight-semibold);
 .lead { font-family: var(--font-sans); font-weight: var(--weight-regular);
   font-size: var(--text-lg); line-height: 1.5; color: var(--text-secondary); margin: 0; }
 p { font-family: var(--font-sans); font-weight: var(--weight-regular);
-  font-size: var(--text-base); line-height: 1.6; color: var(--text-secondary); margin: 0; }
+  font-size: var(--text-base); line-height: 1.6; color: var(--text-body); margin: 0; }
 
 /* editorial link */
 .link {
