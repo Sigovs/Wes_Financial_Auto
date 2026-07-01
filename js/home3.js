@@ -128,3 +128,31 @@
   /* a fresh wheel/touch scroll should cancel any running glide */
   rail.addEventListener('wheel', glideStop, { passive: true });
 })();
+
+/* index3 — scroll parallax on [data-parallax] media (skipped for reduced motion) */
+(function parallax() {
+  'use strict';
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var layers = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+  if (!layers.length) return;
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    var vh = window.innerHeight;
+    layers.forEach(function (el) {
+      var host = el.parentElement;                 // measure the section, not the oversized media
+      var rect = host.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > vh) return;
+      var speed = parseFloat(el.getAttribute('data-parallax')) || 0.15;
+      var offset = (rect.top + rect.height / 2 - vh / 2) * speed;
+      el.style.transform = 'translate3d(0,' + offset.toFixed(1) + 'px,0)';
+    });
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  window.addEventListener('load', update);
+  update();
+})();
