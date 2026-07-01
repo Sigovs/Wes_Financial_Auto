@@ -130,6 +130,7 @@
   --fs-5xl:  86px;   /* hero display */
 
   /* weights */
+  --fw-light:   300;
   --fw-regular: 400;
   --fw-medium:  500;
   --fw-semibold:600;

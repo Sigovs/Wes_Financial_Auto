@@ -22,18 +22,50 @@ body { background: var(--surface-0); }
   background: transparent; border-color: var(--text-primary); color: var(--text-primary);
 }
 
-/* ---------- type: Vegas Auto Gallery faces — Oswald (display) + Roboto Condensed (body) ---------- */
+/* =====================================================================
+   TYPE SYSTEM — replicated from Vegas Auto Gallery
+   Oswald (display) + Roboto Condensed (body) + JetBrains Mono (meta).
+   Signature: big headings are Oswald LIGHT, uppercase, airy tracking —
+   thin, tall, condensed. Labels/nav/buttons are wide-tracked uppercase.
+   ===================================================================== */
 :root {
   --font-display: 'Oswald', 'Arial Narrow', system-ui, sans-serif;
   --font-sans: 'Roboto Condensed', system-ui, -apple-system, sans-serif;
 }
-/* Oswald is condensed — let big headings breathe (no negative tracking) and go uppercase */
-.type-display-xl, .type-display-lg, .type-display-md,
-.type-h1, .type-h2, .type-h3, .type-h4,
-.hero__title, .vbreak__line, .fin__title, .about__title, .cstep__num, .caps {
-  font-style: normal; text-transform: uppercase; letter-spacing: var(--ls-wide); }
+body { font-family: var(--font-sans); line-height: var(--lh-normal); }
 
-/* ---------- bigger, more confident editorial type ---------- */
+/* big display + section headings: Oswald Light, uppercase, airy */
+.type-display-xl, .type-display-lg, .type-display-md,
+.type-h1, .type-h2,
+.hero__title, .vbreak__line, .fin__title, .about__title {
+  font-family: var(--font-display); font-weight: var(--fw-light); font-style: normal;
+  text-transform: uppercase; letter-spacing: var(--ls-wide); line-height: var(--lh-snug); }
+
+/* smaller headings + card / step titles: Oswald Light, uppercase, compact */
+.type-h3, .type-h4, .ccard__title, .cstep__title, .sf-step__title {
+  font-family: var(--font-display); font-weight: var(--fw-light); font-style: normal;
+  text-transform: uppercase; letter-spacing: var(--ls-wide); line-height: var(--lh-snug); }
+
+/* eyebrows / kickers / caps labels: Oswald Regular, uppercase, widest tracking */
+.kicker, .eyebrow, .caps, .caps-light {
+  font-family: var(--font-display); font-weight: var(--fw-regular);
+  text-transform: uppercase; letter-spacing: var(--ls-widest); }
+
+/* prices: Oswald Light, normal case, light tracking (Vegas price style) */
+.ccard__price, .coll-cap__price {
+  font-family: var(--font-display); font-weight: var(--fw-light);
+  text-transform: none; letter-spacing: var(--ls-wide); }
+
+/* nav links: Roboto Condensed, bold, uppercase, wide tracking */
+.nav-link { font-family: var(--font-sans); font-weight: var(--fw-bold);
+  text-transform: uppercase; letter-spacing: var(--ls-widest); font-size: var(--fs-sm); }
+
+/* buttons + arrow links: Roboto Condensed, medium, uppercase, wide tracking */
+.btn, .link-arrow, .hero__textlink, .ccard__cta {
+  font-family: var(--font-sans); font-weight: var(--fw-medium);
+  text-transform: uppercase; letter-spacing: var(--ls-wide); }
+
+/* ---------- section heads: keep generous air ---------- */
 .type-display-md { font-size: var(--fs-4xl); }   /* section heads -> 64 */
 .section-head, .inv__head, .ig-head, .sec-head { margin-bottom: var(--space-16); }
 
