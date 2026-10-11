@@ -1,0 +1,205 @@
+/* =====================================================================
+   home4.css — index4.html (sell-your-car site). Loads after home3.css and
+   only adds what index4 needs on top of it. Roles/tokens from home3 only.
+   ===================================================================== */
+
+/* =====================================================================
+   SOLD — the home3 rail, cards without price/actions + a "Sold" tag
+   ===================================================================== */
+.inv-card--sold .inv-card__photo { cursor: inherit; }
+.sold-tag { position: absolute; top: var(--sp-3); left: var(--sp-3); z-index: 3;
+  font-family: var(--font-mono); font-weight: var(--weight-medium); font-size: var(--text-xs);
+  line-height: 1; letter-spacing: .2em; text-transform: uppercase; color: var(--text-strong);
+  padding: var(--sp-2) var(--sp-3); border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface-0) 78%, transparent);
+  border: 1px solid var(--border-strong); }
+/* miles take the divider the price used to carry */
+.inv-card--sold .inv-card__miles { border-top: 1px solid var(--border);
+  margin-top: var(--sp-3); padding-top: var(--sp-3); }
+
+.sold4__empty { display: none; color: var(--text-secondary); }
+.sold4.is-empty .inv3-rail, .sold4.is-empty .inv3-nav { display: none; }
+.sold4.is-empty .sold4__empty { display: block; }
+
+/* =====================================================================
+   OFFER — intro left, form panel right (the page's conversion point)
+   ===================================================================== */
+.offer4 { position: relative; isolation: isolate; overflow-x: clip;   /* panel glow must not widen the page; clip keeps sticky working */
+  padding-top: var(--sp-9); padding-bottom: var(--sp-10); }
+.offer4__grid { align-items: start; row-gap: var(--sp-6); }
+.offer4__intro { position: sticky; top: calc(var(--nav-h, 72px) + var(--sp-5)); }
+.offer4__intro .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
+.offer4__intro .lead { max-width: 40ch; }
+
+.offer4__direct { list-style: none; margin: var(--sp-6) 0 0; padding: 0; }
+.offer4__direct li { display: flex; flex-direction: column; gap: var(--sp-1);
+  padding: var(--sp-3) 0; border-top: 1px solid var(--border); }
+.offer4__direct li:last-child { border-bottom: 1px solid var(--border); }
+.offer4__direct-label { font-family: var(--font-mono); font-size: var(--text-xs);
+  letter-spacing: .16em; text-transform: uppercase; color: var(--text-muted); }
+.offer4__direct a { font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: var(--text-lg); letter-spacing: .5px; color: var(--text-primary);
+  text-decoration: none; transition: color var(--transition); overflow-wrap: anywhere; }
+.offer4__direct a:hover { color: var(--accent-hover); }
+.offer4__direct a:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* panel — one step up the surface ladder, soft accent glow behind it */
+.offer4__panel { position: relative; background: var(--surface-1);
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: var(--sp-6); box-shadow: var(--shadow-lg); }
+.offer4__panel::before { content: ""; position: absolute; inset: -12% -8%; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(40% 50% at 30% 30%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
+    radial-gradient(36% 46% at 72% 70%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
+  filter: blur(30px); }
+
+.form4__set { border: 0; margin: 0; padding: 0; min-width: 0; }
+.form4__set + .form4__set { margin-top: var(--sp-5); padding-top: var(--sp-5); border-top: 1px solid var(--border); }
+.form4__legend { float: left; width: 100%;   /* float keeps the legend off the fieldset border line */
+  padding: 0; margin-bottom: var(--sp-3); font-family: var(--font-display);
+  font-weight: var(--weight-medium); font-size: var(--text-sm); letter-spacing: .16em;
+  text-transform: uppercase; color: var(--text-primary); }
+.form4__legend + * { clear: both; }
+.form4__row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+.form4__row--3 { grid-template-columns: 1fr 2fr; }
+.form4__field { min-width: 0; }
+/* vertical rhythm between stacked groups only — never between fields sharing a row */
+.form4__set > .form4__field + *, .form4__set > .form4__row + * { margin-top: var(--sp-3); }
+.form4__opt { color: var(--text-muted); text-transform: lowercase; letter-spacing: .04em; }
+
+.form4 .label { font-family: var(--font-sans); font-size: var(--text-sm); }
+.form4 .input, .form4 .textarea { font: inherit; font-size: var(--text-base);
+  background: var(--surface-0); border-color: var(--border-strong); }
+.form4 .textarea { resize: vertical; min-height: calc(var(--sp-10) - var(--sp-2)); }
+.form4 .input:focus, .form4 .textarea:focus { border-color: var(--accent-hover); }
+.form4 .input:user-invalid, .form4 .textarea:user-invalid { border-color: var(--danger); }
+
+/* file picker — the native input sits invisibly over a styled row */
+.form4__file { position: relative; display: flex; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-2); border: 1px dashed var(--border-stronger); border-radius: var(--radius);
+  background: var(--surface-0); cursor: pointer; transition: border-color var(--transition); }
+.form4__file:hover { border-color: var(--text-secondary); }
+.form4__file input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; }
+.form4__file:focus-within { box-shadow: var(--focus-ring); }
+.form4__file-btn { flex: none; font-family: var(--font-sans); font-weight: var(--weight-medium);
+  font-size: var(--text-xs); letter-spacing: .16em; text-transform: uppercase; color: var(--text-primary);
+  padding: var(--sp-2) var(--sp-3); border-radius: var(--radius); background: var(--surface-3); }
+.form4__file-name { font-size: var(--text-sm); color: var(--text-muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.form4__submit { width: 100%; margin-top: var(--sp-5); }
+.form4__submit:disabled { opacity: .6; cursor: progress; }
+.form4__error { margin-top: var(--sp-3); font-size: var(--text-sm); color: var(--danger); }
+.form4__fine { margin-top: var(--sp-3); font-size: var(--text-xs); letter-spacing: .04em;
+  color: var(--text-muted); text-align: center; }
+
+.form4__done { padding-block: var(--sp-6); }
+.form4__done:focus { outline: none; }
+.form4__done .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
+.form4__done .feat3__title { margin-bottom: var(--space-text); }
+.form4__done .link { text-transform: none; letter-spacing: .04em; font-size: inherit; }
+
+@media (max-width: 860px) {
+  .offer4__grid > * { grid-column: 1 / -1; }
+  .offer4__intro { position: static; }
+  .offer4__direct { max-width: 40ch; }
+}
+@media (max-width: 560px) {
+  .offer4__panel { padding: var(--sp-4); }
+  .form4__row, .form4__row--3 { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   INSTAGRAM — pinned wall (after DuPont v4 · 08). The head holds on the
+   left; three columns of 4:5 posts rise past it at three rates.
+   Static by default; .igw--motion is added by home4.js on desktop only
+   when motion is allowed.
+   ===================================================================== */
+.igw { position: relative; padding-top: var(--sp-9); padding-bottom: var(--sp-10); }
+.igw__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--sp-4); align-items: start; }
+.igw__head { grid-column: 1 / span 4; position: sticky; top: calc(var(--nav-h, 72px) + var(--sp-6)); }
+.igw__head .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
+.igw__title { font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: clamp(2.4rem, 4.6vw, 64px); line-height: 1.02; letter-spacing: .5px;
+  text-transform: uppercase; color: var(--text-strong); margin: 0; }
+.igw__title .line { display: block; }
+.igw__sub { margin-top: var(--space-text); font-family: var(--font-mono); font-size: var(--text-xs);
+  letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
+.igw__lead { margin-top: var(--sp-4); max-width: 30ch; }
+.igw__cta { margin-top: var(--sp-5); }
+
+.igw__wall { grid-column: 6 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-4); align-items: start; }
+.igw__col { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-5); min-width: 0; }
+.igw__col[data-ig-col="1"] { margin-top: var(--sp-8); }   /* static offset — the wall never reads as a flat grid */
+
+.igw__tile a { display: block; text-decoration: none; border-radius: var(--radius); }
+.igw__tile a:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.igw__media { position: relative; display: block; overflow: hidden; aspect-ratio: 4 / 5;
+  border-radius: var(--radius); background: var(--surface-2); }
+.igw__media img { display: block; width: 100%; height: 100%; object-fit: cover;
+  transition: transform var(--transition-slow); }
+.igw__tile a:hover .igw__media img { transform: scale(1.04); }
+.igw__reel { position: absolute; top: var(--sp-2); right: var(--sp-2); width: var(--sp-4); height: var(--sp-4);
+  color: var(--c-white); filter: drop-shadow(0 1px 2px color-mix(in srgb, var(--c-abyss) 70%, transparent)); }
+.igw__reel svg { display: block; width: 100%; height: 100%; }
+.igw__cap { display: flex; justify-content: space-between; gap: var(--sp-2); margin-top: var(--sp-2);
+  font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted);
+  white-space: nowrap; transition: color var(--transition); }
+.igw__handle { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.igw__cap time { flex: none; }
+.igw__tile a:hover .igw__cap { color: var(--text-secondary); }
+
+/* desktop + motion: the stage pins for the length of the section, columns are moved by JS */
+.igw--motion { height: 280vh; padding: 0; }
+.igw--motion .igw__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.igw--motion .igw__grid { height: 100%; align-items: center; }
+.igw--motion .igw__head { position: relative; top: auto; }
+.igw--motion .igw__wall { align-self: stretch; height: 100%; overflow: hidden;
+  /* posts rise in from below and leave under a soft fade — never under the nav */
+  -webkit-mask-image: linear-gradient(to bottom, transparent var(--nav-h, 72px), black calc(var(--nav-h, 72px) + 14vh), black 84%, transparent);
+          mask-image: linear-gradient(to bottom, transparent var(--nav-h, 72px), black calc(var(--nav-h, 72px) + 14vh), black 84%, transparent); }
+.igw--motion .igw__col { margin-top: 0; will-change: transform; }
+
+@media (max-width: 1024px) {
+  .igw__head { grid-column: 1 / span 5; }
+  .igw__wall { grid-column: 6 / -1; }
+  .igw__handle { display: none; }   /* narrow tiles: the date alone — the handle already heads the section */
+}
+@media (max-width: 860px) {
+  .igw__head { grid-column: 1 / -1; position: static; margin-bottom: var(--sp-6); }
+  .igw__wall { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .igw__wall, .igw__col { gap: var(--sp-2); }
+  .igw__col[data-ig-col="1"] { margin-top: var(--sp-6); }
+  .igw__cap { display: none; }   /* phone: an Instagram-profile grid, no captions under 110px tiles */
+}
+
+/* =====================================================================
+   FOOTER — three columns (no address / map: no showroom anymore)
+   ===================================================================== */
+.footer4 .footer3__grid { grid-template-columns: 1.6fr 1fr 1.2fr; }
+.footer4 .footer3__grid { padding-top: var(--sp-8); }
+.footer4 .footer3__legal { border-top: 1px solid var(--divider); }
+.footer4 .footer3__meta { margin-top: 0; gap: var(--sp-2); }   /* align with the Explore list */
+.footer4 .footer3__social { margin-bottom: var(--sp-5); }
+/* .footer3 a recolours every link — give the CTA its button colour back */
+.footer4 .footer3__cta { color: var(--on-accent); }
+@media (max-width: 860px) {
+  .footer4 .footer3__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .footer4 .footer3__grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   HERO — phones: copy sits over the cars, so the scrim carries the lower
+   half and the two actions share one width
+   ===================================================================== */
+@media (max-width: 700px) {
+  .hero3__scrim { background:
+    linear-gradient(to bottom, var(--surface-0), transparent 24%),
+    linear-gradient(to top, var(--surface-0) 8%, color-mix(in srgb, var(--surface-0) 72%, transparent) 50%, transparent 78%); }
+  .hero3__actions { flex-direction: column; align-items: stretch; }
+}

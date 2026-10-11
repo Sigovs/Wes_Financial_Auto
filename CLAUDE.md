@@ -109,3 +109,13 @@ h2 `--fs-2xl` · h1 `--fs-3xl` · hero `--fs-5xl` (fluid).
 ## When unsure
 Open `design/preview.html` and match it. If a value isn't in the tokens, add it to
 `tokens.css` first (and `tokens.json`), then use it — don't inline it.
+
+## Feedback log
+
+- **2026-10-11 — business pivot (index4 is the current direction).** Wes no longer works with a
+  dealership. The site is now lead-gen for people who want to **sell their car to Wes**: the offer
+  form is the primary action. Show **sold vehicles only** (posted by Wes, edited in
+  `js/sold-data.js` — no prices), keep an **Instagram section** (his main marketing channel).
+  Do not bring back: inventory for sale, prices, financing / pre-approval, showroom address,
+  hours or map. index3 stays as the archived dealership version.
+- **2026-10-11 — Instagram = pinned wall after DuPont v4 (section 08).** Head holds left, three columns of 4:5 posts scrub up at three rates (desktop + motion only; static offset grid otherwise). Wes plans an active Instagram — keep this section prominent. Mock feed: assets/instagram/feed/ (5 Wes posts + 7 Geneva Motor Haus sold photos without dealer branding — never use Chicago Motor Cars shots, they carry its logo).
