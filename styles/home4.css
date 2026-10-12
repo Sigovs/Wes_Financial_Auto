@@ -205,13 +205,13 @@
 }
 
 /* Exotics of Detroit badge — a round mark needs more height than the old wordmark to stay legible */
-.nav3__brand img { height: 92px; }
-.nav3.solid .nav3__brand img { height: 68px; }
+.nav3__brand img { height: 112px; }
+.nav3.solid .nav3__brand img { height: 80px; }
 /* scrolled: badge flips to a light disc so it holds against the dark glass bar */
 .nav3__brand img { transition: height var(--transition), filter var(--transition); }
 .nav3.solid .nav3__brand img { filter: invert(1); }
 .footer3__logo img { height: 108px; filter: none; opacity: 1; }
 @media (max-width: 767px) {
-  .nav3__brand img { height: 72px; }
-  .nav3.solid .nav3__brand img { height: 58px; }
+  .nav3__brand img { height: 84px; }
+  .nav3.solid .nav3__brand img { height: 64px; }
 }
