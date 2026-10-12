@@ -203,3 +203,12 @@
     linear-gradient(to top, var(--surface-0) 8%, color-mix(in srgb, var(--surface-0) 72%, transparent) 50%, transparent 78%); }
   .hero3__actions { flex-direction: column; align-items: stretch; }
 }
+
+/* Exotics of Detroit badge — a round mark needs more height than the old wordmark to stay legible */
+.nav3__brand img { height: 92px; }
+.nav3.solid .nav3__brand img { height: 68px; }
+.footer3__logo img { height: 108px; filter: none; opacity: 1; }
+@media (max-width: 767px) {
+  .nav3__brand img { height: 72px; }
+  .nav3.solid .nav3__brand img { height: 58px; }
+}
