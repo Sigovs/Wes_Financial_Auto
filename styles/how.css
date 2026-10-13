@@ -4,10 +4,10 @@
    ===================================================================== */
 
 /* =====================================================================
-   HERO — the About hero grammar with a video loop; the left darken
-   carries the copy over the hangar lights
+   HERO — the About hero grammar on a dusk carport still; the left
+   darken carries the copy over the open plaza
    ===================================================================== */
-.how-hero__video { object-position: center 60%; }
+.how-hero__img { object-position: 70% center; }   /* keep the cars in frame as the viewport narrows */
 /* desktop uses the About hero scrim as is; phones get a fuller lower darken (copy sits over the car) */
 @media (max-width: 700px) {
   .how-hero__scrim { background:
