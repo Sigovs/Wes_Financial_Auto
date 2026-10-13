@@ -32,6 +32,7 @@ js/home3.js           shared page behaviour (nav, rail, reveals) — must load A
 js/about.js           About contact form states
 js/how.js             How it works — sticky step index highlights the step in view
 js/smooth.js          Lenis smooth scroll (off under prefers-reduced-motion)
+js/video.js           background-video pause/play control; desktop-only clips on About / How
 assets/               logo, hero, video, sold-car photos, Instagram feed
 ```
 
@@ -42,6 +43,7 @@ assets/               logo, hero, video, sold-car photos, Instagram feed
   and expect a 2xx JSON response.
 - **Copy & contacts are placeholders**: About and How it works text, `hello@exoticsofdetroit.com` and the
   `@exoticsofdetroit` handle are mockup values — replace with the client's real ones.
+- **Lenis** loads from unpkg (lenis@1.3.26). Vendor it into the project for production; if the CDN fails the site simply scrolls natively.
 - **Instagram wall**: these are static images in `assets/instagram/feed/`. Swap them for a live feed if needed.
 - **AI imagery**: `assets/img/how/direct-sale.jpg`, `consignment.jpg` and the About hero are AI-generated mood images — swap for real photography if required.
 - **Sold cars**: photos are placeholders until the client's real shots arrive. Data lives in `js/sold-data.js`.

@@ -4,14 +4,11 @@
    ===================================================================== */
 
 /* =====================================================================
-   HERO — the About hero grammar with a video still; sunrise is the
-   brightest ground on the site, so the top and left darken run deeper
+   HERO — the About hero grammar with a video loop; the left darken
+   carries the copy over the hangar lights
    ===================================================================== */
 .how-hero__video { object-position: center 60%; }
-.how-hero__scrim { background:
-  linear-gradient(to bottom, var(--surface-0), color-mix(in srgb, var(--surface-0) 55%, transparent) 30%, transparent 55%),
-  linear-gradient(to top,    var(--surface-0), transparent 34%),
-  linear-gradient(to right,  color-mix(in srgb, var(--surface-0) 86%, transparent), color-mix(in srgb, var(--surface-0) 50%, transparent) 55%, color-mix(in srgb, var(--surface-0) 20%, transparent)); }
+/* desktop uses the About hero scrim as is; phones get a fuller lower darken (copy sits over the car) */
 @media (max-width: 700px) {
   .how-hero__scrim { background:
     linear-gradient(to bottom, var(--surface-0), color-mix(in srgb, var(--surface-0) 60%, transparent) 30%, color-mix(in srgb, var(--surface-0) 50%, transparent)),
@@ -41,7 +38,7 @@
 .proc6__index a:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 
 .proc6__steps { list-style: none; margin: 0; padding: 0; }
-.proc6__step { display: grid; grid-template-columns: minmax(0, 7rem) minmax(0, 1fr); gap: var(--sp-5);
+.proc6__step { display: grid; grid-template-columns: minmax(0, var(--sp-9)) minmax(0, 1fr); gap: var(--sp-5);
   padding-block: var(--sp-7); border-top: 1px solid var(--border); scroll-margin-top: calc(var(--nav-h, 72px) + var(--sp-4)); }
 .proc6__step:first-child { border-top: 0; padding-top: 0; }
 .proc6__num { font-family: var(--font-display); font-weight: var(--weight-light);
@@ -110,7 +107,7 @@
 .faq6__grid { align-items: start; row-gap: var(--sp-6); }
 .faq6__head .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
 .faq6__link { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--border-stronger);
-  text-underline-offset: 3px; transition: text-decoration-color var(--transition); }
+  text-underline-offset: var(--sp-1); transition: text-decoration-color var(--transition); }
 .faq6__link:hover { text-decoration-color: var(--text-primary); }
 .faq6__link:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 
@@ -137,7 +134,7 @@
 .close6__inner { text-align: center; }
 .close6__inner .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
 .close6__title { font-family: var(--font-display); font-weight: var(--weight-light);
-  font-size: clamp(2.4rem, 6vw, 72px); line-height: 1.05; letter-spacing: 1px; text-transform: uppercase;
+  font-size: clamp(2.4rem, 6vw, var(--text-display)); line-height: 1.05; letter-spacing: 1px; text-transform: uppercase;
   color: var(--text-strong); margin: 0 0 var(--space-text); }
 .close6__lead { max-width: 46ch; margin: 0 auto var(--space-text-obj); }
 .close6__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-3); }

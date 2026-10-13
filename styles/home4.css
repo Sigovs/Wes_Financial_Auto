@@ -237,3 +237,19 @@
   transition: color var(--transition); }
 .how4__more:hover { color: var(--accent-hover); }
 .how4__more:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* Background video control (js/video.js) — quiet, bottom-right of the band, above the scrim */
+.vctl { position: absolute; right: max(var(--gutter), calc((100% - var(--container)) / 2 + var(--gutter))); bottom: var(--sp-5); z-index: 3;
+  width: var(--sp-6); height: var(--sp-6); display: inline-grid; place-items: center;
+  padding: 0; border: 1px solid var(--border-strong); border-radius: 50%; cursor: pointer;
+  background: color-mix(in srgb, var(--surface-0) 60%, transparent); color: var(--text-secondary);
+  transition: color var(--transition), border-color var(--transition), background var(--transition); }
+.vctl svg { width: var(--sp-3); height: var(--sp-3); }
+.vctl:hover { color: var(--text-strong); border-color: var(--border-stronger); background: color-mix(in srgb, var(--surface-0) 80%, transparent); }
+.vctl:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* Footer + inline links — hit area grows to ≥24px (WCAG 2.5.8) through an invisible
+   pseudo-element, so the layout does not move by a pixel */
+.footer3__list a, .footer3__meta a, .footer3__legal a, .faq6__link { position: relative; }
+.footer3__list a::after, .footer3__meta a::after, .footer3__legal a::after, .faq6__link::after {
+  content: ""; position: absolute; inset: calc(-1 * var(--sp-1)) 0; }
