@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works — Exotics of Detroit</title>
+<meta name="description" content="A clear, fully managed process for selling or consigning a highline vehicle with Exotics of Detroit — from first enquiry to completion.">
+
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Oswald:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/utilities.css">
+<link rel="stylesheet" href="styles/home3.css">
+<link rel="stylesheet" href="styles/home4.css">
+<link rel="stylesheet" href="styles/about.css">
+<link rel="stylesheet" href="styles/how.css">
+</head>
+<body id="top">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav3" id="site-nav">
+  <div class="nav3__inner">
+    <a class="nav3__brand" href="index.html" aria-label="Exotics of Detroit — home">
+      <img src="assets/img/hero/new_final_logo.svg" alt="Exotics of Detroit" width="416" height="416">
+    </a>
+
+    <button class="nav3__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav3-menu">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="nav3__menu" id="nav3-menu">
+      <nav class="nav3__links" aria-label="Primary">
+        <a href="index.html#sold">Sold</a>
+        <a href="how-it-works.html" aria-current="page">How it works</a>
+        <a href="about.html">About</a>
+        <a href="index.html#instagram">Instagram</a>
+      </nav>
+      <div class="nav3__actions">
+        <a class="nav3__phone" href="tel:+18882255937">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>
+          <span>(888) 225-5937</span>
+        </a>
+        <a class="btn3 btn3--primary" href="index.html#offer">Get an offer</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- COPY NOTE: all text on this page is placeholder copy written for the mockup.
+     Replace with the client's own process details before launch. No figures or timings are stated on purpose. -->
+<main id="main">
+
+  <!-- ============================ HERO — sunrise aerial loop (the site's Detroit-aerial motif: About = night/dusk, here = sunrise) ============================ -->
+  <section class="hero3 about-hero how-hero" aria-labelledby="how-title">
+    <video class="hero3__img how-hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/img/how/how-hero-poster.jpg" aria-hidden="true">
+      <source src="assets/img/how/how-hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero3__scrim about-hero__scrim how-hero__scrim" aria-hidden="true"></div>
+    <div class="hero3__inner container r-step">
+      <p class="eyebrow eyebrow--oswald hero3__eyebrow r-in" style="--i:0">How it works</p>
+      <h1 class="display hero3__title about-hero__title" id="how-title"><span class="r-in line" style="--i:1">A clear process.</span><span class="r-in line" style="--i:2">Start to finish.</span></h1>
+      <p class="lead hero3__lead r-in" style="--i:3">Selling or consigning a highline vehicle with Exotics of Detroit follows one structured, fully managed process — designed to give every client clarity, confidence and control.</p>
+      <div class="hero3__actions r-in" style="--i:4">
+        <a class="btn3 btn3--primary" href="index.html#offer">Start your offer</a>
+        <a class="btn3 btn3--dark" href="#process">View the process</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================ PROCESS — the signature: sticky step index left, full steps right.
+       A real sequence, so the steps are numbered. The index highlights the step in view (js/how.js). ============================ -->
+  <section class="proc6" id="process" aria-labelledby="proc-title">
+    <div class="container">
+      <div class="grid12 proc6__grid">
+        <div class="col-span-4 proc6__aside">
+          <div class="r-step">
+            <p class="eyebrow eyebrow--oswald r-in" style="--i:0">The process</p>
+            <h2 class="feat3__title r-in" style="--i:1" id="proc-title">Five steps<br>to completion.</h2>
+          </div>
+          <nav class="proc6__index" aria-label="Process steps">
+            <ol>
+              <li><a href="#step-1" data-step="1"><span class="proc6__index-num">01</span>Submit your vehicle</a></li>
+              <li><a href="#step-2" data-step="2"><span class="proc6__index-num">02</span>Evaluation</a></li>
+              <li><a href="#step-3" data-step="3"><span class="proc6__index-num">03</span>Your offer</a></li>
+              <li><a href="#step-4" data-step="4"><span class="proc6__index-num">04</span>Documentation &amp; payment</a></li>
+              <li><a href="#step-5" data-step="5"><span class="proc6__index-num">05</span>Collection</a></li>
+            </ol>
+          </nav>
+        </div>
+
+        <ol class="col-span-7 col-start-6 proc6__steps">
+          <li class="proc6__step r-step" id="step-1" data-step="1">
+            <span class="proc6__num r-in" style="--i:0" aria-hidden="true">01</span>
+            <div class="proc6__body r-in" style="--i:1">
+              <h3 class="proc6__title">Submit your vehicle</h3>
+              <p>Share the essential details of your vehicle through our online form, by phone or by email. A complete submission allows our team to provide an accurate assessment from the outset.</p>
+              <ul class="proc6__points" aria-label="Information we ask for">
+                <li>Year, make, model and mileage</li>
+                <li>Specification and optional equipment</li>
+                <li>Recent photographs, interior and exterior</li>
+                <li>Service history and any known condition notes</li>
+              </ul>
+            </div>
+          </li>
+          <li class="proc6__step r-step" id="step-2" data-step="2">
+            <span class="proc6__num r-in" style="--i:0" aria-hidden="true">02</span>
+            <div class="proc6__body r-in" style="--i:1">
+              <h3 class="proc6__title">Evaluation</h3>
+              <p>Our specialists review every submission individually. Each vehicle is assessed against current market conditions, comparable transactions, condition, specification and provenance.</p>
+              <ul class="proc6__points" aria-label="What we assess">
+                <li>Market position and current demand</li>
+                <li>Condition, specification and originality</li>
+                <li>Ownership and service documentation</li>
+              </ul>
+            </div>
+          </li>
+          <li class="proc6__step r-step" id="step-3" data-step="3">
+            <span class="proc6__num r-in" style="--i:0" aria-hidden="true">03</span>
+            <div class="proc6__body r-in" style="--i:1">
+              <h3 class="proc6__title">Your offer</h3>
+              <p>We present a clear, written offer together with the reasoning behind it. Our offers carry no obligation, giving you the time and information to make a fully informed decision.</p>
+              <ul class="proc6__points" aria-label="What the offer includes">
+                <li>A transparent, market-based valuation</li>
+                <li>Direct sale and consignment options where appropriate</li>
+                <li>A dedicated point of contact for any questions</li>
+              </ul>
+            </div>
+          </li>
+          <li class="proc6__step r-step" id="step-4" data-step="4">
+            <span class="proc6__num r-in" style="--i:0" aria-hidden="true">04</span>
+            <div class="proc6__body r-in" style="--i:1">
+              <h3 class="proc6__title">Documentation &amp; payment</h3>
+              <p>Once you accept, our team prepares and manages all transaction documentation. Where a loan is outstanding, we coordinate the payoff directly with your lender and confirm every step in writing.</p>
+              <ul class="proc6__points" aria-label="What we manage">
+                <li>Bill of sale and title transfer</li>
+                <li>Lender payoff and lien release</li>
+                <li>Secure, verified payment</li>
+              </ul>
+            </div>
+          </li>
+          <li class="proc6__step r-step" id="step-5" data-step="5">
+            <span class="proc6__num r-in" style="--i:0" aria-hidden="true">05</span>
+            <div class="proc6__body r-in" style="--i:1">
+              <h3 class="proc6__title">Collection</h3>
+              <p>We arrange the collection of your vehicle at a time and location that suits you, with a final inspection and handover completed by our team. The transaction closes with full confirmation in writing.</p>
+              <ul class="proc6__points" aria-label="At handover">
+                <li>Scheduled at your convenience</li>
+                <li>Final inspection and key handover</li>
+                <li>Written confirmation of completion</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================ OPTIONS — direct sale vs consignment, image-led pair ============================ -->
+  <section class="opts6" aria-labelledby="opts-title">
+    <div class="container">
+      <div class="opts6__head r-step">
+        <p class="eyebrow eyebrow--oswald r-in" style="--i:0">Selling options</p>
+        <h2 class="heading-light r-in" style="--i:1" id="opts-title">Two ways to sell</h2>
+      </div>
+      <div class="opts6__grid">
+        <article class="opts6__card r-step">
+          <div class="opts6__media r-up" style="--i:0">
+            <img src="assets/img/how/direct-sale.jpg" alt="Keys being handed over beside an SUV in a modern covered entrance at dusk" loading="lazy" width="1600" height="894">
+          </div>
+          <div class="opts6__body r-in" style="--i:1">
+            <h3 class="opts6__title">Direct sale</h3>
+            <p>We purchase your vehicle outright. A single, transparent offer and a fully managed transaction — the most efficient route to completion.</p>
+            <ul class="proc6__points">
+              <li>One offer, no obligation</li>
+              <li>Payment on completion</li>
+              <li>Best suited to a prompt, certain sale</li>
+            </ul>
+          </div>
+        </article>
+        <article class="opts6__card r-step">
+          <div class="opts6__media r-up" style="--i:0">
+            <img src="assets/img/how/consignment.jpg" alt="Three luxury vehicles displayed in a high-rise showroom at dusk" loading="lazy" width="1600" height="894">
+          </div>
+          <div class="opts6__body r-in" style="--i:1">
+            <h3 class="opts6__title">Consignment</h3>
+            <p>We market and sell your vehicle on your behalf to our network of qualified buyers, managing presentation, enquiries and the transaction throughout.</p>
+            <ul class="proc6__points">
+              <li>Professional presentation and marketing</li>
+              <li>Agreed terms before listing</li>
+              <li>Best suited to rare and collectible vehicles</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================ DOCUMENTS — what to have ready (checklist, quiet) ============================ -->
+  <section class="docs6" aria-labelledby="docs-title">
+    <div class="container">
+      <div class="grid12 docs6__grid">
+        <div class="col-span-4 docs6__head r-step">
+          <p class="eyebrow eyebrow--oswald r-in" style="--i:0">Preparation</p>
+          <h2 class="feat3__title r-in" style="--i:1" id="docs-title">What to<br>have ready.</h2>
+          <p class="r-in" style="--i:2">Having these items available helps us complete your transaction efficiently. Our team will guide you through anything that is missing.</p>
+        </div>
+        <ul class="col-span-7 col-start-6 docs6__list r-step">
+          <li class="r-in" style="--i:0"><span class="docs6__item">Vehicle title</span><span class="docs6__note">Or lender details if the vehicle is financed</span></li>
+          <li class="r-in" style="--i:1"><span class="docs6__item">Current registration</span><span class="docs6__note">Valid and in the owner’s name</span></li>
+          <li class="r-in" style="--i:2"><span class="docs6__item">Government-issued photo ID</span><span class="docs6__note">For every owner listed on the title</span></li>
+          <li class="r-in" style="--i:3"><span class="docs6__item">Loan payoff information</span><span class="docs6__note">Account number and lender contact, if applicable</span></li>
+          <li class="r-in" style="--i:4"><span class="docs6__item">Keys and accessories</span><span class="docs6__note">All keys, manuals and original accessories</span></li>
+          <li class="r-in" style="--i:5"><span class="docs6__item">Service records</span><span class="docs6__note">Recommended — supports the strongest valuation</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================ FAQ — native details/summary; opens downward, nothing above the pointer moves ============================ -->
+  <section class="faq6" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="grid12 faq6__grid">
+        <div class="col-span-4 faq6__head r-step">
+          <p class="eyebrow eyebrow--oswald r-in" style="--i:0">Questions</p>
+          <h2 class="feat3__title r-in" style="--i:1" id="faq-title">Frequently<br>asked.</h2>
+          <p class="r-in" style="--i:2">Can’t find what you’re looking for? <a class="faq6__link" href="about.html#contact">Contact our team</a>.</p>
+        </div>
+        <div class="col-span-7 col-start-6 faq6__list">
+          <details class="faq6__item">
+            <summary>Is there any obligation once I receive an offer?</summary>
+            <p>No. Every offer is provided without obligation. You are free to accept, decline or take time to consider it.</p>
+          </details>
+          <details class="faq6__item">
+            <summary>Can I sell a vehicle that still has a loan on it?</summary>
+            <p>Yes. We coordinate the payoff directly with your lender as part of the transaction and confirm the lien release in writing.</p>
+          </details>
+          <details class="faq6__item">
+            <summary>What types of vehicles do you acquire?</summary>
+            <p>We specialize in premium, luxury, exotic and collectible vehicles. If you are unsure whether your vehicle qualifies, please contact our team.</p>
+          </details>
+          <details class="faq6__item">
+            <summary>How is the value of my vehicle determined?</summary>
+            <p>Our specialists assess current market conditions, comparable transactions, condition, specification, mileage and documentation. The reasoning is shared with you alongside the offer.</p>
+          </details>
+          <details class="faq6__item">
+            <summary>What is the difference between a direct sale and consignment?</summary>
+            <p>In a direct sale, we purchase the vehicle outright. With consignment, we market and sell the vehicle on your behalf under terms agreed in advance.</p>
+          </details>
+          <details class="faq6__item">
+            <summary>Do I need to bring the vehicle to you?</summary>
+            <p>Not necessarily. Collection can be arranged at a time and location that suits you.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================ CLOSE — one decided ending, the page's single loud action ============================ -->
+  <section class="close6" aria-labelledby="close-title">
+    <div class="container close6__inner r-step">
+      <p class="eyebrow eyebrow--oswald r-in" style="--i:0">Get started</p>
+      <h2 class="close6__title r-in" style="--i:1" id="close-title">Ready when you are.</h2>
+      <p class="lead close6__lead r-in" style="--i:2">Submit your vehicle details and our team will respond with a clear assessment.</p>
+      <div class="close6__actions r-in" style="--i:3">
+        <a class="btn3 btn3--primary" href="index.html#offer">Start your offer</a>
+        <a class="btn3 btn3--dark" href="about.html#contact">Contact our team</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer3 footer4">
+  <div class="container">
+    <div class="footer3__grid">
+
+      <div class="footer3__brand">
+        <a class="footer3__logo" href="index.html" aria-label="Exotics of Detroit — home">
+          <img src="assets/img/hero/new_final_logo.svg" alt="Exotics of Detroit" width="416" height="416">
+        </a>
+        <p class="footer3__tagline">Sell your car directly to Exotics of Detroit — a straight answer, no dealership runaround.</p>
+        <div class="footer3__social">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+        <a class="btn3 btn3--primary footer3__cta" href="index.html#offer">Get an offer <span class="arr" aria-hidden="true">&#8594;</span></a>
+      </div>
+
+      <nav class="footer3__col" aria-label="Explore">
+        <p class="footer3__col-title">Explore</p>
+        <ul class="footer3__list">
+          <li><a href="index.html#sold">Recently sold</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#instagram">Instagram</a></li>
+          <li><a href="about.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer3__contact">
+        <p class="footer3__col-title">Contact</p>
+        <ul class="footer3__meta">
+          <li><a href="tel:+18882255937">(888) 225-5937</a></li>
+          <li><a href="mailto:hello@exoticsofdetroit.com">hello@exoticsofdetroit.com</a></li>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener">@exoticsofdetroit</a></li>
+        </ul>
+        <p class="footer3__hours">By appointment</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer3__legal">
+    <div class="container footer3__legal-row">
+      <span>© 2026 Exotics of Detroit. All rights reserved.</span>
+      <span class="footer3__powered">Powered by <a href="https://www.allautonetwork.com" target="_blank" rel="noopener">All Auto Network</a></span>
+      <span class="footer3__legal-links"><a href="#">Privacy</a> <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="js/smooth.js"></script>
+<script src="js/how.js"></script>
+<script src="js/home3.js"></script>
+</body>
+</html>

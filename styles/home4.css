@@ -229,3 +229,11 @@
 /* the centred text column is narrower than the two buttons — the row borrows the gutter on
    both sides (symmetric, so it stays centred) instead of wrapping into a stack */
 .vbreak3--about .vbreak3__cta { margin-inline: calc(-1 * var(--gutter)); }
+
+/* How it works (home) — the offer stays the button; the full process is a quiet text link beside it */
+.how4__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3) var(--sp-5); }
+.how4__more { font-family: var(--font-sans); font-weight: var(--weight-medium); font-size: var(--text-sm);
+  letter-spacing: .2em; text-transform: uppercase; color: var(--text-primary); text-decoration: none;
+  transition: color var(--transition); }
+.how4__more:hover { color: var(--accent-hover); }
+.how4__more:focus-visible { outline: none; box-shadow: var(--focus-ring); }

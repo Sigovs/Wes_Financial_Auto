@@ -1,0 +1,149 @@
+/* =====================================================================
+   how.css — how-it-works.html. Loads after home3 / home4 / about.css and
+   only adds what this page needs. Roles/tokens from home3 only.
+   ===================================================================== */
+
+/* =====================================================================
+   HERO — the About hero grammar with a video still; sunrise is the
+   brightest ground on the site, so the top and left darken run deeper
+   ===================================================================== */
+.how-hero__video { object-position: center 60%; }
+.how-hero__scrim { background:
+  linear-gradient(to bottom, var(--surface-0), color-mix(in srgb, var(--surface-0) 55%, transparent) 30%, transparent 55%),
+  linear-gradient(to top,    var(--surface-0), transparent 34%),
+  linear-gradient(to right,  color-mix(in srgb, var(--surface-0) 86%, transparent), color-mix(in srgb, var(--surface-0) 50%, transparent) 55%, color-mix(in srgb, var(--surface-0) 20%, transparent)); }
+@media (max-width: 700px) {
+  .how-hero__scrim { background:
+    linear-gradient(to bottom, var(--surface-0), color-mix(in srgb, var(--surface-0) 60%, transparent) 30%, color-mix(in srgb, var(--surface-0) 50%, transparent)),
+    linear-gradient(to top, var(--surface-0) 8%, color-mix(in srgb, var(--surface-0) 76%, transparent) 55%, transparent); }
+}
+
+/* =====================================================================
+   PROCESS — the page's signature: a sticky index on the left tracks the
+   step in view; the steps themselves read as one long numbered column
+   ===================================================================== */
+.proc6 { padding-top: var(--sp-8); padding-bottom: var(--sp-9); }
+.proc6__grid { align-items: start; row-gap: var(--sp-6); }
+.proc6__aside { position: sticky; top: calc(var(--nav-h, 72px) + var(--sp-6)); }
+.proc6__aside .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
+
+.proc6__index ol { list-style: none; margin: 0; padding: 0; }
+.proc6__index li { border-top: 1px solid var(--border); }
+.proc6__index li:last-child { border-bottom: 1px solid var(--border); }
+.proc6__index a { display: flex; align-items: baseline; gap: var(--sp-3); padding: var(--sp-3) 0;
+  font-family: var(--font-sans); font-weight: var(--weight-medium); font-size: var(--text-sm);
+  letter-spacing: .12em; text-transform: uppercase; color: var(--text-secondary); text-decoration: none;
+  transition: color var(--transition); }
+.proc6__index-num { font-family: var(--font-mono); font-weight: var(--weight-regular); letter-spacing: .04em;
+  color: var(--text-secondary); transition: color var(--transition); }
+.proc6__index a:hover, .proc6__index a.is-active { color: var(--text-strong); }
+.proc6__index a.is-active .proc6__index-num { color: var(--text-strong); }
+.proc6__index a:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+.proc6__steps { list-style: none; margin: 0; padding: 0; }
+.proc6__step { display: grid; grid-template-columns: minmax(0, 7rem) minmax(0, 1fr); gap: var(--sp-5);
+  padding-block: var(--sp-7); border-top: 1px solid var(--border); scroll-margin-top: calc(var(--nav-h, 72px) + var(--sp-4)); }
+.proc6__step:first-child { border-top: 0; padding-top: 0; }
+.proc6__num { font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: var(--text-5xl); line-height: 1; letter-spacing: 0; color: var(--border-stronger);
+  transition: color var(--transition-slow); }
+.proc6__step.is-active .proc6__num { color: var(--text-strong); }
+.proc6__title { font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: var(--text-2xl); line-height: 1.15; letter-spacing: .5px; text-transform: uppercase;
+  color: var(--text-primary); margin: 0 0 var(--space-text); }
+.proc6__body > p { font-size: var(--text-lg); line-height: 1.65; max-width: 58ch; }
+
+/* shared bullet list — short hairline dash, not a dot or an icon */
+.proc6__points { list-style: none; margin: var(--space-text-obj) 0 0; padding: 0;
+  display: grid; gap: var(--sp-2); }
+.proc6__points li { position: relative; padding-left: var(--sp-5); color: var(--text-secondary); }
+.proc6__points li::before { content: ""; position: absolute; left: 0; top: .8em; width: var(--sp-3);
+  height: 1px; background: var(--border-stronger); }
+
+@media (max-width: 860px) {
+  .proc6__grid > * { grid-column: 1 / -1; }
+  .proc6__aside { position: static; }
+  .proc6__index { display: none; }   /* the numbered steps carry the sequence on their own */
+  .proc6__step { grid-template-columns: 1fr; gap: var(--sp-3); padding-block: var(--sp-6); }
+  .proc6__num { font-size: var(--text-4xl); color: var(--text-strong); }
+}
+
+/* =====================================================================
+   OPTIONS — two image-led columns, open air (no cards around them)
+   ===================================================================== */
+.opts6 { padding-top: var(--sp-9); padding-bottom: var(--sp-9); }
+.opts6__head { margin-bottom: var(--sp-6); }
+.opts6__head .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--sp-2); }
+.opts6__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-6); }
+.opts6__media { overflow: hidden; border-radius: var(--radius); background: var(--surface-2); aspect-ratio: 3 / 2; }
+.opts6__media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center;
+  transition: transform var(--transition-slow); }
+.opts6__card:hover .opts6__media img { transform: scale(1.04); }
+.opts6__body { padding-top: var(--sp-4); }
+.opts6__title { font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: var(--text-2xl); line-height: 1.15; letter-spacing: .5px; text-transform: uppercase;
+  color: var(--text-primary); margin: 0 0 var(--space-text); }
+.opts6__body > p { max-width: 52ch; }
+@media (max-width: 860px) { .opts6__grid { grid-template-columns: 1fr; } }
+
+/* =====================================================================
+   DOCUMENTS — a quiet checklist: item left, note right, on hairlines
+   ===================================================================== */
+.docs6 { padding-top: var(--sp-8); padding-bottom: var(--sp-9); }
+.docs6__grid { align-items: start; row-gap: var(--sp-6); }
+.docs6__head .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
+.docs6__head p:not(.eyebrow) { max-width: 36ch; }
+.docs6__list { list-style: none; margin: 0; padding: 0; }
+.docs6__list li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--sp-4);
+  align-items: baseline; padding-block: var(--sp-4); border-top: 1px solid var(--border); }
+.docs6__list li:last-child { border-bottom: 1px solid var(--border); }
+.docs6__item { font-family: var(--font-display); font-weight: var(--weight-light); font-size: var(--text-lg);
+  letter-spacing: .5px; text-transform: uppercase; color: var(--text-primary); }
+.docs6__note { font-size: var(--text-base); color: var(--text-secondary); }
+@media (max-width: 860px) { .docs6__grid > * { grid-column: 1 / -1; } }
+@media (max-width: 560px) { .docs6__list li { grid-template-columns: 1fr; gap: var(--sp-1); } }
+
+/* =====================================================================
+   FAQ — native details/summary on hairlines; a drawn plus turns to minus
+   ===================================================================== */
+.faq6 { padding-top: var(--sp-8); padding-bottom: var(--sp-9); }
+.faq6__grid { align-items: start; row-gap: var(--sp-6); }
+.faq6__head .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
+.faq6__link { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--border-stronger);
+  text-underline-offset: 3px; transition: text-decoration-color var(--transition); }
+.faq6__link:hover { text-decoration-color: var(--text-primary); }
+.faq6__link:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+.faq6__item { border-top: 1px solid var(--border); }
+.faq6__item:last-child { border-bottom: 1px solid var(--border); }
+.faq6__item summary { position: relative; list-style: none; cursor: pointer;
+  padding: var(--sp-4) var(--sp-7) var(--sp-4) 0;
+  font-family: var(--font-sans); font-weight: var(--weight-medium); font-size: var(--text-lg); line-height: 1.4;
+  color: var(--text-primary); transition: color var(--transition); }
+.faq6__item summary::-webkit-details-marker { display: none; }
+.faq6__item summary:hover { color: var(--text-strong); }
+.faq6__item summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.faq6__item summary::before, .faq6__item summary::after { content: ""; position: absolute; right: var(--sp-2); top: 50%;
+  width: var(--sp-3); height: 1px; background: var(--text-secondary); transition: transform var(--transition); }
+.faq6__item summary::after { transform: rotate(90deg); }
+.faq6__item[open] summary::after { transform: rotate(0deg); }
+.faq6__item p { padding: 0 var(--sp-7) var(--sp-4) 0; max-width: 62ch; color: var(--text-body); }
+@media (max-width: 860px) { .faq6__grid > * { grid-column: 1 / -1; } }
+
+/* =====================================================================
+   CLOSE — the page's decided ending, centred, before the footer glow
+   ===================================================================== */
+.close6 { padding-top: var(--sp-9); padding-bottom: var(--sp-10); }
+.close6__inner { text-align: center; }
+.close6__inner .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
+.close6__title { font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: clamp(2.4rem, 6vw, 72px); line-height: 1.05; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--text-strong); margin: 0 0 var(--space-text); }
+.close6__lead { max-width: 46ch; margin: 0 auto var(--space-text-obj); }
+.close6__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-3); }
+@media (max-width: 560px) { .close6__actions { flex-direction: column; align-items: stretch; } }
+
+/* reduced motion — the active-step colour still changes, but without a fade */
+@media (prefers-reduced-motion: reduce) {
+  .proc6__num, .proc6__index a, .proc6__index-num, .opts6__media img, .faq6__item summary::after { transition: none; }
+}
