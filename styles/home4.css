@@ -215,3 +215,17 @@
   .nav3__brand img { height: 84px; }
   .nav3.solid .nav3__brand img { height: 64px; }
 }
+
+/* About band — two actions: the offer stays loud, the About page link stays quiet */
+.vbreak3--about .vbreak3__cta { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-3); }
+
+/* Functional small text — AA (4.5:1) and the 14px floor. text-muted measured 3.0–3.7:1
+   at 13px on these grounds, so these roles step up to text-secondary at text-sm. */
+.offer4__direct-label, .form4__fine, .footer3__hours,
+.footer3__legal-row, .footer3__legal a { font-size: var(--text-sm); color: var(--text-secondary); }
+.form4__opt { color: var(--text-secondary); }
+.form4__error { color: color-mix(in srgb, var(--danger) 62%, var(--c-white)); }
+.footer3__legal a:hover { color: var(--text-primary); }
+/* the centred text column is narrower than the two buttons — the row borrows the gutter on
+   both sides (symmetric, so it stays centred) instead of wrapping into a stack */
+.vbreak3--about .vbreak3__cta { margin-inline: calc(-1 * var(--gutter)); }

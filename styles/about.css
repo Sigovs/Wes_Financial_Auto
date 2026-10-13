@@ -1,0 +1,103 @@
+/* =====================================================================
+   about.css — about.html. Loads after home3.css + home4.css and only adds
+   what the About page needs. Roles/tokens from home3 only — no raw values.
+   ===================================================================== */
+
+/* =====================================================================
+   HERO — same grammar as the home hero, one step shorter so the story
+   below is already in view; the night aerial is busier than the home
+   still, so the left darken carries further across
+   ===================================================================== */
+.about-hero { min-height: 82vh; min-height: 82svh; }
+.about-hero__img { object-position: center 40%; }
+.about-hero__scrim { background:
+  linear-gradient(to bottom, var(--surface-0), transparent 24%),
+  linear-gradient(to top,    var(--surface-0), transparent 34%),
+  linear-gradient(to right,  color-mix(in srgb, var(--surface-0) 82%, transparent), color-mix(in srgb, var(--surface-0) 40%, transparent) 55%, transparent 80%); }
+.about-hero__title { font-size: clamp(2.5rem, 8vw, var(--text-display)); }
+@media (max-width: 700px) {
+  .about-hero__scrim { background:
+    linear-gradient(to bottom, var(--surface-0), transparent 24%),
+    linear-gradient(to top, var(--surface-0) 8%, color-mix(in srgb, var(--surface-0) 76%, transparent) 55%, color-mix(in srgb, var(--surface-0) 30%, transparent)); }
+}
+
+/* =====================================================================
+   STORY — long read left (built for reading: ~62ch, 1.7 leading),
+   portrait photo right, bottom-aligned to the signature
+   ===================================================================== */
+.story5 { padding-top: var(--sp-8); padding-bottom: var(--sp-9); }
+.story5__grid { align-items: end; row-gap: var(--sp-6); }
+.story5__body .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--space-text); }
+.story5__copy { max-width: 62ch; }
+.story5__copy p { font-size: var(--text-lg); line-height: 1.7; color: var(--text-body); }
+.story5__copy p + p { margin-top: var(--sp-4); }
+.story5__copy p:first-child { color: var(--text-secondary); }
+
+.story5__sign { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: var(--sp-3); row-gap: var(--sp-1); margin-top: var(--sp-6);
+  padding-top: var(--sp-4); border-top: 1px solid var(--border); max-width: 62ch; }
+.story5__sign-name { font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: var(--text-2xl); letter-spacing: 1px; text-transform: uppercase; color: var(--text-strong); }
+.story5__sign-role { font-family: var(--font-mono); font-size: var(--text-sm);
+  letter-spacing: .14em; text-transform: uppercase; color: var(--text-secondary); }
+
+.story5__media { margin: 0; }
+.story5__media img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: var(--radius); background: var(--surface-2); box-shadow: var(--shadow-lg); }
+.story5__caption { margin-top: var(--sp-2); font-family: var(--font-mono); font-size: var(--text-sm);
+  letter-spacing: .04em; color: var(--text-secondary); }
+
+@media (max-width: 860px) {
+  .story5__grid > * { grid-column: 1 / -1; }
+  .story5__media { grid-row: 1; max-width: 32rem; }
+}
+
+/* =====================================================================
+   PRINCIPLES — three equal commitments on a hairline, open air, no cards
+   ===================================================================== */
+.vals5 { padding-top: var(--sp-6); padding-bottom: var(--sp-10); }
+.vals5__head { margin-bottom: var(--sp-6); }
+.vals5__head .eyebrow { display: block; color: var(--text-secondary); margin-bottom: var(--sp-2); }
+.vals5__list { list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-6); }
+.vals5__item { padding-top: var(--sp-4); border-top: 1px solid var(--border-strong); }
+.vals5__title { font-family: var(--font-display); font-weight: var(--weight-medium);
+  font-size: var(--text-lg); line-height: 1.3; letter-spacing: 1px; color: var(--text-primary);
+  margin-bottom: var(--space-text); }
+.vals5__item p { max-width: 38ch; }
+@media (max-width: 860px) {
+  .vals5__list { grid-template-columns: 1fr; gap: var(--sp-5); }
+}
+
+/* =====================================================================
+   SIGNATURE — the dusk aerial loop with one quote; the home About band's
+   grammar (centred, even darken), so the two pages read as one site
+   ===================================================================== */
+.quote5 { min-height: 80vh; }
+.quote5 .vbreak3__inner { margin: 0 auto; max-width: var(--container-narrow); }
+.quote5__text { margin: 0; }
+.quote5__text p { font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: clamp(2rem, 4.6vw, 56px); line-height: 1.12; letter-spacing: .5px;
+  text-transform: uppercase; color: var(--text-strong); text-wrap: balance; }
+.quote5__cite { margin-top: var(--space-text-obj); font-family: var(--font-mono); font-size: var(--text-sm);
+  letter-spacing: .18em; text-transform: uppercase; color: var(--text-secondary); }
+
+/* =====================================================================
+   CONTACT — reuses the home offer section; adds topic chips
+   ===================================================================== */
+.contact5 { padding-top: var(--sp-8); }
+.contact5__plain { font-family: var(--font-display); font-weight: var(--weight-light);
+  font-size: var(--text-lg); letter-spacing: .5px; color: var(--text-primary); }
+
+.chips5 { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-3); }
+.chip5 { position: relative; cursor: pointer; }
+.chip5 input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.chip5 span { display: inline-block; font-family: var(--font-sans); font-weight: var(--weight-medium);
+  font-size: var(--text-sm); letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary);
+  padding: var(--sp-2) var(--sp-3); border: 1px solid var(--border-strong); border-radius: var(--radius);
+  background: var(--surface-0); transition: color var(--transition), border-color var(--transition), background var(--transition); }
+.chip5:hover span { color: var(--text-primary); border-color: var(--border-stronger); }
+.chip5 input:checked + span { color: var(--text-strong); border-color: var(--accent-hover); background: var(--accent-bg); }
+.chip5 input:focus-visible + span { box-shadow: var(--focus-ring); }
+
+/* nav — mark the current page */
+.nav3__links a[aria-current="page"] { color: var(--text-primary); }

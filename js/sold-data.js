@@ -1,5 +1,5 @@
 /* =====================================================================
-   SOLD VEHICLES — the only file to edit when Wes posts a sale (index4).
+   SOLD VEHICLES — the only file to edit when a sale is posted (index.html).
    Newest first. Put the photo in assets/img/sold/ (or anywhere under assets/).
 
    Fields
