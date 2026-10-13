@@ -73,6 +73,10 @@
    grammar (centred, even darken), so the two pages read as one site
    ===================================================================== */
 .quote5 { min-height: 80vh; }
+/* a still needs less parallax travel than the home band's video, so the whole studio stays in
+   frame: cars sit in the lower third, the statement reads over the dark wall above them */
+.quote5 .vbreak3__media { top: -12%; height: 124%; }
+.quote5 .vbreak3__media img.quote5__img { object-position: center 78%; }
 .quote5 .vbreak3__inner { margin: 0 auto; max-width: var(--container-narrow); }
 .quote5__text { margin: 0; }
 .quote5__text p { font-family: var(--font-display); font-weight: var(--weight-light);
